@@ -1,11 +1,16 @@
 import '../styles/CVBuilder.css'
+import CVForm from './CVForm'
+import NavButtons from './NavButtons'
 
-const CVForm = () => {
+const CVBuilder = () => {
   return (
     <div className="cv-build">
-      <h2>CV Form</h2>
+      {/* <h2>CV Form</h2> */}
+      
+      <CVForm />
+      <NavButtons />
     </div>
   )
 }
 
-export default CVForm
+export default CVBuilder
