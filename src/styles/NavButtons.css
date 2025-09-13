@@ -1,8 +1,5 @@
-.buttons {
+.btns {
   display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  /* min-height: 50px; */
   padding: var(--space-400);
   border: 1px solid #000;
 }

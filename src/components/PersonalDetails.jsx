@@ -173,6 +173,14 @@ const PersonalDetails = () => {
             onChange={handleCountryChange}
           />
         </div>
+        <div className="btns form">
+          <button type="btn" className="btn btn--cancel" id="cancel-btn">
+            Cancel
+          </button>
+          <button type="submit" className="btn btn-submit" id="submit-btn">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   )

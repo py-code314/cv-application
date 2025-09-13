@@ -50,3 +50,25 @@
   margin-block-start: var(--space-40);
   width: 80%;
 }
+
+.btns.form {
+  justify-content: end;
+  gap: var(--space-400);
+}
+
+.btn {
+  border-radius: var(--radius-1);
+  padding: var(--space-40) var(--space-400);
+  border: transparent;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  cursor: pointer;
+}
+
+.btn--cancel {
+  background-color: var(--clr-red);
+}
+
+.btn-submit {
+  background-color: var(--clr-green);
+}
