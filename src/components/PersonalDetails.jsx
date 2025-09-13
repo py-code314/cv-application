@@ -34,6 +34,16 @@ const PersonalDetails = () => {
   const handleCountryChange = (e) => {
     setCountry(e.target.value)
   }
+
+  const handleCancel = () => {
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setPhoneNumber('')
+    setAddress('')
+    setState('')
+    setCountry('')
+  }
   return (
     <div className="personal-info">
       <h2 className="personal-info__heading">Personal Details</h2>
@@ -174,7 +184,7 @@ const PersonalDetails = () => {
           />
         </div>
         <div className="btns form">
-          <button type="btn" className="btn btn--cancel" id="cancel-btn">
+          <button type="btn" className="btn btn--cancel" id="cancel-btn" onClick={handleCancel}>
             Cancel
           </button>
           <button type="submit" className="btn btn-submit" id="submit-btn">
