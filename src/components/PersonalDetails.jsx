@@ -1,6 +1,39 @@
 import '../styles/PersonalDetails.css'
+import { useState } from 'react'
 
 const PersonalDetails = () => {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [address, setAddress] = useState('')
+  const [state, setState] = useState('')
+  const [country, setCountry] = useState('')
+  
+
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value)
+  }
+  
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value)
+  }
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value)
+  }
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value)
+  }
+  const handleStateChange = (e) => {
+    setState(e.target.value)
+  }
+  const handleCountryChange = (e) => {
+    setCountry(e.target.value)
+  }
   return (
     <div className="personal-info">
       <h2 className="personal-info__heading">Personal Details</h2>
@@ -20,6 +53,8 @@ const PersonalDetails = () => {
             className="form__input"
             autoComplete="given-name"
             required
+            value={firstName}
+            onChange={handleFirstNameChange}
           />
         </div>
         <div className="form__control">
@@ -33,6 +68,8 @@ const PersonalDetails = () => {
             className="form__input"
             autoComplete="family-name"
             required
+            value={lastName}
+            onChange={handleLastNameChange}
           />
         </div>
         <div className="form__control">
@@ -52,6 +89,8 @@ const PersonalDetails = () => {
               autoComplete="email"
               inputMode="email"
               required
+              value={email}
+              onChange={handleEmailChange}
             />
             <span
               className="form__checkmark"
@@ -79,6 +118,8 @@ const PersonalDetails = () => {
               aria-describedby="phone-hint invalid-phone"
               autoComplete="tel"
               inputMode="tel"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
             />
             <span
               className="form__checkmark"
@@ -100,6 +141,8 @@ const PersonalDetails = () => {
             id="address"
             className="form__input"
             autoComplete="home"
+            value={address}
+            onChange={handleAddressChange}
           />
         </div>
         <div className="form__control">
@@ -112,6 +155,8 @@ const PersonalDetails = () => {
             id="state"
             className="form__input"
             autoComplete="address-level1"
+            value={state}
+            onChange={handleStateChange}
           />
         </div>
         <div className="form__control">
@@ -124,6 +169,8 @@ const PersonalDetails = () => {
             id="country"
             className="form__input"
             autoComplete="country-name"
+            value={country}
+            onChange={handleCountryChange}
           />
         </div>
       </form>
