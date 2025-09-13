@@ -6,7 +6,7 @@ const CVBuilder = () => {
   return (
     <div className="cv-build">
       {/* <h2>CV Form</h2> */}
-      
+
       <CVForm />
       <NavButtons />
     </div>

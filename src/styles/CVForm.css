@@ -1,5 +1,9 @@
 .cv-form {
   flex: 1;
+  min-height: 0; /* Add 'min-height' to make form content scrollable */
+  overflow-y: auto;
   border: 1px solid #000;
-  padding: var(--space-400);
+  padding: var(--space-400) var(--space-800);
+  
 }
+
