@@ -2,47 +2,51 @@ import '../styles/PersonalDetails.css'
 import { useState } from 'react'
 
 const PersonalDetails = () => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [address, setAddress] = useState('')
-  const [state, setState] = useState('')
-  const [country, setCountry] = useState('')
-  
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    address: '',
+    state: '',
+    country: '',
+  })
 
   const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value)
+    setPersonalInfo({ ...personalInfo, firstName: e.target.value })
   }
-  
+
   const handleLastNameChange = (e) => {
-    setLastName(e.target.value)
+    setPersonalInfo({ ...personalInfo, lastName: e.target.value })
   }
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value)
+    setPersonalInfo({ ...personalInfo, email: e.target.value })
   }
   const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value)
+    setPersonalInfo({ ...personalInfo, phoneNumber: e.target.value })
   }
   const handleAddressChange = (e) => {
-    setAddress(e.target.value)
+    setPersonalInfo({ ...personalInfo, address: e.target.value })
   }
   const handleStateChange = (e) => {
-    setState(e.target.value)
+    // setState(e.target.value)
+    setPersonalInfo({ ...personalInfo, state: e.target.value })
   }
   const handleCountryChange = (e) => {
-    setCountry(e.target.value)
+    setPersonalInfo({ ...personalInfo, country: e.target.value })
   }
 
-  const handleCancel = () => {
-    setFirstName('')
-    setLastName('')
-    setEmail('')
-    setPhoneNumber('')
-    setAddress('')
-    setState('')
-    setCountry('')
+  const handleReset = () => {
+    setPersonalInfo({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      state: '',
+      country: '',
+    })
   }
   return (
     <div className="personal-info">
@@ -63,7 +67,7 @@ const PersonalDetails = () => {
             className="form__input"
             autoComplete="given-name"
             required
-            value={firstName}
+            value={personalInfo.firstName}
             onChange={handleFirstNameChange}
           />
         </div>
@@ -78,7 +82,7 @@ const PersonalDetails = () => {
             className="form__input"
             autoComplete="family-name"
             required
-            value={lastName}
+            value={personalInfo.lastName}
             onChange={handleLastNameChange}
           />
         </div>
@@ -99,7 +103,7 @@ const PersonalDetails = () => {
               autoComplete="email"
               inputMode="email"
               required
-              value={email}
+              value={personalInfo.email}
               onChange={handleEmailChange}
             />
             <span
@@ -128,7 +132,7 @@ const PersonalDetails = () => {
               aria-describedby="phone-hint invalid-phone"
               autoComplete="tel"
               inputMode="tel"
-              value={phoneNumber}
+              value={personalInfo.phoneNumber}
               onChange={handlePhoneNumberChange}
             />
             <span
@@ -151,7 +155,7 @@ const PersonalDetails = () => {
             id="address"
             className="form__input"
             autoComplete="home"
-            value={address}
+            value={personalInfo.address}
             onChange={handleAddressChange}
           />
         </div>
@@ -165,7 +169,7 @@ const PersonalDetails = () => {
             id="state"
             className="form__input"
             autoComplete="address-level1"
-            value={state}
+            value={personalInfo.state}
             onChange={handleStateChange}
           />
         </div>
@@ -179,12 +183,16 @@ const PersonalDetails = () => {
             id="country"
             className="form__input"
             autoComplete="country-name"
-            value={country}
+            value={personalInfo.country}
             onChange={handleCountryChange}
           />
         </div>
         <div className="btns form">
-          <button type="btn" className="btn btn--cancel" id="cancel-btn" onClick={handleCancel}>
+          <button
+            type="btn"
+            className="btn btn--cancel"
+            id="cancel-btn"
+            onClick={handleReset}>
             Cancel
           </button>
           <button type="submit" className="btn btn-submit" id="submit-btn">
