@@ -28,7 +28,11 @@ const PersonalDetails = () => {
     phoneNumber: false,
   })
 
-  const [emailErrorMessage, setEmailErrorMessage] = useState('')
+  const [emailErrorMessage, setEmailErrorMessage] = useState(
+    'Please enter your email address'
+  )
+
+  const [formSubmission, setFormSubmission] = useState(false)
 
   const handleFirstNameChange = (e) => {
     setPersonalInfo({ ...personalInfo, firstName: e.target.value })
@@ -63,6 +67,20 @@ const PersonalDetails = () => {
       address: '',
       state: '',
       country: '',
+    })
+    setInputStatus({
+      ...inputStatus,
+      firstName: false,
+      lastName: false,
+      email: false,
+      phoneNumber: false,
+    })
+    setInputBlurred({
+      ...inputBlurred,
+      firstName: false,
+      lastName: false,
+      email: false,
+      phoneNumber: false,
     })
   }
 
@@ -108,6 +126,18 @@ const PersonalDetails = () => {
     }
   }
 
+  const handleFormSubmission = (e) => {
+    e.preventDefault()
+    setFormSubmission(true)
+
+    setInputStatus({
+      ...inputStatus,
+      firstName: personalInfo.firstName,
+      lastName: personalInfo.lastName,
+      email: personalInfo.email,
+    })
+  }
+
   return (
     <div className="personal-info">
       <h2 className="personal-info__heading">Personal Details</h2>
@@ -115,7 +145,11 @@ const PersonalDetails = () => {
         Research suggests that users who add phone number and email receive more
         positive feedback from recruiters.
       </p>
-      <form action="#" className="form" noValidate>
+      <form
+        action="#"
+        className="form"
+        noValidate
+        onSubmit={handleFormSubmission}>
         <div className="form__control">
           <label htmlFor="first-name" className="form__label">
             First Name (required)
@@ -132,32 +166,34 @@ const PersonalDetails = () => {
               onChange={handleFirstNameChange}
               onBlur={handleFirstNameValidation}
             />
-            {inputStatus.firstName && inputBlurred.firstName && (
-              <img
-                className="form__checkmark"
-                aria-hidden="true"
-                src={checkMarkIcon}
-                alt=""
-                width={25}
-                height={25}
-              />
-            )}
+            {inputStatus.firstName &&
+              (inputBlurred.firstName || formSubmission) && (
+                <img
+                  className="form__checkmark"
+                  aria-hidden="true"
+                  src={checkMarkIcon}
+                  alt=""
+                  width={25}
+                  height={25}
+                />
+              )}
           </div>
-          {!inputStatus.firstName && inputBlurred.firstName && (
-            <div className="form__error">
-              <img
-                className="form__error-icon"
-                aria-hidden="true"
-                src={errorIcon}
-                alt=""
-                width={25}
-                height={25}
-              />
-              <p className="form__error-message" aria-live="polite">
-                Please enter your first name
-              </p>
-            </div>
-          )}
+          {!inputStatus.firstName &&
+            (inputBlurred.firstName || formSubmission) && (
+              <div className="form__error">
+                <img
+                  className="form__error-icon"
+                  aria-hidden="true"
+                  src={errorIcon}
+                  alt=""
+                  width={25}
+                  height={25}
+                />
+                <p className="form__error-message" aria-live="polite">
+                  Please enter your first name
+                </p>
+              </div>
+            )}
         </div>
         <div className="form__control">
           <label htmlFor="last-name" className="form__label">
@@ -175,32 +211,34 @@ const PersonalDetails = () => {
               onChange={handleLastNameChange}
               onBlur={handleLastNameValidation}
             />
-            {inputStatus.lastName && inputBlurred.lastName && (
-              <img
-                className="form__checkmark"
-                aria-hidden="true"
-                src={checkMarkIcon}
-                alt=""
-                width={25}
-                height={25}
-              />
-            )}
+            {inputStatus.lastName &&
+              (inputBlurred.lastName || formSubmission) && (
+                <img
+                  className="form__checkmark"
+                  aria-hidden="true"
+                  src={checkMarkIcon}
+                  alt=""
+                  width={25}
+                  height={25}
+                />
+              )}
           </div>
-          {!inputStatus.lastName && inputBlurred.lastName && (
-            <div className="form__error">
-              <img
-                className="form__error-icon"
-                aria-hidden="true"
-                src={errorIcon}
-                alt=""
-                width={25}
-                height={25}
-              />
-              <p className="form__error-message" aria-live="polite">
-                Please enter your last name
-              </p>
-            </div>
-          )}
+          {!inputStatus.lastName &&
+            (inputBlurred.lastName || formSubmission) && (
+              <div className="form__error">
+                <img
+                  className="form__error-icon"
+                  aria-hidden="true"
+                  src={errorIcon}
+                  alt=""
+                  width={25}
+                  height={25}
+                />
+                <p className="form__error-message" aria-live="polite">
+                  Please enter your last name
+                </p>
+              </div>
+            )}
         </div>
         <div className="form__control">
           <label htmlFor="email" className="form__label">
@@ -223,7 +261,7 @@ const PersonalDetails = () => {
               onChange={handleEmailChange}
               onBlur={handleEmailValidation}
             />
-            {inputStatus.email && inputBlurred.email && (
+            {inputStatus.email && (inputBlurred.email || formSubmission) && (
               <img
                 className="form__checkmark"
                 aria-hidden="true"
@@ -234,7 +272,7 @@ const PersonalDetails = () => {
               />
             )}
           </div>
-          {!inputStatus.email && inputBlurred.email && (
+          {!inputStatus.email && (inputBlurred.email || formSubmission) && (
             <div className="form__error">
               <img
                 className="form__error-icon"
@@ -341,7 +379,7 @@ const PersonalDetails = () => {
         </div>
         <div className="btns form">
           <button
-            type="btn"
+            type="button"
             className="btn btn--cancel"
             id="cancel-btn"
             onClick={handleReset}>
