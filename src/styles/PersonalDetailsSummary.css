@@ -1,0 +1,14 @@
+.summary__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-400);
+}
+
+.detail {
+  margin-block-end: var(--space-400);
+}
+
+.btn-edit {
+  background-color: var(--clr-orangered);
+}

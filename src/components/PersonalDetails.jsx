@@ -2,8 +2,9 @@ import '../styles/PersonalDetails.css'
 import { useState } from 'react'
 import checkMarkIcon from '../assets/images/icon-checkmark.png'
 import errorIcon from '../assets/images/icon-warning.png'
+import PersonalDetailsSummary from './PersonalDetailsSummary'
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ onSubmit }) => {
   const [personalInfo, setPersonalInfo] = useState({
     firstName: '',
     lastName: '',
@@ -126,16 +127,19 @@ const PersonalDetails = () => {
     }
   }
 
-  const handleFormSubmission = (e) => {
+  const handleFormValidation = (e) => {
     e.preventDefault()
     setFormSubmission(true)
 
-    setInputStatus({
-      ...inputStatus,
-      firstName: personalInfo.firstName,
-      lastName: personalInfo.lastName,
-      email: personalInfo.email,
-    })
+    // setInputStatus({
+    //   ...inputStatus,
+    //   firstName: personalInfo.firstName,
+    //   lastName: personalInfo.lastName,
+    //   email: personalInfo.email,
+    // })
+    if (inputStatus.firstName && inputStatus.lastName && inputStatus.email) {
+      onSubmit(personalInfo)
+    }
   }
 
   return (
@@ -149,7 +153,7 @@ const PersonalDetails = () => {
         action="#"
         className="form"
         noValidate
-        onSubmit={handleFormSubmission}>
+        onSubmit={handleFormValidation}>
         <div className="form__control">
           <label htmlFor="first-name" className="form__label">
             First Name (required)
