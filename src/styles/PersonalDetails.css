@@ -41,6 +41,11 @@
   gap: var(--space-40);
 }
 
+.form__checkmark {
+  background-color: transparent;
+  border: 0px solid white !important;
+}
+
 .form__error {
   display: flex;
   align-items: flex-start;

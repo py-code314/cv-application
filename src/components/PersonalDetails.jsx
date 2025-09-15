@@ -1,5 +1,7 @@
 import '../styles/PersonalDetails.css'
 import { useState } from 'react'
+import checkMarkIcon from '../assets/images/icon-checkmark.png'
+import errorIcon from '../assets/images/icon-warning.png'
 
 const PersonalDetails = () => {
   const [personalInfo, setPersonalInfo] = useState({
@@ -11,6 +13,20 @@ const PersonalDetails = () => {
     state: '',
     country: '',
   })
+
+  const [inputStatus, setInputStatus] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+  })
+
+  const [inputBlurred, setInputBlurred] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+  })
+
+  const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
   const handleFirstNameChange = (e) => {
     setPersonalInfo({ ...personalInfo, firstName: e.target.value })
@@ -30,7 +46,6 @@ const PersonalDetails = () => {
     setPersonalInfo({ ...personalInfo, address: e.target.value })
   }
   const handleStateChange = (e) => {
-    // setState(e.target.value)
     setPersonalInfo({ ...personalInfo, state: e.target.value })
   }
   const handleCountryChange = (e) => {
@@ -48,6 +63,39 @@ const PersonalDetails = () => {
       country: '',
     })
   }
+
+  const handleFirstNameValidation = () => {
+    setInputBlurred({ ...inputBlurred, firstName: true })
+    if (personalInfo.firstName) {
+      setInputStatus({ ...inputStatus, firstName: true })
+    } else {
+      setInputStatus({ ...inputStatus, firstName: false })
+    }
+  }
+  const handleLastNameValidation = () => {
+    setInputBlurred({ ...inputBlurred, lastName: true })
+    if (personalInfo.lastName) {
+      setInputStatus({ ...inputStatus, lastName: true })
+    } else {
+      setInputStatus({ ...inputStatus, lastName: false })
+    }
+  }
+
+  const handleEmailValidation = () => {
+    const emailRegExp =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    setInputBlurred({ ...inputBlurred, email: true })
+    if (!personalInfo.email) {
+      setEmailErrorMessage('Please enter your email address')
+      setInputStatus({ ...inputStatus, email: false })
+    } else if (!emailRegExp.test(personalInfo.email)) {
+      setEmailErrorMessage('Please enter a valid email address')
+      setInputStatus({ ...inputStatus, email: false })
+    } else {
+      setInputStatus({ ...inputStatus, email: true })
+    }
+  }
+
   return (
     <div className="personal-info">
       <h2 className="personal-info__heading">Personal Details</h2>
@@ -60,31 +108,87 @@ const PersonalDetails = () => {
           <label htmlFor="first-name" className="form__label">
             First Name (required)
           </label>
-          <input
-            type="text"
-            name="first-name"
-            id="first-name"
-            className="form__input"
-            autoComplete="given-name"
-            required
-            value={personalInfo.firstName}
-            onChange={handleFirstNameChange}
-          />
+          <div className="form__valid">
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              className="form__input"
+              autoComplete="given-name"
+              required
+              value={personalInfo.firstName}
+              onChange={handleFirstNameChange}
+              onBlur={handleFirstNameValidation}
+            />
+            {inputStatus.firstName && inputBlurred.firstName && (
+              <img
+                className="form__checkmark"
+                aria-hidden="true"
+                src={checkMarkIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+            )}
+          </div>
+          {!inputStatus.firstName && inputBlurred.firstName && (
+            <div className="form__error">
+              <img
+                className="form__error-icon"
+                aria-hidden="true"
+                src={errorIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+              <p className="form__error-message" aria-live="polite">
+                Please enter your first name
+              </p>
+            </div>
+          )}
         </div>
         <div className="form__control">
           <label htmlFor="last-name" className="form__label">
             Last Name (required)
           </label>
-          <input
-            type="text"
-            name="last-name"
-            id="last-name"
-            className="form__input"
-            autoComplete="family-name"
-            required
-            value={personalInfo.lastName}
-            onChange={handleLastNameChange}
-          />
+          <div className="form__valid">
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              className="form__input"
+              autoComplete="family-name"
+              required
+              value={personalInfo.lastName}
+              onChange={handleLastNameChange}
+              onBlur={handleLastNameValidation}
+            />
+            {inputStatus.lastName && inputBlurred.lastName && (
+              <img
+                className="form__checkmark"
+                aria-hidden="true"
+                src={checkMarkIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+            )}
+          </div>
+          {!inputStatus.lastName && inputBlurred.lastName && (
+            <div className="form__error">
+              <img
+                className="form__error-icon"
+                aria-hidden="true"
+                src={errorIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+              <p className="form__error-message" aria-live="polite">
+                Please enter your last name
+              </p>
+            </div>
+          )}
         </div>
         <div className="form__control">
           <label htmlFor="email" className="form__label">
@@ -105,16 +209,34 @@ const PersonalDetails = () => {
               required
               value={personalInfo.email}
               onChange={handleEmailChange}
+              onBlur={handleEmailValidation}
             />
-            <span
-              className="form__checkmark"
-              id="valid-email"
-              aria-hidden="true"></span>
+            {inputStatus.email && inputBlurred.email && (
+              <img
+                className="form__checkmark"
+                aria-hidden="true"
+                src={checkMarkIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+            )}
           </div>
-          <span
-            className="form__error"
-            id="invalid-email"
-            aria-live="polite"></span>
+          {!inputStatus.email && inputBlurred.email && (
+            <div className="form__error">
+              <img
+                className="form__error-icon"
+                aria-hidden="true"
+                src={errorIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+              <p className="form__error-message" aria-live="polite">
+                {emailErrorMessage}
+              </p>
+            </div>
+          )}
         </div>
         <div className="form__control">
           <label htmlFor="phone" className="form__label">
