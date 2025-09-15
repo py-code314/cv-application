@@ -18,12 +18,14 @@ const PersonalDetails = () => {
     firstName: false,
     lastName: false,
     email: false,
+    phoneNumber: false,
   })
 
   const [inputBlurred, setInputBlurred] = useState({
     firstName: false,
     lastName: false,
     email: false,
+    phoneNumber: false,
   })
 
   const [emailErrorMessage, setEmailErrorMessage] = useState('')
@@ -93,6 +95,16 @@ const PersonalDetails = () => {
       setInputStatus({ ...inputStatus, email: false })
     } else {
       setInputStatus({ ...inputStatus, email: true })
+    }
+  }
+
+  const handlePhoneNumberValidation = () => {
+    const phoneNumberRegExp = /^(\d{10}|\d{3}[-\s.]\d{3}[-\s.]\d{4})$/
+    setInputBlurred({ ...inputBlurred, phoneNumber: true })
+    if (phoneNumberRegExp.test(personalInfo.phoneNumber)) {
+      setInputStatus({ ...inputStatus, phoneNumber: true })
+    } else {
+      setInputStatus({ ...inputStatus, phoneNumber: false })
     }
   }
 
@@ -243,7 +255,8 @@ const PersonalDetails = () => {
             Phone Number
           </label>
           <span className="form__hint" id="phone-hint">
-            Eg. + 1 1234-567-890
+            Allowed formats: 1234567890 or 1234-567-890 or 1234 567 890 or
+            1234.567.890
           </span>
           <div className="form__valid">
             <input
@@ -256,30 +269,47 @@ const PersonalDetails = () => {
               inputMode="tel"
               value={personalInfo.phoneNumber}
               onChange={handlePhoneNumberChange}
+              onBlur={handlePhoneNumberValidation}
             />
-            <span
-              className="form__checkmark"
-              id="valid-phone"
-              aria-hidden="true"></span>
+            {inputStatus.phoneNumber && inputBlurred.phoneNumber && (
+              <img
+                className="form__checkmark"
+                aria-hidden="true"
+                src={checkMarkIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+            )}
           </div>
-          <span
-            className="form__error"
-            id="invalid-phone"
-            aria-live="polite"></span>
+          {!inputStatus.phoneNumber && inputBlurred.phoneNumber && (
+            <div className="form__error">
+              <img
+                className="form__error-icon"
+                aria-hidden="true"
+                src={errorIcon}
+                alt=""
+                width={25}
+                height={25}
+              />
+              <p className="form__error-message" aria-live="polite">
+                Enter your phone number in one of the example formats
+              </p>
+            </div>
+          )}
         </div>
         <div className="form__control">
           <label htmlFor="address" className="form__label">
             Address
           </label>
-          <input
-            type="text"
+          <textarea
             name="address"
             id="address"
+            rows={6}
             className="form__input"
             autoComplete="home"
             value={personalInfo.address}
-            onChange={handleAddressChange}
-          />
+            onChange={handleAddressChange}></textarea>
         </div>
         <div className="form__control">
           <label htmlFor="state" className="form__label">
