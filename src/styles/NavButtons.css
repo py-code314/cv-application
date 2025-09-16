@@ -1,5 +1,10 @@
-/* .btns {
-  display: flex;
-  padding: var(--space-400);
-  border: 1px solid #000;
-} */
+.btns--nav {
+  justify-content: space-between;
+  background-color: var(--clr-white);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-1);
+}
+
+.btn--nav {
+  background-color: var(--clr-blue);
+}

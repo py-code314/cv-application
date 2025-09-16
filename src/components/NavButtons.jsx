@@ -1,10 +1,11 @@
 import '../styles/NavButtons.css'
 
-const NavButtons = () => {
+const NavButtons = ({onClick, showSection}) => {
   return ( 
-    <div className="buttons">
-      <button className="button">Previous</button>
-      <button className="button">Next</button>
+    <div className="btns btns--nav">
+      <button className="btn btn--nav">Previous</button>
+      <button className="btn btn--nav" onClick={onClick}>Next{showSection.personalDetails && ': Education'}
+      </button>
     </div>
    );
 }

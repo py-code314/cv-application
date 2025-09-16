@@ -2,9 +2,9 @@ import { useState } from 'react'
 import '../styles/CVForm.css'
 import PersonalDetails from './PersonalDetails'
 import PersonalDetailsSummary from './PersonalDetailsSummary'
+import EducationForm from './Education'
 
-const CVForm = () => {
-  const [showForm, setShowForm] = useState(true)
+const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [submittedData, setSubmittedData] = useState(null)
 
   const handleFormSubmit = (formData) => {
@@ -17,11 +17,27 @@ const CVForm = () => {
   }
   return (
     <div className="cv-form">
-      {showForm ? (
-        <PersonalDetails data={submittedData} onSubmit={handleFormSubmit} />
-      ) : (
-        <PersonalDetailsSummary data={submittedData} onEdit={handleEditForm} />
-      )}
+      {showSection.personalDetails ? (
+        showForm ? (
+          <PersonalDetails data={submittedData} onSubmit={handleFormSubmit} />
+        ) : (
+          <PersonalDetailsSummary
+            data={submittedData}
+            onEdit={handleEditForm}
+          />
+        )
+      ) : null}
+
+      {showSection.education ? (
+        showForm ? (
+          <EducationForm data={submittedData} onSubmit={handleFormSubmit} />
+        ) : (
+          <EducationDetailsSummary
+            data={submittedData}
+            onEdit={handleEditForm}
+          />
+        )
+      ) : null}
     </div>
   )
 }
