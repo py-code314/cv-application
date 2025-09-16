@@ -2,10 +2,11 @@ import '../styles/PersonalDetails.css'
 import { useState } from 'react'
 import checkMarkIcon from '../assets/images/icon-checkmark.png'
 import errorIcon from '../assets/images/icon-warning.png'
-import PersonalDetailsSummary from './PersonalDetailsSummary'
 
-const PersonalDetails = ({ onSubmit }) => {
-  const [personalInfo, setPersonalInfo] = useState({
+
+const PersonalDetails = ({ onSubmit, data }) => {
+
+  const [personalInfo, setPersonalInfo] = useState(data || {
     firstName: '',
     lastName: '',
     email: '',
@@ -16,10 +17,10 @@ const PersonalDetails = ({ onSubmit }) => {
   })
 
   const [inputStatus, setInputStatus] = useState({
-    firstName: false,
-    lastName: false,
-    email: false,
-    phoneNumber: false,
+    firstName: personalInfo.firstName,
+    lastName: personalInfo.lastName,
+    email: personalInfo.email,
+    phoneNumber: personalInfo.phoneNumber,
   })
 
   const [inputBlurred, setInputBlurred] = useState({

@@ -18,7 +18,7 @@ const CVForm = () => {
   return (
     <div className="cv-form">
       {showForm ? (
-        <PersonalDetails onSubmit={handleFormSubmit} />
+        <PersonalDetails data={submittedData} onSubmit={handleFormSubmit} />
       ) : (
         <PersonalDetailsSummary data={submittedData} onEdit={handleEditForm} />
       )}
