@@ -1,6 +1,5 @@
 .form {
   padding: var(--space-400) 0;
-  border-radius: var(--radius-1);
 }
 
 .form__control {
@@ -21,10 +20,12 @@
 .form__input {
   width: 80%;
   border: 1px solid var(--clr-black);
+
   border-radius: var(--radius-1);
   padding: var(--space-80);
   font-size: 100%;
   margin-block-start: var(--space-40);
+  background-color: var(--clr-gray);
 }
 
 .form__input:user-valid {
@@ -41,11 +42,6 @@
   gap: var(--space-40);
 }
 
-.form__checkmark {
-  background-color: transparent;
-  border: 0px solid white !important;
-}
-
 .form__error {
   display: flex;
   align-items: flex-start;
@@ -56,24 +52,36 @@
   width: 80%;
 }
 
-.btns.form {
+.btns--form {
   justify-content: end;
   gap: var(--space-400);
+  margin-block-start: var(--space-800);
 }
 
 .btn {
   border-radius: var(--radius-1);
   padding: var(--space-40) var(--space-400);
+  padding: var(--space-80) var(--space-600);
   border: transparent;
-  font-weight: var(--fw-semibold);
   color: var(--clr-white);
+  text-align: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-500);
   cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: translateY(-0.25em);
+  box-shadow: var(--shadow-3);
 }
 
 .btn--cancel {
-  background-color: var(--clr-red);
+  background-color: var(--clr-bright-pink);
 }
 
-.btn-submit {
-  background-color: var(--clr-green);
+.btn--submit {
+  background-color: var(--clr-persian-green);
 }

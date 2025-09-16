@@ -382,7 +382,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
             onChange={handleCountryChange}
           />
         </div>
-        <div className="btns form">
+        <div className="btns btns--form">
           <button
             type="button"
             className="btn btn--cancel"
@@ -390,7 +390,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
             onClick={handleReset}>
             Cancel
           </button>
-          <button type="submit" className="btn btn-submit" id="submit-btn">
+          <button type="submit" className="btn btn--submit" id="submit-btn">
             Save
           </button>
         </div>
