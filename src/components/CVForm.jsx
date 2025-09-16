@@ -8,6 +8,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [submittedData, setSubmittedData] = useState(null)
 
   const handleFormSubmit = (formData) => {
+    // e.preventDefault()
     setShowForm(false)
     setSubmittedData(formData)
   }
