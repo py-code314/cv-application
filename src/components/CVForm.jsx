@@ -2,13 +2,15 @@ import { useState } from 'react'
 import '../styles/CVForm.css'
 import PersonalDetails from './PersonalDetails'
 import PersonalDetailsSummary from './PersonalDetailsSummary'
-import EducationForm from './Education'
+import Education from './Education'
+import EducationForm from './EducationForm'
+import AddButton from './AddButton'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [submittedData, setSubmittedData] = useState(null)
+  const [addClick, setAddClick] = useState(false)
 
   const handleFormSubmit = (formData) => {
-    // e.preventDefault()
     setShowForm(false)
     setSubmittedData(formData)
   }
@@ -31,7 +33,13 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
 
       {showSection.education ? (
         showForm ? (
-          <EducationForm data={submittedData} onSubmit={handleFormSubmit} />
+          <div>
+            <Education data={submittedData} onSubmit={handleFormSubmit} />
+            {addClick && (
+              <EducationForm data={submittedData} onSubmit={handleFormSubmit} />
+            )}
+            <AddButton text="Add Degree" setAddClick={setAddClick} />
+          </div>
         ) : (
           <EducationDetailsSummary
             data={submittedData}

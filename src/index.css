@@ -147,7 +147,7 @@ ul {
   --space-1700: 4rem; /* 64px */
   --space-2100: 5rem; /* 80px */
 
-  --width-page: 80rem; /* 1280px */
+  --width-page: 87.5rem; /* 1400px */
 
   /* Font Families */
   --ff-playfair-display: 'Playfair Display';
@@ -180,6 +180,7 @@ ul {
   --clr-persian-green: #2A9D8F;
   --clr-sandy-brown: #F4A261;
   --clr-burnt-sienna: #E76F51;
+  --clr-dark-gray: #C1C1C1;
 
   /* Utilities */
   --radius-1: 0.3125rem; /* 5px */
