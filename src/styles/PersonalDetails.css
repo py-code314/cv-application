@@ -1,8 +1,5 @@
 .form {
   padding: var(--space-400) 0;
-  border: 1px solid var(--clr-dark-gray);
-  border-radius: var(--radius-1);
-  margin-block-start: var(--space-400);
   padding-inline-start: var(--space-400);
 }
 
@@ -73,7 +70,7 @@
   font-size: var(--fs-500);
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
   transition: all 0.2s ease;
 }
 

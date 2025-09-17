@@ -1,0 +1,23 @@
+.btn--title {
+  display: flex;
+  text-align: left;
+  gap: var(--space-100);
+  padding: var(--space-600);
+  width: 100%;
+  color: var(--clr-black);
+  font-size: var(--space-400);
+}
+
+.btn--title:hover,
+.btn--title:focus {
+  transform: none;
+  box-shadow: none;
+}
+
+.entry-title {
+  flex: 6;
+}
+
+.collapse-icon {
+  flex: 1;
+}

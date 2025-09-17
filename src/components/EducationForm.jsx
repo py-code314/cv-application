@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TitleButton from './TitleButton'
 import '../styles/EducationForm.css'
 
 const EducationForm = ({ onSubmit, data }) => {
@@ -93,6 +94,7 @@ const EducationForm = ({ onSubmit, data }) => {
 
   return (
     <div className="education-form">
+      <TitleButton educationDetails={educationDetails} />
       <form className="form" onSubmit={handleFormSubmit}>
         <div className="form__control">
           <label htmlFor="degree" className="form__label">
