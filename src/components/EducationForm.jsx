@@ -1,19 +1,7 @@
-import { useState } from 'react'
 import TitleButton from './TitleButton'
 import '../styles/EducationForm.css'
 
-const EducationForm = ({ onSubmit, data }) => {
-  const [educationDetails, setEducationDetails] = useState(
-    data || {
-      degree: '',
-      schoolName: '',
-      city: '',
-      startDate: '',
-      endDate: '',
-      description: '',
-    }
-  )
-
+const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
   const generateCurrentDate = (date) => {
     const month = date.getMonth() + 1
     const formattedMonth = month < 10 ? `0${month}` : `${month}`
@@ -94,7 +82,6 @@ const EducationForm = ({ onSubmit, data }) => {
 
   return (
     <div className="education-form">
-      <TitleButton educationDetails={educationDetails} />
       <form className="form" onSubmit={handleFormSubmit}>
         <div className="form__control">
           <label htmlFor="degree" className="form__label">

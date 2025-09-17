@@ -2,7 +2,7 @@
   display: flex;
   text-align: left;
   gap: var(--space-100);
-  padding: var(--space-600);
+  padding: var(--space-500);
   width: 100%;
   color: var(--clr-black);
   font-size: var(--space-400);
