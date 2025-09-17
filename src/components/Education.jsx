@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import '../styles/Education.css'
+import addIcon from '../assets/images/icon-add.svg'
 
 const EducationForm = ({ onSubmit, data }) => {
   const [educationDetails, setEducationDetails] = useState(
@@ -176,7 +178,7 @@ const EducationForm = ({ onSubmit, data }) => {
           <label htmlFor="description" className="form__label">
             Description
           </label>
-          <span className='form__hint'>
+          <span className="form__hint">
             Summarize your academic experience, projects, or accomplishments.
           </span>
           <textarea
@@ -201,6 +203,11 @@ const EducationForm = ({ onSubmit, data }) => {
           </button>
         </div>
       </form>
+
+      <button className="btn btn--add">
+        <img src={addIcon} alt="" width={25} height={25} className='add-icon'/>
+        <span>Add Degree</span>
+      </button>
     </div>
   )
 }

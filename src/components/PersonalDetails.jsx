@@ -1,7 +1,7 @@
 import '../styles/PersonalDetails.css'
 import { useState } from 'react'
-import checkMarkIcon from '../assets/images/icon-checkmark.png'
-import errorIcon from '../assets/images/icon-warning.png'
+import checkMarkIcon from '../assets/images/icon-check.svg'
+import errorIcon from '../assets/images/icon-error.svg'
 
 
 const PersonalDetails = ({ onSubmit, data }) => {
@@ -178,8 +178,8 @@ const PersonalDetails = ({ onSubmit, data }) => {
                   aria-hidden="true"
                   src={checkMarkIcon}
                   alt=""
-                  width={25}
-                  height={25}
+                  width={30}
+                  height={30}
                 />
               )}
           </div>
@@ -191,8 +191,8 @@ const PersonalDetails = ({ onSubmit, data }) => {
                   aria-hidden="true"
                   src={errorIcon}
                   alt=""
-                  width={25}
-                  height={25}
+                  width={30}
+                  height={30}
                 />
                 <p className="form__error-message" aria-live="polite">
                   Please enter your first name
