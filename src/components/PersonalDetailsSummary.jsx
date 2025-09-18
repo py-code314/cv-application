@@ -9,7 +9,7 @@ const PersonalDetailsSummary = ({ data, onEdit }) => {
     <div className="summary">
       <div className="summary__header">
         <h2 className="summary__title">Personal Details</h2>
-        <button className="btn btn-edit" type="button" onClick={onEdit}>
+        <button className="btn btn--edit" type="button" onClick={onEdit}>
           Edit
         </button>
       </div>

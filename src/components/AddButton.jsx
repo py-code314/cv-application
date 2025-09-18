@@ -1,9 +1,9 @@
 import addIcon from '../assets/images/icon-add.svg'
 import '../styles/AddButton.css'
 
-const AddButton = ({ text, setAddClick }) => {
+const AddButton = ({ text, setAddForm }) => {
   const handleClick = () => {
-    setAddClick(true)
+    setAddForm(true)
   }
   return (
     <button className="btn btn--add" onClick={handleClick}>

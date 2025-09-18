@@ -4,9 +4,10 @@ import EducationForm from './EducationForm'
 import TitleButton from './TitleButton'
 import '../styles/Education.css'
 
-const Education = () => {
+const Education = ({ addForm, data, onSubmit }) => {
+  // console.log(data)
   const [collapse, setCollapse] = useState(false)
-  const [educationDetails, setEducationDetails] = useState({
+  const [educationDetails, setEducationDetails] = useState(data || {
     degree: '',
     schoolName: '',
     city: '',
@@ -29,10 +30,11 @@ const Education = () => {
           onClick={setCollapse}
           collapse={collapse}
         />
-        {!collapse ? (
+        {(!collapse || addForm) ? (
           <EducationForm
             educationDetails={educationDetails}
             setEducationDetails={setEducationDetails}
+            onSubmit={onSubmit}
           />
         ) : null}
       </div>

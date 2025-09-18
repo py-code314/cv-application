@@ -5,14 +5,25 @@ import PersonalDetailsSummary from './PersonalDetailsSummary'
 import Education from './Education'
 import EducationForm from './EducationForm'
 import AddButton from './AddButton'
+import EducationSummary from './EducationSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
-  const [submittedData, setSubmittedData] = useState(null)
-  const [addClick, setAddClick] = useState(false)
+  // const [submittedData, setSubmittedData] = useState(null)
+  const [personalDetailsData, setPersonalDetailsData] = useState(null)
+  const [educationData, setEducationData] = useState(null)
+  const [addForm, setAddForm] = useState(false)
 
-  const handleFormSubmit = (formData) => {
+  // const handleFormSubmit = (formData) => {
+  //   setShowForm(false)
+  //   setSubmittedData(formData)
+  // }
+  const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
-    setSubmittedData(formData)
+    setPersonalDetailsData(formData)
+  }
+  const handleEducationSubmit = (formData) => {
+    setShowForm(false)
+    setEducationData(formData)
   }
 
   const handleEditForm = () => {
@@ -22,10 +33,13 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
     <div className="cv-form">
       {showSection.personalDetails ? (
         showForm ? (
-          <PersonalDetails data={submittedData} onSubmit={handleFormSubmit} />
+          <PersonalDetails
+            data={personalDetailsData}
+            onSubmit={handlePersonalDetailsSubmit}
+          />
         ) : (
           <PersonalDetailsSummary
-            data={submittedData}
+            data={personalDetailsData}
             onEdit={handleEditForm}
           />
         )
@@ -34,17 +48,15 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
       {showSection.education ? (
         showForm ? (
           <div>
-            <Education data={submittedData} onSubmit={handleFormSubmit} />
-            {addClick && (
-              <EducationForm data={submittedData} onSubmit={handleFormSubmit} />
-            )}
-            <AddButton text="Add Degree" setAddClick={setAddClick} />
+            <Education
+              addForm={addForm}
+              data={educationData}
+              onSubmit={handleEducationSubmit}
+            />
+            <AddButton text="Add Degree" setAddForm={setAddForm} />
           </div>
         ) : (
-          <EducationDetailsSummary
-            data={submittedData}
-            onEdit={handleEditForm}
-          />
+          <EducationSummary data={educationData} onEdit={handleEditForm} />
         )
       ) : null}
     </div>
