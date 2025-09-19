@@ -2,7 +2,6 @@ import TitleButton from './TitleButton'
 import '../styles/EducationForm.css'
 
 const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
-  // console.log(educationDetails)
   const generateCurrentDate = (date) => {
     const month = date.getMonth() + 1
     const formattedMonth = month < 10 ? `0${month}` : `${month}`
@@ -78,7 +77,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
 
   const handleEducationFormSubmit = (e) => {
     e.preventDefault()
-    // console.log(educationDetails)
+
     onSubmit(educationDetails)
   }
 

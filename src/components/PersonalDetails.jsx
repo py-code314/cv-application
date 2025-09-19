@@ -151,8 +151,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
         positive feedback from recruiters.
       </p>
       <form
-        
-        className="form"
+        className="form personal-info__form"
         noValidate
         onSubmit={handleFormValidation}>
         <div className="form__control">

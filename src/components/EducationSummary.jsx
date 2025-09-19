@@ -1,4 +1,5 @@
 const EducationSummary = ({ data, onEdit }) => {
+  console.log(data)
   const { degree, schoolName, city, startDate, endDate, description } = data
 
   return (

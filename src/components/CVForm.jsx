@@ -8,15 +8,14 @@ import AddButton from './AddButton'
 import EducationSummary from './EducationSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
-  // const [submittedData, setSubmittedData] = useState(null)
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState(null)
   const [addForm, setAddForm] = useState(false)
+  // console.log(educationData)
+  // console.log('showSection.education:', showSection.education)
+  // console.log('showForm:', showForm)
+  // console.log('addForm:', addForm)
 
-  // const handleFormSubmit = (formData) => {
-  //   setShowForm(false)
-  //   setSubmittedData(formData)
-  // }
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
     setPersonalDetailsData(formData)
@@ -24,6 +23,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   const handleEducationSubmit = (formData) => {
     setShowForm(false)
     setEducationData(formData)
+    setAddForm(false)
   }
 
   const handleEditForm = () => {
@@ -46,17 +46,23 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
       ) : null}
 
       {showSection.education ? (
-        showForm ? (
+        showForm || addForm ? (
           <div>
             <Education
               addForm={addForm}
               data={educationData}
               onSubmit={handleEducationSubmit}
             />
-            <AddButton text="Add Degree" setAddForm={setAddForm} />
           </div>
         ) : (
-          <EducationSummary data={educationData} onEdit={handleEditForm} />
+          <div>
+            <EducationSummary data={educationData} onEdit={handleEditForm} />
+            <AddButton
+              text="Add Degree"
+              setAddForm={setAddForm}
+              setEducationData={setEducationData}
+            />
+          </div>
         )
       ) : null}
     </div>

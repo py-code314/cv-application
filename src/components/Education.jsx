@@ -4,17 +4,19 @@ import EducationForm from './EducationForm'
 import TitleButton from './TitleButton'
 import '../styles/Education.css'
 
-const Education = ({ addForm, data, onSubmit }) => {
-  // console.log(data)
+const Education = ({data, onSubmit }) => {
+  // console.log(addForm)
   const [collapse, setCollapse] = useState(false)
-  const [educationDetails, setEducationDetails] = useState(data || {
-    degree: '',
-    schoolName: '',
-    city: '',
-    startDate: '',
-    endDate: '',
-    description: '',
-  })
+  const [educationDetails, setEducationDetails] = useState(
+    data || {
+      degree: '',
+      schoolName: '',
+      city: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    }
+  )
 
   return (
     <div className="education">
@@ -30,14 +32,30 @@ const Education = ({ addForm, data, onSubmit }) => {
           onClick={setCollapse}
           collapse={collapse}
         />
-        {(!collapse || addForm) ? (
+        {!collapse && (
           <EducationForm
             educationDetails={educationDetails}
             setEducationDetails={setEducationDetails}
             onSubmit={onSubmit}
           />
-        ) : null}
+        )}
       </div>
+      {/* {addForm > 0 && (
+        <div className="education__form">
+          <TitleButton
+            educationDetails={educationDetails}
+            onClick={setCollapse}
+            collapse={collapse}
+          />
+          {!collapse && (
+            <EducationForm
+              educationDetails={educationDetails}
+              setEducationDetails={setEducationDetails}
+              onSubmit={onSubmit}
+            />
+          )}
+        </div>
+      )} */}
     </div>
   )
 }

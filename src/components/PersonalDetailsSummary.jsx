@@ -1,4 +1,3 @@
-// import PersonalDetails from './PersonalDetails'
 import '../styles/PersonalDetailsSummary.css'
 
 const PersonalDetailsSummary = ({ data, onEdit }) => {
