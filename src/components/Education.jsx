@@ -4,19 +4,17 @@ import EducationForm from './EducationForm'
 import TitleButton from './TitleButton'
 import '../styles/Education.css'
 
-const Education = ({data, onSubmit }) => {
-  // console.log(addForm)
+const Education = ({ onSubmit }) => {
   const [collapse, setCollapse] = useState(false)
-  const [educationDetails, setEducationDetails] = useState(
-    data || {
-      degree: '',
-      schoolName: '',
-      city: '',
-      startDate: '',
-      endDate: '',
-      description: '',
-    }
-  )
+  const [educationDetails, setEducationDetails] = useState({
+    id: crypto.randomUUID(),
+    degree: '',
+    schoolName: '',
+    city: '',
+    startDate: '',
+    endDate: '',
+    description: '',
+  })
 
   return (
     <div className="education">
@@ -40,22 +38,6 @@ const Education = ({data, onSubmit }) => {
           />
         )}
       </div>
-      {/* {addForm > 0 && (
-        <div className="education__form">
-          <TitleButton
-            educationDetails={educationDetails}
-            onClick={setCollapse}
-            collapse={collapse}
-          />
-          {!collapse && (
-            <EducationForm
-              educationDetails={educationDetails}
-              setEducationDetails={setEducationDetails}
-              onSubmit={onSubmit}
-            />
-          )}
-        </div>
-      )} */}
     </div>
   )
 }

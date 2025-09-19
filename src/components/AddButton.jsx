@@ -1,10 +1,9 @@
 import addIcon from '../assets/images/icon-add.svg'
 import '../styles/AddButton.css'
 
-const AddButton = ({ text, setAddForm, setEducationData }) => {
+const AddButton = ({ text, setAddForm }) => {
   const handleAddForm = () => {
     setAddForm(true)
-    setEducationData(null)
   }
   return (
     <button className="btn btn--add" onClick={handleAddForm}>

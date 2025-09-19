@@ -1,54 +1,52 @@
 const EducationSummary = ({ data, onEdit }) => {
-  console.log(data)
-  const { degree, schoolName, city, startDate, endDate, description } = data
-
-  return (
-    <div className="summary">
+  return data.map((entry) => (
+    <div className="summary" key={entry.id}>
       <div className="summary__header">
         <h2 className="summary__title">Education Details</h2>
         <button className="btn btn--edit" type="button" onClick={onEdit}>
           Edit
         </button>
       </div>
-      {degree && (
+
+      {entry.degree && (
         <div className="detail">
           <h3>Degree:</h3>
-          <p>{degree}</p>
+          <p>{entry.degree}</p>
         </div>
       )}
-      {schoolName && (
+      {entry.schoolName && (
         <div className="detail">
           <h3>School Name:</h3>
-          <p>{schoolName}</p>
+          <p>{entry.schoolName}</p>
         </div>
       )}
-      {city && (
+      {entry.city && (
         <div className="detail">
           <h3>City:</h3>
-          <p>{city}</p>
+          <p>{entry.city}</p>
         </div>
       )}
 
-      {startDate && (
+      {entry.startDate && (
         <div className="detail">
           <h3>Start Date:</h3>
-          <p>{startDate}</p>
+          <p>{entry.startDate}</p>
         </div>
       )}
-      {endDate && (
+      {entry.endDate && (
         <div className="detail">
           <h3>End Date:</h3>
-          <p>{endDate}</p>
+          <p>{entry.endDate}</p>
         </div>
       )}
-      {description && (
+      {entry.description && (
         <div className="detail">
           <h3>Description:</h3>
-          <p>{description}</p>
+          <p>{entry.description}</p>
         </div>
       )}
     </div>
-  )
+  ))
 }
 
 export default EducationSummary

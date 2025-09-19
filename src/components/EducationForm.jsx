@@ -1,4 +1,3 @@
-import TitleButton from './TitleButton'
 import '../styles/EducationForm.css'
 
 const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
@@ -77,7 +76,6 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
 
   const handleEducationFormSubmit = (e) => {
     e.preventDefault()
-
     onSubmit(educationDetails)
   }
 
