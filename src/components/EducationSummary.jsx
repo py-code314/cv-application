@@ -1,9 +1,13 @@
 const EducationSummary = ({ data, onEdit }) => {
+  console.log(data)
+  const handleEditForm = (id) => {
+    data.map(entry => entry.id === id && onEdit(entry))
+  }
   return data.map((entry) => (
-    <div className="summary" key={entry.id}>
+    <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
         <h2 className="summary__title">Education Details</h2>
-        <button className="btn btn--edit" type="button" onClick={onEdit}>
+        <button className="btn btn--edit" type="button" onClick={() => handleEditForm(entry.id)}>
           Edit
         </button>
       </div>

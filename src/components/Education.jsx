@@ -4,9 +4,11 @@ import EducationForm from './EducationForm'
 import TitleButton from './TitleButton'
 import '../styles/Education.css'
 
-const Education = ({ onSubmit }) => {
+const Education = ({ onSubmit, editEntry }) => {
   const [collapse, setCollapse] = useState(false)
-  const [educationDetails, setEducationDetails] = useState({
+  const [educationDetails, setEducationDetails] = useState(
+    editEntry ||
+    {
     id: crypto.randomUUID(),
     degree: '',
     schoolName: '',
@@ -14,6 +16,7 @@ const Education = ({ onSubmit }) => {
     startDate: '',
     endDate: '',
     description: '',
+    // editEntry: false
   })
 
   return (

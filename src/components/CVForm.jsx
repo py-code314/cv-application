@@ -11,7 +11,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
 
   const [educationData, setEducationData] = useState([])
   const [addForm, setAddForm] = useState(false)
-
+  const [editEntry, setEditEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
@@ -19,15 +19,27 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   }
   const handleEducationSubmit = (formData) => {
     setShowForm(false)
-    // setEducationData(formData)
-    setEducationData((previousEducationData) => [
-      ...previousEducationData,
-      formData,
-    ])
+    // setEducationData((previousEducationData) => [
+    //   ...previousEducationData,
+    //   formData,
+    // ])
+    if (educationData.length > 0) {
+      const entryExists = educationData.some(prevEntry => prevEntry.id === formData.id)
+      if (entryExists) {
+        const updatedData = educationData.map(prevEntry => prevEntry.id === formData.id ? formData : prevEntry)
+        setEducationData(updatedData)
+      } else {
+        setEducationData([...educationData, formData])
+      }
+    } else {
+      setEducationData([...educationData, formData])
+    }
     setAddForm(false)
   }
 
-  const handleEditForm = () => {
+  const handleEditForm = (entry) => {
+    console.log(entry)
+    setEditEntry(entry)
     setShowForm(true)
   }
   return (
@@ -51,8 +63,9 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
           <div>
             <Education
               addForm={addForm}
-              data={educationData}
+              // data={educationData}
               onSubmit={handleEducationSubmit}
+              editEntry={editEntry}
             />
           </div>
         ) : (
