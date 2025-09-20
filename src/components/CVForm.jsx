@@ -19,14 +19,15 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   }
   const handleEducationSubmit = (formData) => {
     setShowForm(false)
-    // setEducationData((previousEducationData) => [
-    //   ...previousEducationData,
-    //   formData,
-    // ])
+
     if (educationData.length > 0) {
-      const entryExists = educationData.some(prevEntry => prevEntry.id === formData.id)
+      const entryExists = educationData.some(
+        (prevEntry) => prevEntry.id === formData.id
+      )
       if (entryExists) {
-        const updatedData = educationData.map(prevEntry => prevEntry.id === formData.id ? formData : prevEntry)
+        const updatedData = educationData.map((prevEntry) =>
+          prevEntry.id === formData.id ? formData : prevEntry
+        )
         setEducationData(updatedData)
       } else {
         setEducationData([...educationData, formData])
@@ -41,6 +42,13 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
     console.log(entry)
     setEditEntry(entry)
     setShowForm(true)
+  }
+
+  const handleDeleteEntry = (entry) => {
+    const updatedData = educationData.filter(
+      (educationEntry) => educationEntry.id !== entry.id
+    )
+    setEducationData(updatedData)
   }
   return (
     <div className="cv-form">
@@ -63,14 +71,17 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
           <div>
             <Education
               addForm={addForm}
-              // data={educationData}
               onSubmit={handleEducationSubmit}
               editEntry={editEntry}
             />
           </div>
         ) : (
           <div>
-            <EducationSummary data={educationData} onEdit={handleEditForm} />
+            <EducationSummary
+              data={educationData}
+              onEdit={handleEditForm}
+              onDelete={handleDeleteEntry}
+            />
             <AddButton
               text="Add Degree"
               setAddForm={setAddForm}

@@ -7,17 +7,16 @@ import '../styles/Education.css'
 const Education = ({ onSubmit, editEntry }) => {
   const [collapse, setCollapse] = useState(false)
   const [educationDetails, setEducationDetails] = useState(
-    editEntry ||
-    {
-    id: crypto.randomUUID(),
-    degree: '',
-    schoolName: '',
-    city: '',
-    startDate: '',
-    endDate: '',
-    description: '',
-    // editEntry: false
-  })
+    editEntry || {
+      id: crypto.randomUUID(),
+      degree: '',
+      schoolName: '',
+      city: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    }
+  )
 
   return (
     <div className="education">
