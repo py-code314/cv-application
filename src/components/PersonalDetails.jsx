@@ -2,19 +2,20 @@ import '../styles/PersonalDetails.css'
 import { useState } from 'react'
 import checkMarkIcon from '../assets/images/icon-check.svg'
 import errorIcon from '../assets/images/icon-error.svg'
-
+import FormButtons from './FormButtons'
 
 const PersonalDetails = ({ onSubmit, data }) => {
-
-  const [personalInfo, setPersonalInfo] = useState(data || {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    address: '',
-    state: '',
-    country: '',
-  })
+  const [personalInfo, setPersonalInfo] = useState(
+    data || {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      state: '',
+      country: '',
+    }
+  )
 
   const [inputStatus, setInputStatus] = useState({
     firstName: personalInfo.firstName,
@@ -131,13 +132,6 @@ const PersonalDetails = ({ onSubmit, data }) => {
   const handleFormValidation = (e) => {
     e.preventDefault()
     setFormSubmission(true)
-
-    // setInputStatus({
-    //   ...inputStatus,
-    //   firstName: personalInfo.firstName,
-    //   lastName: personalInfo.lastName,
-    //   email: personalInfo.email,
-    // })
     if (inputStatus.firstName && inputStatus.lastName && inputStatus.email) {
       onSubmit(personalInfo)
     }
@@ -381,18 +375,8 @@ const PersonalDetails = ({ onSubmit, data }) => {
             onChange={handleCountryChange}
           />
         </div>
-        <div className="btns btns--form">
-          <button
-            type="button"
-            className="btn btn--cancel"
-            id="cancel-btn"
-            onClick={handleReset}>
-            Cancel
-          </button>
-          <button type="submit" className="btn btn--submit" id="submit-btn">
-            Save
-          </button>
-        </div>
+
+        <FormButtons onClick={handleReset} />
       </form>
     </div>
   )

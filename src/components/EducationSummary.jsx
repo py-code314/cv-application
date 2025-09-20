@@ -1,4 +1,6 @@
 import '../styles/EducationSummary.css'
+import DeleteButton from './DeleteButton'
+import EditButton from './EditButton'
 
 const EducationSummary = ({ data, onEdit, onDelete }) => {
   const handleEditForm = (id) => {
@@ -6,19 +8,13 @@ const EducationSummary = ({ data, onEdit, onDelete }) => {
   }
 
   const handleDeleteEntry = (id) => {
-    console.log(id)
     data.map((entry) => entry.id === id && onDelete(entry))
   }
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
         <h2 className="summary__title">Education Details</h2>
-        <button
-          className="btn btn--edit"
-          type="button"
-          onClick={() => handleEditForm(entry.id)}>
-          Edit
-        </button>
+        <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
 
       {entry.degree && (
@@ -59,14 +55,7 @@ const EducationSummary = ({ data, onEdit, onDelete }) => {
         </div>
       )}
 
-      <div className="btn-container">
-        <button
-          className="btn btn--delete"
-          type="button"
-          onClick={() => handleDeleteEntry(entry.id)}>
-          Delete
-        </button>
-      </div>
+      <DeleteButton onClick={() => handleDeleteEntry(entry.id)} />
     </div>
   ))
 }

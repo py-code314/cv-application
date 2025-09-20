@@ -1,29 +1,10 @@
 import '../styles/EducationForm.css'
+import { formatCurrentDate, generateMinDate } from '../scripts/dates'
+import FormButtons from './FormButtons'
 
 const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
-  const generateCurrentDate = (date) => {
-    const month = date.getMonth() + 1
-    const formattedMonth = month < 10 ? `0${month}` : `${month}`
-    const year = date.getFullYear()
-
-    const formattedDate = `${year}-${formattedMonth}`
-
-    return formattedDate
-  }
-
-  const generateMinDate = (date) => {
-    const dateCopy = new Date(date)
-    dateCopy.setFullYear(dateCopy.getFullYear() - 100)
-    const month = dateCopy.getMonth()
-    const formattedMonth = month < 10 ? `0${month}` : `${month}`
-    const year = dateCopy.getFullYear()
-
-    const formattedDate = `${year}-${formattedMonth}`
-
-    return formattedDate
-  }
   const today = new Date()
-  const todayDate = generateCurrentDate(today)
+  const todayDate = formatCurrentDate(today)
   const minDate = generateMinDate(today)
 
   const handleDegreeChange = (e) => {
@@ -170,18 +151,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
             onChange={handleDescriptionChange}></textarea>
         </div>
 
-        <div className="btns btns--form">
-          <button
-            type="button"
-            className="btn btn--cancel"
-            id="cancel-btn"
-            onClick={handleReset}>
-            Cancel
-          </button>
-          <button type="submit" className="btn btn--submit" id="submit-btn">
-            Save
-          </button>
-        </div>
+        <FormButtons onClick={handleReset} />
       </form>
     </div>
   )
