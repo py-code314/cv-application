@@ -4,17 +4,26 @@ import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
 const CVBuilder = () => {
+  
   const [showSection, setShowSection] = useState({
     personalDetails: true,
     education: false,
+    employment: false,
+    skills: false,
+    languages: false,
+    references: false,
   })
   const [showForm, setShowForm] = useState(true)
 
   const handleNextBtnClick = () => {
-    setShowSection({
-      personalDetails: false,
-      education: true,
-    })
+    if (showSection.personalDetails) {
+      setShowSection({
+        ...showSection,
+        personalDetails: false,
+        education: true,
+      })
+    }
+
     setShowForm(true)
   }
   return (
