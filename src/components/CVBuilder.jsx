@@ -4,7 +4,15 @@ import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
 const CVBuilder = () => {
-  
+  const sections = [
+    'personalDetails',
+    'education',
+    'employment',
+    'skills',
+    'languages',
+    'references',
+  ]
+
   const [showSection, setShowSection] = useState({
     personalDetails: true,
     education: false,
@@ -16,11 +24,19 @@ const CVBuilder = () => {
   const [showForm, setShowForm] = useState(true)
 
   const handleNextBtnClick = () => {
-    if (showSection.personalDetails) {
+    const currentSection = Object.keys(showSection).find(
+      (key) => showSection[key]
+    )
+
+    const currentSectionIndex = sections.indexOf(currentSection)
+
+    if (currentSectionIndex < sections.length - 1) {
+      const nextSection = sections[currentSectionIndex + 1]
+
       setShowSection({
         ...showSection,
-        personalDetails: false,
-        education: true,
+        [currentSection]: false,
+        [nextSection]: true,
       })
     }
 
