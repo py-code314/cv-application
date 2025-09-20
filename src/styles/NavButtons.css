@@ -8,3 +8,11 @@
 .btn--nav {
   background-color: var(--clr-blue);
 }
+
+.btn:disabled {
+  background-color: #ccc;
+  color: var(--clr-black);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
