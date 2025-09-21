@@ -42,6 +42,26 @@ const CVBuilder = () => {
 
     setShowForm(true)
   }
+
+  const handlePrevBtnClick = () => {
+    const currentSection = Object.keys(showSection).find(
+      (key) => showSection[key]
+    )
+
+    const currentSectionIndex = sections.indexOf(currentSection)
+
+    if (currentSectionIndex >= 1) {
+      const prevSection = sections[currentSectionIndex - 1]
+
+      setShowSection({
+        ...showSection,
+        [currentSection]: false,
+        [prevSection]: true,
+      })
+    }
+
+    setShowForm(true)
+  }
   return (
     <div className="cv-build">
       <CVForm
@@ -49,7 +69,11 @@ const CVBuilder = () => {
         showForm={showForm}
         setShowForm={setShowForm}
       />
-      <NavButtons onClick={handleNextBtnClick} showSection={showSection} />
+      <NavButtons
+        onClickPrevious={handlePrevBtnClick}
+        onClickNext={handleNextBtnClick}
+        showSection={showSection}
+      />
     </div>
   )
 }

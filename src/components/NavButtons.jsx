@@ -1,14 +1,14 @@
-// import { useState } from 'react';
+
 import '../styles/NavButtons.css'
 
-const NavButtons = ({ onClick, showSection }) => {
+const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
   const isPrevBtnDisabled = showSection.personalDetails; const isNextBtnDisabled = showSection.references
 
   return (
     <div className="btns btns--nav">
       <button
         className="btn btn--nav"
-        onClick={onClick}
+        onClick={onClickPrevious}
         disabled={isPrevBtnDisabled}
         aria-disabled={isPrevBtnDisabled ? 'true' : 'false'}>
         Previous
@@ -26,7 +26,7 @@ const NavButtons = ({ onClick, showSection }) => {
       </button>
       <button
         className="btn btn--nav"
-        onClick={onClick}
+        onClick={onClickNext}
         disabled={isNextBtnDisabled}
         aria-disabled={isNextBtnDisabled ? 'true' : 'false'}>
         Next
