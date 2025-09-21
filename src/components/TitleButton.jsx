@@ -2,18 +2,32 @@ import collapseIcon from '../assets/images/icon-collapse.svg'
 import expandIcon from '../assets/images/icon-expand.svg'
 import '../styles/TitleButton.css'
 
-const TitleButton = ({ educationDetails, onClick, collapse }) => {
+const TitleButton = ({
+  educationDetails,
+  employmentDetails,
+  onClick,
+  collapse,
+}) => {
   const handleHideForm = () => {
     onClick(!collapse)
   }
   return (
     <button className="btn btn--title" onClick={handleHideForm}>
       <span className="entry-title">
-        {educationDetails.degree && educationDetails.schoolName
-          ? `${educationDetails.degree} at ${educationDetails.schoolName}`
-          : educationDetails.degree
-          ? `${educationDetails.degree}`
-          : 'Title'}
+        {educationDetails
+          ? educationDetails.degree && educationDetails.schoolName
+            ? `${educationDetails.degree} at ${educationDetails.schoolName}`
+            : educationDetails.degree
+            ? `${educationDetails.degree}`
+            : 'Title'
+          : null}
+        {employmentDetails
+          ? employmentDetails.jobTitle && employmentDetails.employer
+            ? `${employmentDetails.jobTitle} at ${employmentDetails.employer}`
+            : employmentDetails.jobTitle
+            ? `${employmentDetails.jobTitle}`
+            : 'Title'
+          : null}
       </span>
       {!collapse ? (
         <img

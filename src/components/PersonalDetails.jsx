@@ -14,7 +14,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
       address: '',
       state: '',
       country: '',
-      aboutMe: ''
+      aboutMe: '',
     }
   )
 
@@ -74,7 +74,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
       address: '',
       state: '',
       country: '',
-      aboutMe: ''
+      aboutMe: '',
     })
     setInputStatus({
       ...inputStatus,
@@ -150,7 +150,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
         positive feedback from recruiters.
       </p>
       <form
-        className="form personal-info__form"
+        className="form personal-info__form submission"
         noValidate
         onSubmit={handleFormValidation}>
         <div className="form__control">
@@ -384,9 +384,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
           <label htmlFor="aboutMe" className="form__label">
             About Me
           </label>
-          <span className="form__hint">
-            Describe yourself in short
-          </span>
+          <span className="form__hint">Describe yourself in short</span>
           <textarea
             name="aboutMe"
             id="aboutMe"

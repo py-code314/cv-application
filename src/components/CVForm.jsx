@@ -5,11 +5,12 @@ import PersonalDetailsSummary from './PersonalDetailsSummary'
 import Education from './Education'
 import AddButton from './AddButton'
 import EducationSummary from './EducationSummary'
+import Employment from './Employment'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
-
   const [educationData, setEducationData] = useState([])
+  const [employmentData, setEmploymentData] = useState([])
   const [addForm, setAddForm] = useState(false)
   const [editEntry, setEditEntry] = useState(null)
 
@@ -19,6 +20,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   }
   const handleEducationSubmit = (formData) => {
     setShowForm(false)
+    setAddForm(false)
 
     if (educationData.length > 0) {
       const entryExists = educationData.some(
@@ -35,7 +37,26 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
     } else {
       setEducationData([...educationData, formData])
     }
+  }
+  const handleEmploymentSubmit = (formData) => {
+    setShowForm(false)
     setAddForm(false)
+
+    if (employmentData.length > 0) {
+      const entryExists = employmentData.some(
+        (prevEntry) => prevEntry.id === formData.id
+      )
+      if (entryExists) {
+        const updatedData = employmentData.map((prevEntry) =>
+          prevEntry.id === formData.id ? formData : prevEntry
+        )
+        setEmploymentData(updatedData)
+      } else {
+        setEmploymentData([...employmentData, formData])
+      }
+    } else {
+      setEmploymentData([...employmentData, formData])
+    }
   }
 
   const handleEditForm = (entry) => {
@@ -85,6 +106,30 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               text="Add Degree"
               setAddForm={setAddForm}
               setEducationData={setEducationData}
+            />
+          </div>
+        )
+      ) : null}
+      {showSection.employment ? (
+        showForm || addForm ? (
+          <div>
+            <Employment
+              addForm={addForm}
+              onSubmit={handleEmploymentSubmit}
+              editEntry={editEntry}
+            />
+          </div>
+        ) : (
+          <div>
+            <EmploymentSummary
+              data={employmentData}
+              onEdit={handleEditForm}
+              onDelete={handleDeleteEntry}
+            />
+            <AddButton
+              text="Add Employment"
+              setAddForm={setAddForm}
+              setEmploymentData={setEmploymentData}
             />
           </div>
         )

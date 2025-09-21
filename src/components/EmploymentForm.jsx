@@ -1,52 +1,56 @@
 import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
-const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
+const EmploymentForm = ({
+  employmentDetails,
+  setEmploymentDetails,
+  onSubmit,
+}) => {
   const today = new Date()
   const todayDate = formatCurrentDate(today)
   const minDate = generateMinDate(today)
 
-  const handleDegreeChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
-      degree: e.target.value,
+  const handleJobTitleChange = (e) => {
+    setEmploymentDetails({
+      ...employmentDetails,
+      jobTitle: e.target.value,
     })
   }
-  const handleSchoolNameChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
-      schoolName: e.target.value,
+  const handleEmployerChange = (e) => {
+    setEmploymentDetails({
+      ...employmentDetails,
+      employer: e.target.value,
     })
   }
   const handleCityChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
+    setEmploymentDetails({
+      ...employmentDetails,
       city: e.target.value,
     })
   }
   const handleStartDateChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
+    setEmploymentDetails({
+      ...employmentDetails,
       startDate: e.target.value,
     })
   }
   const handleEndDateChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
+    setEmploymentDetails({
+      ...employmentDetails,
       endDate: e.target.value,
     })
   }
   const handleDescriptionChange = (e) => {
-    setEducationDetails({
-      ...educationDetails,
+    setEmploymentDetails({
+      ...employmentDetails,
       description: e.target.value,
     })
   }
 
   const handleReset = () => {
-    setEducationDetails({
-      degree: '',
-      schoolName: '',
+    setEmploymentDetails({
+      jobTitle: '',
+      employer: '',
       city: '',
       startDate: '',
       endDate: '',
@@ -54,38 +58,37 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
     })
   }
 
-  const handleEducationFormSubmit = (e) => {
+  const handleEmploymentFormSubmit = (e) => {
     e.preventDefault()
-    onSubmit(educationDetails)
+    onSubmit(employmentDetails)
   }
-
   return (
-    <div className="education-form">
-      <form className="form" onSubmit={handleEducationFormSubmit}>
+    <div className="employment-form">
+      <form className="form" onSubmit={handleEmploymentFormSubmit}>
         <div className="form__control">
-          <label htmlFor="degree" className="form__label">
-            Degree
+          <label htmlFor="jobTitle" className="form__label">
+            Job Title
           </label>
           <input
             type="text"
-            name="degree"
-            id="degree"
+            name="jobTitle"
+            id="jobTitle"
             className="form__input"
-            value={educationDetails.degree}
-            onChange={handleDegreeChange}
+            value={employmentDetails.jobTitle}
+            onChange={handleJobTitleChange}
           />
         </div>
         <div className="form__control">
-          <label htmlFor="school-name" className="form__label">
-            School
+          <label htmlFor="employer" className="form__label">
+            Employer
           </label>
           <input
             type="text"
-            name="school-name"
-            id="school-name"
+            name="employer"
+            id="employer"
             className="form__input"
-            value={educationDetails.schoolName}
-            onChange={handleSchoolNameChange}
+            value={employmentDetails.employer}
+            onChange={handleEmployerChange}
           />
         </div>
         <div className="form__control">
@@ -98,7 +101,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
             id="city"
             className="form__input"
             autoComplete="address-level2"
-            value={educationDetails.city}
+            value={employmentDetails.city}
             onChange={handleCityChange}
           />
         </div>
@@ -114,7 +117,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
             className="form__input"
             min={minDate}
             max={todayDate}
-            value={educationDetails.startDate}
+            value={employmentDetails.startDate}
             onChange={handleStartDateChange}
           />
         </div>
@@ -130,7 +133,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
             className="form__input"
             min={minDate}
             max={todayDate}
-            value={educationDetails.endDate}
+            value={employmentDetails.endDate}
             onChange={handleEndDateChange}
           />
         </div>
@@ -138,15 +141,13 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
           <label htmlFor="description" className="form__label">
             Description
           </label>
-          <span className="form__hint">
-            Summarize your academic experience, projects, or accomplishments.
-          </span>
+
           <textarea
             name="description"
             id="description"
             rows={8}
             className="form__input"
-            value={educationDetails.description}
+            value={employmentDetails.description}
             onChange={handleDescriptionChange}></textarea>
         </div>
 
@@ -156,4 +157,4 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
   )
 }
 
-export default EducationForm
+export default EmploymentForm

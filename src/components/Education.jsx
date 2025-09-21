@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import EducationForm from './EducationForm'
-
 import TitleButton from './TitleButton'
-import '../styles/Education.css'
 
 const Education = ({ onSubmit, editEntry }) => {
   const [collapse, setCollapse] = useState(false)
@@ -26,7 +24,7 @@ const Education = ({ onSubmit, editEntry }) => {
         details about your education can help recruiters understand your
         background and expertise.
       </p>
-      <div className="education__form">
+      <div className="education__form submission">
         <TitleButton
           educationDetails={educationDetails}
           onClick={setCollapse}
