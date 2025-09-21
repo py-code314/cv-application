@@ -14,6 +14,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
       address: '',
       state: '',
       country: '',
+      aboutMe: ''
     }
   )
 
@@ -60,6 +61,9 @@ const PersonalDetails = ({ onSubmit, data }) => {
   const handleCountryChange = (e) => {
     setPersonalInfo({ ...personalInfo, country: e.target.value })
   }
+  const handleAboutMeChange = (e) => {
+    setPersonalInfo({ ...personalInfo, aboutMe: e.target.value })
+  }
 
   const handleReset = () => {
     setPersonalInfo({
@@ -70,6 +74,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
       address: '',
       state: '',
       country: '',
+      aboutMe: ''
     })
     setInputStatus({
       ...inputStatus,
@@ -374,6 +379,21 @@ const PersonalDetails = ({ onSubmit, data }) => {
             value={personalInfo.country}
             onChange={handleCountryChange}
           />
+        </div>
+        <div className="form__control">
+          <label htmlFor="aboutMe" className="form__label">
+            About Me
+          </label>
+          <span className="form__hint">
+            Describe yourself in short
+          </span>
+          <textarea
+            name="aboutMe"
+            id="aboutMe"
+            rows={6}
+            className="form__input"
+            value={personalInfo.aboutMe}
+            onChange={handleAboutMeChange}></textarea>
         </div>
 
         <FormButtons onClick={handleReset} />

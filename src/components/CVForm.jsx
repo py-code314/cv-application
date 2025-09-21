@@ -39,7 +39,6 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   }
 
   const handleEditForm = (entry) => {
-    // console.log(entry)
     setEditEntry(entry)
     setShowForm(true)
   }

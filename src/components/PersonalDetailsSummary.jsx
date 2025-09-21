@@ -2,7 +2,7 @@ import '../styles/PersonalDetailsSummary.css'
 import EditButton from './EditButton'
 
 const PersonalDetailsSummary = ({ data, onEdit }) => {
-  const { firstName, lastName, email, phoneNumber, address, state, country } =
+  const { firstName, lastName, email, phoneNumber, address, state, country, aboutMe } =
     data
 
   return (
@@ -46,6 +46,12 @@ const PersonalDetailsSummary = ({ data, onEdit }) => {
         <div className="detail">
           <h3>Country:</h3>
           <p>{country}</p>
+        </div>
+      )}
+      {aboutMe && (
+        <div className="detail">
+          <h3>About Me:</h3>
+          <p>{aboutMe}</p>
         </div>
       )}
     </div>
