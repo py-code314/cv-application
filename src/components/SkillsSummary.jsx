@@ -8,7 +8,7 @@ const SkillsSummary = ({
   setterFuncEntry,
   setterFuncData,
 }) => {
-  console.log(data)
+
   const handleEditForm = (id) => {
     data.map((entry) => entry.id === id && onEdit(setterFuncEntry, entry))
   }
@@ -26,10 +26,10 @@ const SkillsSummary = ({
         <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
 
-      {entry.skillName && (
+      {entry.skill && (
         <div className="detail">
           <h3>Skill:</h3>
-          <p>{entry.skillName}</p>
+          <p>{entry.skill}</p>
         </div>
       )}
       
