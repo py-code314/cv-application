@@ -1,6 +1,6 @@
 import FormButtons from './FormButtons'
 
-const Skill = ({
+const SkillForm = ({
   skill,
   setSkill,
   onSubmit,
@@ -9,11 +9,11 @@ const Skill = ({
   data,
 }) => {
   const handleSkillChange = (e) => {
-    setSkill(e.target.value)
+    setSkill({ ...skill, skillName: e.target.value })
   }
 
   const handleReset = () => {
-    setSkill('')
+    setSkill({...skill, id: crypto.randomUUID(), skillName: ''})
   }
 
   const handleSkillSubmit = (e) => {
@@ -32,7 +32,7 @@ const Skill = ({
             name="skill"
             id="skill"
             className="form__input"
-            value={skill}
+            value={skill.skillName}
             onChange={handleSkillChange}
           />
         </div>
@@ -43,4 +43,4 @@ const Skill = ({
   )
 }
 
-export default Skill
+export default SkillForm

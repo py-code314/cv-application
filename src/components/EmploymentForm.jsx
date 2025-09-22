@@ -52,6 +52,8 @@ const EmploymentForm = ({
 
   const handleReset = () => {
     setEmploymentDetails({
+      ...employmentDetails,
+      id: crypto.randomUUID(),
       jobTitle: '',
       employer: '',
       city: '',

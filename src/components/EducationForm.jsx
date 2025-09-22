@@ -52,6 +52,8 @@ const EducationForm = ({
 
   const handleReset = () => {
     setEducationDetails({
+      ...educationDetails,
+      id: crypto.randomUUID(),
       degree: '',
       schoolName: '',
       city: '',

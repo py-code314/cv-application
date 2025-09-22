@@ -8,6 +8,7 @@ import EducationSummary from './EducationSummary'
 import Employment from './Employment'
 import EmploymentSummary from './EmploymentSummary'
 import Skills from './Skills'
+import SkillsSummary from './SkillsSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
@@ -99,7 +100,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
             <EducationSummary
               data={educationData}
               onEdit={handleEditForm}
-              setterFunc={setEditEducationEntry}
+              setterFuncEntry={setEditEducationEntry}
               setterFuncData={setEducationData}
               onDelete={handleDeleteEntry}
             />
@@ -128,7 +129,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
             <EmploymentSummary
               data={employmentData}
               onEdit={handleEditForm}
-              setterFunc={setEditEmploymentEntry}
+              setterFuncEntry={setEditEmploymentEntry}
               setterFuncData={setEmploymentData}
               onDelete={handleDeleteEntry}
             />
@@ -154,10 +155,10 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
           </div>
         ) : (
           <div>
-            <EmploymentSummary
+            <SkillsSummary
               data={skillsData}
               onEdit={handleEditForm}
-              setterFunc={setEditSkillEntry}
+              setterFuncEntry={setEditSkillEntry}
               setterFuncData={setSkillsData}
               onDelete={handleDeleteEntry}
             />

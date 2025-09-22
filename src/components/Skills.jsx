@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Skill from './Skill'
+import SkillForm from './SkillForm'
 
 const Skills = ({
   onSubmit,
@@ -8,7 +8,12 @@ const Skills = ({
   setterFuncData,
   data,
 }) => {
-  const [skill, setSkill] = useState(editEntry || '')
+  const [skill, setSkill] = useState(
+    editEntry || {
+      id: crypto.randomUUID(),
+      skillName: '',
+    }
+  )
   return (
     <div className="skills">
       <h2 className="skills__heading">Skills</h2>
@@ -17,7 +22,7 @@ const Skills = ({
         match the key skills mentioned in the job listing.
       </p>
       <div className="skills__form submission">
-        <Skill
+        <SkillForm
           skill={skill}
           setSkill={setSkill}
           onSubmit={onSubmit}
