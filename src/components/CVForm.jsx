@@ -6,60 +6,50 @@ import Education from './Education'
 import AddButton from './AddButton'
 import EducationSummary from './EducationSummary'
 import Employment from './Employment'
+import EmploymentSummary from './EmploymentSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState([])
   const [employmentData, setEmploymentData] = useState([])
   const [addForm, setAddForm] = useState(false)
-  const [editEntry, setEditEntry] = useState(null)
+  const [editEducationEntry, setEditEducationEntry] = useState(null)
+  const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
     setPersonalDetailsData(formData)
   }
-  const handleEducationSubmit = (formData) => {
+  const handleFormDataSubmit = (
+    setterFuncEntry,
+    setterFuncData,
+    formData,
+    data
+  ) => {
     setShowForm(false)
     setAddForm(false)
+    setterFuncEntry(null)
 
-    if (educationData.length > 0) {
-      const entryExists = educationData.some(
-        (prevEntry) => prevEntry.id === formData.id
-      )
+    if (data.length > 0) {
+      const entryExists = data.some((prevEntry) => prevEntry.id === formData.id)
       if (entryExists) {
-        const updatedData = educationData.map((prevEntry) =>
+        const updatedData = data.map((prevEntry) =>
           prevEntry.id === formData.id ? formData : prevEntry
         )
-        setEducationData(updatedData)
+        setterFuncData(updatedData)
       } else {
-        setEducationData([...educationData, formData])
+        setterFuncData([...data, formData])
       }
     } else {
-      setEducationData([...educationData, formData])
-    }
-  }
-  const handleEmploymentSubmit = (formData) => {
-    setShowForm(false)
-    setAddForm(false)
-
-    if (employmentData.length > 0) {
-      const entryExists = employmentData.some(
-        (prevEntry) => prevEntry.id === formData.id
-      )
-      if (entryExists) {
-        const updatedData = employmentData.map((prevEntry) =>
-          prevEntry.id === formData.id ? formData : prevEntry
-        )
-        setEmploymentData(updatedData)
-      } else {
-        setEmploymentData([...employmentData, formData])
-      }
-    } else {
-      setEmploymentData([...employmentData, formData])
+      setterFuncData([...data, formData])
     }
   }
 
-  const handleEditForm = (entry) => {
+  const handlePersonalEditForm = (data) => {
+    setPersonalDetailsData(data)
+    setShowForm(true)
+  }
+  const handleEditForm = (setEditEntry, entry) => {
     setEditEntry(entry)
     setShowForm(true)
   }
@@ -81,7 +71,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
         ) : (
           <PersonalDetailsSummary
             data={personalDetailsData}
-            onEdit={handleEditForm}
+            onEdit={handlePersonalEditForm}
           />
         )
       ) : null}
@@ -91,8 +81,11 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
           <div>
             <Education
               addForm={addForm}
-              onSubmit={handleEducationSubmit}
-              editEntry={editEntry}
+              onSubmit={handleFormDataSubmit}
+              editEntry={editEducationEntry}
+              setterFuncEntry={setEditEducationEntry}
+              setterFuncData={setEducationData}
+              data={educationData}
             />
           </div>
         ) : (
@@ -100,6 +93,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
             <EducationSummary
               data={educationData}
               onEdit={handleEditForm}
+              setterFunc={setEditEducationEntry}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -115,8 +109,11 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
           <div>
             <Employment
               addForm={addForm}
-              onSubmit={handleEmploymentSubmit}
-              editEntry={editEntry}
+              onSubmit={handleFormDataSubmit}
+              editEntry={editEmploymentEntry}
+              setterFuncEntry={setEditEmploymentEntry}
+              setterFuncData={setEmploymentData}
+              data={employmentData}
             />
           </div>
         ) : (
@@ -124,6 +121,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
             <EmploymentSummary
               data={employmentData}
               onEdit={handleEditForm}
+              setterFunc={setEditEmploymentEntry}
               onDelete={handleDeleteEntry}
             />
             <AddButton

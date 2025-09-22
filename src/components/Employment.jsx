@@ -2,7 +2,13 @@ import { useState } from 'react'
 import EmploymentForm from './EmploymentForm'
 import TitleButton from './TitleButton'
 
-const Employment = ({ onSubmit, editEntry }) => {
+const Employment = ({
+  onSubmit,
+  editEntry,
+  setterFuncEntry,
+  setterFuncData,
+  data,
+}) => {
   const [collapse, setCollapse] = useState(false)
   const [employmentDetails, setEmploymentDetails] = useState(
     editEntry || {
@@ -36,6 +42,9 @@ const Employment = ({ onSubmit, editEntry }) => {
             employmentDetails={employmentDetails}
             setEmploymentDetails={setEmploymentDetails}
             onSubmit={onSubmit}
+            setterFuncEntry={setterFuncEntry}
+            setterFuncData={setterFuncData}
+            data={data}
           />
         )}
       </div>

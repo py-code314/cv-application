@@ -1,7 +1,14 @@
 import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
-const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
+const EducationForm = ({
+  educationDetails,
+  setEducationDetails,
+  onSubmit,
+  setterFuncEntry,
+  setterFuncData,
+  data,
+}) => {
   const today = new Date()
   const todayDate = formatCurrentDate(today)
   const minDate = generateMinDate(today)
@@ -56,7 +63,7 @@ const EducationForm = ({ educationDetails, setEducationDetails, onSubmit }) => {
 
   const handleEducationFormSubmit = (e) => {
     e.preventDefault()
-    onSubmit(educationDetails)
+    onSubmit(setterFuncEntry, setterFuncData, educationDetails, data)
   }
 
   return (

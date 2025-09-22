@@ -173,7 +173,7 @@ ul {
   --clr-blue: #1B91F0;
   --clr-orangered: orangered;
   --clr-gray: #f0f2fa;
-  --clr-bright-pink: #EF476F;
+  --clr-bright-pink: #ef2e5b;
   --clr-emerald: #06D6A0;
   --clr-midnight-green: #073B4C;
   --clr-charcoal: #274754;
@@ -181,6 +181,7 @@ ul {
   --clr-sandy-brown: #F4A261;
   --clr-burnt-sienna: #E76F51;
   --clr-dark-gray: #C1C1C1;
+  --clr-purple: #6157AF;
 
   /* Utilities */
   --radius-1: 0.3125rem; /* 5px */

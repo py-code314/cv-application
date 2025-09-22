@@ -1,13 +1,13 @@
-
 import '../styles/NavButtons.css'
 
 const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
-  const isPrevBtnDisabled = showSection.personalDetails; const isNextBtnDisabled = showSection.references
+  const isPrevBtnDisabled = showSection.personalDetails
+  const isNextBtnDisabled = showSection.references
 
   return (
     <div className="btns btns--nav">
       <button
-        className="btn btn--nav"
+        className="btn btn--nav btn--prev"
         onClick={onClickPrevious}
         disabled={isPrevBtnDisabled}
         aria-disabled={isPrevBtnDisabled ? 'true' : 'false'}>
@@ -25,7 +25,7 @@ const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
           : null}
       </button>
       <button
-        className="btn btn--nav"
+        className="btn btn--nav btn--next"
         onClick={onClickNext}
         disabled={isNextBtnDisabled}
         aria-disabled={isNextBtnDisabled ? 'true' : 'false'}>

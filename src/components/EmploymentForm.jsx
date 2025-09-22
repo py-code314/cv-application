@@ -5,6 +5,9 @@ const EmploymentForm = ({
   employmentDetails,
   setEmploymentDetails,
   onSubmit,
+  setterFuncEntry,
+  setterFuncData,
+  data,
 }) => {
   const today = new Date()
   const todayDate = formatCurrentDate(today)
@@ -60,7 +63,7 @@ const EmploymentForm = ({
 
   const handleEmploymentFormSubmit = (e) => {
     e.preventDefault()
-    onSubmit(employmentDetails)
+    onSubmit(setterFuncEntry, setterFuncData, employmentDetails, data)
   }
   return (
     <div className="employment-form">

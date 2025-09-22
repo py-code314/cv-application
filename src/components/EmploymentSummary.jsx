@@ -1,8 +1,7 @@
-import '../styles/EducationSummary.css'
 import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
 
-const EducationSummary = ({ data, onEdit, onDelete, setterFunc }) => {
+const EmploymentSummary = ({ data, onEdit, onDelete, setterFunc }) => {
   const handleEditForm = (id) => {
     data.map((entry) => entry.id === id && onEdit(setterFunc, entry))
   }
@@ -13,20 +12,20 @@ const EducationSummary = ({ data, onEdit, onDelete, setterFunc }) => {
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
-        <h2 className="summary__title">Education Details</h2>
+        <h2 className="summary__title">Employment Details</h2>
         <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
 
-      {entry.degree && (
+      {entry.jobTitle && (
         <div className="detail">
-          <h3>Degree:</h3>
-          <p>{entry.degree}</p>
+          <h3>Job Title:</h3>
+          <p>{entry.jobTitle}</p>
         </div>
       )}
-      {entry.schoolName && (
+      {entry.employer && (
         <div className="detail">
-          <h3>School Name:</h3>
-          <p>{entry.schoolName}</p>
+          <h3>Employer:</h3>
+          <p>{entry.employer}</p>
         </div>
       )}
       {entry.city && (
@@ -60,4 +59,4 @@ const EducationSummary = ({ data, onEdit, onDelete, setterFunc }) => {
   ))
 }
 
-export default EducationSummary
+export default EmploymentSummary

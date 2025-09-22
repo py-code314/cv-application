@@ -9,6 +9,11 @@
   background-color: var(--clr-blue);
 }
 
+.btn--prev,
+.btn--next {
+  width: 45%;
+}
+
 .btn:disabled {
   background-color: #ccc;
   color: var(--clr-black);
