@@ -12,7 +12,9 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState([])
   const [employmentData, setEmploymentData] = useState([])
+
   const [addForm, setAddForm] = useState(false)
+
   const [editEducationEntry, setEditEducationEntry] = useState(null)
   const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
 
@@ -54,12 +56,13 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
     setShowForm(true)
   }
 
-  const handleDeleteEntry = (entry) => {
-    const updatedData = educationData.filter(
-      (educationEntry) => educationEntry.id !== entry.id
+  const handleDeleteEntry = (data, setterFuncData, entry) => {
+    const updatedData = data.filter(
+      (existingEntry) => existingEntry.id !== entry.id
     )
-    setEducationData(updatedData)
+    setterFuncData(updatedData)
   }
+
   return (
     <div className="cv-form">
       {showSection.personalDetails ? (
@@ -94,6 +97,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               data={educationData}
               onEdit={handleEditForm}
               setterFunc={setEditEducationEntry}
+              setterFuncData={setEducationData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -122,6 +126,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               data={employmentData}
               onEdit={handleEditForm}
               setterFunc={setEditEmploymentEntry}
+              setterFuncData={setEmploymentData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
