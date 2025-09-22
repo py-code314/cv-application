@@ -9,18 +9,22 @@ import Employment from './Employment'
 import EmploymentSummary from './EmploymentSummary'
 import Skills from './Skills'
 import SkillsSummary from './SkillsSummary'
+import Languages  from './Languages'
+import LanguagesSummary from './LanguagesSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState([])
   const [employmentData, setEmploymentData] = useState([])
   const [skillsData, setSkillsData] = useState([])
+  const [languagesData, setLanguagesData] = useState([])
 
   const [addForm, setAddForm] = useState(false)
 
   const [editEducationEntry, setEditEducationEntry] = useState(null)
   const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
   const [editSkillEntry, setEditSkillEntry] = useState(null)
+  const [editLanguageEntry, setEditLanguageEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
@@ -166,6 +170,35 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               text="Add Skill"
               setAddForm={setAddForm}
               setEmploymentData={setSkillsData}
+            />
+          </div>
+        )
+      ) : null}
+      {showSection.languages ? (
+        showForm || addForm ? (
+          <div>
+            <Languages
+              addForm={addForm}
+              onSubmit={handleFormDataSubmit}
+              editEntry={editLanguageEntry}
+              setterFuncEntry={setEditLanguageEntry}
+              setterFuncData={setLanguagesData}
+              data={languagesData}
+            />
+          </div>
+        ) : (
+          <div>
+            <LanguagesSummary
+              data={languagesData}
+              onEdit={handleEditForm}
+              setterFuncEntry={setEditLanguageEntry}
+              setterFuncData={setLanguagesData}
+              onDelete={handleDeleteEntry}
+            />
+            <AddButton
+              text="Add Language"
+              setAddForm={setAddForm}
+              setEmploymentData={setLanguagesData}
             />
           </div>
         )
