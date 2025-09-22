@@ -7,16 +7,19 @@ import AddButton from './AddButton'
 import EducationSummary from './EducationSummary'
 import Employment from './Employment'
 import EmploymentSummary from './EmploymentSummary'
+import Skills from './Skills'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState([])
   const [employmentData, setEmploymentData] = useState([])
+  const [skillsData, setSkillsData] = useState([])
 
   const [addForm, setAddForm] = useState(false)
 
   const [editEducationEntry, setEditEducationEntry] = useState(null)
   const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
+  const [editSkillEntry, setEditSkillEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
@@ -133,6 +136,35 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               text="Add Employment"
               setAddForm={setAddForm}
               setEmploymentData={setEmploymentData}
+            />
+          </div>
+        )
+      ) : null}
+      {showSection.skills ? (
+        showForm || addForm ? (
+          <div>
+            <Skills
+              addForm={addForm}
+              onSubmit={handleFormDataSubmit}
+              editEntry={editSkillEntry}
+              setterFuncEntry={setEditSkillEntry}
+              setterFuncData={setSkillsData}
+              data={skillsData}
+            />
+          </div>
+        ) : (
+          <div>
+            <EmploymentSummary
+              data={skillsData}
+              onEdit={handleEditForm}
+              setterFunc={setEditSkillEntry}
+              setterFuncData={setSkillsData}
+              onDelete={handleDeleteEntry}
+            />
+            <AddButton
+              text="Add Skill"
+              setAddForm={setAddForm}
+              setEmploymentData={setSkillsData}
             />
           </div>
         )
