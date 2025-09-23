@@ -79,6 +79,7 @@ const EmploymentForm = ({
             name="jobTitle"
             id="jobTitle"
             className="form__input"
+            autoComplete='organization-title'
             value={employmentDetails.jobTitle}
             onChange={handleJobTitleChange}
           />
@@ -92,6 +93,7 @@ const EmploymentForm = ({
             name="employer"
             id="employer"
             className="form__input"
+            autoComplete='organization'
             value={employmentDetails.employer}
             onChange={handleEmployerChange}
           />

@@ -11,6 +11,8 @@ import Skills from './Skills'
 import SkillsSummary from './SkillsSummary'
 import Languages  from './Languages'
 import LanguagesSummary from './LanguagesSummary'
+import References  from './References'
+import ReferencesSummary from './ReferencesSummary'
 
 const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
@@ -18,6 +20,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [employmentData, setEmploymentData] = useState([])
   const [skillsData, setSkillsData] = useState([])
   const [languagesData, setLanguagesData] = useState([])
+  const [referencesData, setReferencesData] = useState([])
 
   const [addForm, setAddForm] = useState(false)
 
@@ -25,6 +28,7 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
   const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
   const [editSkillEntry, setEditSkillEntry] = useState(null)
   const [editLanguageEntry, setEditLanguageEntry] = useState(null)
+  const [editReferenceEntry, setEditReferenceEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm(false)
@@ -199,6 +203,35 @@ const CVForm = ({ showSection, showForm, setShowForm }) => {
               text="Add Language"
               setAddForm={setAddForm}
               setEmploymentData={setLanguagesData}
+            />
+          </div>
+        )
+      ) : null}
+      {showSection.references ? (
+        showForm || addForm ? (
+          <div>
+            <References
+              addForm={addForm}
+              onSubmit={handleFormDataSubmit}
+              editEntry={editReferenceEntry}
+              setterFuncEntry={setEditReferenceEntry}
+              setterFuncData={setReferencesData}
+              data={referencesData}
+            />
+          </div>
+        ) : (
+          <div>
+            <ReferencesSummary
+              data={referencesData}
+              onEdit={handleEditForm}
+              setterFuncEntry={setEditReferenceEntry}
+              setterFuncData={setReferencesData}
+              onDelete={handleDeleteEntry}
+            />
+            <AddButton
+              text="Add Reference"
+              setAddForm={setAddForm}
+              setEmploymentData={setReferencesData}
             />
           </div>
         )
