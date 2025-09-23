@@ -296,8 +296,8 @@ const PersonalDetails = ({ onSubmit, data }) => {
             Phone Number
           </label>
           <span className="form__hint" id="phone-hint">
-            Allowed formats: 1234567890 or 1234-567-890 or 1234 567 890 or
-            1234.567.890
+            Allowed formats: 1234567890 or 123-456-7890 or 123 456 7890 or
+            123.456.7890
           </span>
           <div className="form__valid">
             <input
