@@ -3,6 +3,7 @@
   background-color: var(--clr-white);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-1);
+  /* gap: var(--space-400); */
 }
 
 .btn--nav {
@@ -13,6 +14,11 @@
 .btn--next {
   width: 45%;
 }
+
+.btn--next {
+  margin-left: auto;
+}
+
 
 .btn:disabled {
   background-color: #ccc;

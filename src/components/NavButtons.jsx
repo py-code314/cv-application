@@ -1,45 +1,45 @@
 import '../styles/NavButtons.css'
 
 const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
-  const isPrevBtnDisabled = showSection.personalDetails
-  const isNextBtnDisabled = showSection.references
 
   return (
     <div className="btns btns--nav">
-      <button
-        className="btn btn--nav btn--prev"
-        onClick={onClickPrevious}
-        disabled={isPrevBtnDisabled}
-        aria-disabled={isPrevBtnDisabled ? 'true' : 'false'}>
-        Previous
-        {showSection.education
-          ? ': Personal Details'
-          : showSection.employment
-          ? ': Education'
-          : showSection.skills
-          ? ': Employment'
-          : showSection.languages
-          ? ': Skills'
-          : showSection.references
-          ? ': Languages'
-          : null}
-      </button>
+      {!showSection.personalDetails && (
+        <button
+          className="btn btn--nav btn--prev"
+          onClick={onClickPrevious}
+        >
+          Previous
+          {showSection.education
+            ? ': Personal Details'
+            : showSection.employment
+            ? ': Education'
+            : showSection.skills
+            ? ': Employment'
+            : showSection.languages
+            ? ': Skills'
+            : showSection.references
+            ? ': Languages'
+            : null}
+        </button>
+      )}
+
       <button
         className="btn btn--nav btn--next"
         onClick={onClickNext}
-        disabled={isNextBtnDisabled}
-        aria-disabled={isNextBtnDisabled ? 'true' : 'false'}>
-        Next
+      >
         {showSection.personalDetails
-          ? ': Education'
+          ? 'Next: Education'
           : showSection.education
-          ? ': Employment'
+          ? 'Next: Employment'
           : showSection.employment
-          ? ': Skills'
+          ? 'Next: Skills'
           : showSection.skills
-          ? ': Languages'
+          ? 'Next: Languages'
           : showSection.languages
-          ? ': References'
+          ? 'Next: References'
+          : showSection.references
+          ? 'Done'
           : null}
       </button>
     </div>
