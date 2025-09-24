@@ -54,6 +54,7 @@ const EducationForm = ({
     setEducationDetails({
       ...educationDetails,
       id: crypto.randomUUID(),
+      type: 'education',
       degree: '',
       schoolName: '',
       city: '',
@@ -65,12 +66,21 @@ const EducationForm = ({
 
   const handleEducationFormSubmit = (e) => {
     e.preventDefault()
-    onSubmit(setterFuncEntry, setterFuncData, educationDetails, data)
+    onSubmit(
+      e.target.id,
+      setterFuncEntry,
+      setterFuncData,
+      educationDetails,
+      data
+    )
   }
 
   return (
     <div className="education-form">
-      <form className="form" onSubmit={handleEducationFormSubmit}>
+      <form
+        className="form"
+        id="education"
+        onSubmit={handleEducationFormSubmit}>
         <div className="form__control">
           <label htmlFor="degree" className="form__label">
             Degree

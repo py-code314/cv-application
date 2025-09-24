@@ -11,6 +11,7 @@ const Skills = ({
   const [skills, setSkills] = useState(
     editEntry || {
       id: crypto.randomUUID(),
+      type: 'skills',
       skill: '',
     }
   )

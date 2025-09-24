@@ -13,7 +13,12 @@ const LanguageForm = ({
   }
 
   const handleReset = () => {
-    setLanguages({ ...languages, id: crypto.randomUUID(), language: '' })
+    setLanguages({
+      ...languages,
+      id: crypto.randomUUID(),
+      type: 'languages',
+      language: '',
+    })
   }
 
   const handleLanguageSubmit = (e) => {

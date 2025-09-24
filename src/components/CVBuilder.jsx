@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import '../styles/CVBuilder.css'
 import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
 const CVBuilder = ({
+  showSection,
+  setShowSection,
   showForm,
   setShowForm,
   personalDetailsData,
@@ -28,15 +29,6 @@ const CVBuilder = ({
     'references',
   ]
 
-  const [showSection, setShowSection] = useState({
-    personalDetails: true,
-    education: false,
-    employment: false,
-    skills: false,
-    languages: false,
-    references: false,
-  })
-
   const handleNextBtnClick = () => {
     const currentSection = Object.keys(showSection).find(
       (key) => showSection[key]
@@ -52,9 +44,13 @@ const CVBuilder = ({
         [currentSection]: false,
         [nextSection]: true,
       })
-    }
 
-    setShowForm(true)
+      setShowForm({
+        ...showForm,
+        [currentSection]: false,
+        [nextSection]: true,
+      })
+    }
   }
 
   const handlePrevBtnClick = () => {
@@ -72,9 +68,13 @@ const CVBuilder = ({
         [currentSection]: false,
         [prevSection]: true,
       })
-    }
 
-    setShowForm(true)
+      setShowForm({
+        ...showForm,
+        [currentSection]: false,
+        [prevSection]: true,
+      })
+    }
   }
 
   return (

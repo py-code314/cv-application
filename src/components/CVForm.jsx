@@ -40,16 +40,17 @@ const CVForm = ({
   const [editReferenceEntry, setEditReferenceEntry] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
-    setShowForm(false)
+    setShowForm({ ...showForm, personalDetails: false })
     setPersonalDetailsData(formData)
   }
   const handleFormDataSubmit = (
+    currentForm,
     setterFuncEntry,
     setterFuncData,
     formData,
     data
   ) => {
-    setShowForm(false)
+    setShowForm({ ...showForm, [currentForm]: false })
     setAddForm(false)
     setterFuncEntry(null)
 
@@ -70,11 +71,14 @@ const CVForm = ({
 
   const handlePersonalEditForm = (data) => {
     setPersonalDetailsData(data)
-    setShowForm(true)
+
+    setShowForm({ ...showForm, personalDetails: false })
   }
-  const handleEditForm = (setEditEntry, entry) => {
+  const handleEditForm = (setEditEntry, entry, currentForm) => {
+    console.log(currentForm)
     setEditEntry(entry)
-    setShowForm(true)
+
+    setShowForm({ ...showForm, [currentForm]: true })
   }
 
   const handleDeleteEntry = (data, setterFuncData, entry) => {
@@ -87,7 +91,7 @@ const CVForm = ({
   return (
     <div className="cv-form">
       {showSection.personalDetails ? (
-        showForm ? (
+        showForm.personalDetails ? (
           <PersonalDetails
             data={personalDetailsData}
             onSubmit={handlePersonalDetailsSubmit}
@@ -101,7 +105,7 @@ const CVForm = ({
       ) : null}
 
       {showSection.education ? (
-        showForm || addForm ? (
+        showForm.education || addForm ? (
           <div>
             <Education
               addForm={addForm}
@@ -130,7 +134,7 @@ const CVForm = ({
         )
       ) : null}
       {showSection.employment ? (
-        showForm || addForm ? (
+        showForm.employment || addForm ? (
           <div>
             <Employment
               addForm={addForm}
@@ -159,7 +163,7 @@ const CVForm = ({
         )
       ) : null}
       {showSection.skills ? (
-        showForm || addForm ? (
+        showForm.skills || addForm ? (
           <div>
             <Skills
               addForm={addForm}
@@ -188,7 +192,7 @@ const CVForm = ({
         )
       ) : null}
       {showSection.languages ? (
-        showForm || addForm ? (
+        showForm.languages || addForm ? (
           <div>
             <Languages
               addForm={addForm}
@@ -217,7 +221,7 @@ const CVForm = ({
         )
       ) : null}
       {showSection.references ? (
-        showForm || addForm ? (
+        showForm.references || addForm ? (
           <div>
             <References
               addForm={addForm}

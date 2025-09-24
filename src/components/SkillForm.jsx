@@ -13,7 +13,7 @@ const SkillForm = ({
   }
 
   const handleReset = () => {
-    setSkills({...skills, id: crypto.randomUUID(), skill: ''})
+    setSkills({ ...skills, id: crypto.randomUUID(), type: 'skills', skill: '' })
   }
 
   const handleSkillSubmit = (e) => {

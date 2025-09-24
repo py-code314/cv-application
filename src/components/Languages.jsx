@@ -11,6 +11,7 @@ const Languages = ({
   const [languages, setLanguages] = useState(
     editEntry || {
       id: crypto.randomUUID(),
+      type: 'languages',
       language: '',
     }
   )

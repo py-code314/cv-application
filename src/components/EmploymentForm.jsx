@@ -54,6 +54,7 @@ const EmploymentForm = ({
     setEmploymentDetails({
       ...employmentDetails,
       id: crypto.randomUUID(),
+      type: 'employment',
       jobTitle: '',
       employer: '',
       city: '',
@@ -79,7 +80,7 @@ const EmploymentForm = ({
             name="jobTitle"
             id="jobTitle"
             className="form__input"
-            autoComplete='organization-title'
+            autoComplete="organization-title"
             value={employmentDetails.jobTitle}
             onChange={handleJobTitleChange}
           />
@@ -93,7 +94,7 @@ const EmploymentForm = ({
             name="employer"
             id="employer"
             className="form__input"
-            autoComplete='organization'
+            autoComplete="organization"
             value={employmentDetails.employer}
             onChange={handleEmployerChange}
           />

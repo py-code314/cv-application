@@ -11,6 +11,7 @@ const References = ({
   const [referenceDetails, setReferenceDetails] = useState(
     editEntry || {
       id: crypto.randomUUID(),
+      type: 'references',
       fullName: '',
       company: '',
       phoneNumber: '',

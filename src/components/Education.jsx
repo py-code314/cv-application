@@ -9,11 +9,11 @@ const Education = ({
   setterFuncData,
   data,
 }) => {
-
   const [collapse, setCollapse] = useState(false)
   const [educationDetails, setEducationDetails] = useState(
     editEntry || {
       id: crypto.randomUUID(),
+      type: 'education',
       degree: '',
       schoolName: '',
       city: '',

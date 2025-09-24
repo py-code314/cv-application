@@ -2,14 +2,24 @@ import '../styles/EducationSummary.css'
 import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
 
-const EducationSummary = ({ data, onEdit, onDelete, setterFuncEntry, setterFuncData }) => {
+const EducationSummary = ({
+  data,
+  onEdit,
+  onDelete,
+  setterFuncEntry,
+  setterFuncData,
+}) => {
   const handleEditForm = (id) => {
-    data.map((entry) => entry.id === id && onEdit(setterFuncEntry, entry))
+    data.map(
+      (entry) => entry.id === id && onEdit(setterFuncEntry, entry, entry.type)
+    )
   }
 
   const handleDeleteEntry = (id) => {
     console.log(data)
-    data.map((entry) => entry.id === id && onDelete(data, setterFuncData, entry))
+    data.map(
+      (entry) => entry.id === id && onDelete(data, setterFuncData, entry)
+    )
   }
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>

@@ -1,16 +1,35 @@
 import '../styles/CVPreview.css'
+import PreviewSidebar from './PreviewSidebar'
 
-const CVPreview = ({ showForm, personalDetailsData }) => {
-  console.log(showForm)
+const CVPreview = ({
+  showSection,
+  showForm,
+  personalDetailsData,
+  educationData,
+  employmentData,
+  skillsData,
+  languagesData,
+  referencesData,
+}) => {
   return (
     <div className="preview">
-      <div className="preview__sidebar">
-        {!showForm && <p>{personalDetailsData.firstName}</p>}
-        
-      </div>
-      <div className="preview__content"></div>
+      <PreviewSidebar
+        showSection={showSection}
+        showForm={showForm}
+        personalDetailsData={personalDetailsData}
+        skillsData={skillsData}
+        languagesData={languagesData}
+        employmentData={employmentData}
+      />
+      {/* <PreviewContent
+        showForm={showForm}
+        personalDetailsData={personalDetailsData}
+        employmentData={employmentData}
+        educationData={educationData}
+        referencesData={referencesData}
+      /> */}
     </div>
   )
 }
- 
-export default CVPreview;
+
+export default CVPreview

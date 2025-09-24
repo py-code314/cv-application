@@ -13,6 +13,7 @@ const Employment = ({
   const [employmentDetails, setEmploymentDetails] = useState(
     editEntry || {
       id: crypto.randomUUID(),
+      type: 'employment',
       jobTitle: '',
       employer: '',
       city: '',

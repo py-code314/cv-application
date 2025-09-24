@@ -25,6 +25,7 @@ const ReferenceForm = ({
   const handleReset = () => {
     setReferenceDetails({
       id: crypto.randomUUID(),
+      type: 'references',
       fullName: '',
       company: '',
       email: '',

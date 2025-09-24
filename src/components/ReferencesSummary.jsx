@@ -9,7 +9,9 @@ const ReferencesSummary = ({
   setterFuncData,
 }) => {
   const handleEditForm = (id) => {
-    data.map((entry) => entry.id === id && onEdit(setterFuncEntry, entry))
+    data.map(
+      (entry) => entry.id === id && onEdit(setterFuncEntry, entry, entry.type)
+    )
   }
 
   const handleDeleteEntry = (id) => {
