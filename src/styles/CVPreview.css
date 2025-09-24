@@ -1,4 +1,16 @@
-.cv-preview {
+.preview {
   flex: 1;
-  border: 1px solid salmon;
+  box-shadow: var(--shadow-2);
+  display: flex;
+}
+
+.preview__sidebar {
+  flex: 1;
+  background-color: var(--clr-midnight-green);
+  padding: var(--space-800);
+}
+
+.preview__content {
+  flex: 2;
+  padding: var(--space-800);
 }

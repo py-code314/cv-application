@@ -9,19 +9,28 @@ import Employment from './Employment'
 import EmploymentSummary from './EmploymentSummary'
 import Skills from './Skills'
 import SkillsSummary from './SkillsSummary'
-import Languages  from './Languages'
+import Languages from './Languages'
 import LanguagesSummary from './LanguagesSummary'
-import References  from './References'
+import References from './References'
 import ReferencesSummary from './ReferencesSummary'
 
-const CVForm = ({ showSection, showForm, setShowForm }) => {
-  const [personalDetailsData, setPersonalDetailsData] = useState(null)
-  const [educationData, setEducationData] = useState([])
-  const [employmentData, setEmploymentData] = useState([])
-  const [skillsData, setSkillsData] = useState([])
-  const [languagesData, setLanguagesData] = useState([])
-  const [referencesData, setReferencesData] = useState([])
-
+const CVForm = ({
+  showSection,
+  showForm,
+  setShowForm,
+  personalDetailsData,
+  setPersonalDetailsData,
+  educationData,
+  setEducationData,
+  employmentData,
+  setEmploymentData,
+  skillsData,
+  setSkillsData,
+  languagesData,
+  setLanguagesData,
+  referencesData,
+  setReferencesData,
+}) => {
   const [addForm, setAddForm] = useState(false)
 
   const [editEducationEntry, setEditEducationEntry] = useState(null)

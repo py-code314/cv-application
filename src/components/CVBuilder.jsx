@@ -3,7 +3,22 @@ import '../styles/CVBuilder.css'
 import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
-const CVBuilder = () => {
+const CVBuilder = ({
+  showForm,
+  setShowForm,
+  personalDetailsData,
+  setPersonalDetailsData,
+  educationData,
+  setEducationData,
+  employmentData,
+  setEmploymentData,
+  skillsData,
+  setSkillsData,
+  languagesData,
+  setLanguagesData,
+  referencesData,
+  setReferencesData,
+}) => {
   const sections = [
     'personalDetails',
     'education',
@@ -21,7 +36,6 @@ const CVBuilder = () => {
     languages: false,
     references: false,
   })
-  const [showForm, setShowForm] = useState(true)
 
   const handleNextBtnClick = () => {
     const currentSection = Object.keys(showSection).find(
@@ -62,13 +76,27 @@ const CVBuilder = () => {
 
     setShowForm(true)
   }
+
   return (
     <div className="cv-build">
       <CVForm
         showSection={showSection}
         showForm={showForm}
         setShowForm={setShowForm}
+        personalDetailsData={personalDetailsData}
+        setPersonalDetailsData={setPersonalDetailsData}
+        educationData={educationData}
+        setEducationData={setEducationData}
+        employmentData={employmentData}
+        setEmploymentData={setEmploymentData}
+        skillsData={skillsData}
+        setSkillsData={setSkillsData}
+        languagesData={languagesData}
+        setLanguagesData={setLanguagesData}
+        referencesData={referencesData}
+        setReferencesData={setReferencesData}
       />
+
       <NavButtons
         onClickPrevious={handlePrevBtnClick}
         onClickNext={handleNextBtnClick}
