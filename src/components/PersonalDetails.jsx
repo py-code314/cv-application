@@ -343,6 +343,9 @@ const PersonalDetails = ({ onSubmit, data }) => {
           <label htmlFor="address" className="form__label">
             Address
           </label>
+          <span className="form__hint" id="address-hint">
+            Enter your address on separate lines
+          </span>
           <textarea
             name="address"
             id="address"

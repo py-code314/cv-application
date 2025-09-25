@@ -8,8 +8,7 @@ const PreviewIntro = ({
   showSection,
   showPreview,
 }) => {
-  // console.log(showForm)
-  // console.log(showSection)
+
   let fullName, currentJob
   if (showPreview.personalDetails & !showForm.personalDetails) {
     fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`
@@ -19,13 +18,13 @@ const PreviewIntro = ({
   }
 
   return (
-    <div className="intro">
-      <div className="intro__img-container">
-        <img className='intro__img' src={spockHand} alt=""  />
+    <div className="preview__intro">
+      <div className="preview__img-container">
+        <img className='preview__img' src={spockHand} alt=""  />
       </div>
-      <p className='intro__name'>{fullName}</p>
+      <p className='preview__name'>{fullName}</p>
       <hr />
-      <p className='intro__job'>{currentJob}</p>
+      <p className='preview__job'>{currentJob}</p>
     </div>
   )
 }
