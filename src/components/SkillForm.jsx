@@ -1,24 +1,24 @@
 import FormButtons from './FormButtons'
 
 const SkillForm = ({
-  skills,
-  setSkills,
+  skill,
+  setSkill,
   onSubmit,
   setterFuncEntry,
   setterFuncData,
   data,
 }) => {
   const handleSkillChange = (e) => {
-    setSkills({ ...skills, skill: e.target.value })
+    setSkill({ ...skill, skillName: e.target.value })
   }
 
   const handleReset = () => {
-    setSkills({ ...skills, id: crypto.randomUUID(), type: 'skills', skill: '' })
+    setSkill({ ...skill, id: crypto.randomUUID(), type: 'skills', skillName: '' })
   }
 
   const handleSkillSubmit = (e) => {
     e.preventDefault()
-    onSubmit(e.target.id, setterFuncEntry, setterFuncData, skills, data)
+    onSubmit(e.target.id, setterFuncEntry, setterFuncData, skill, data)
   }
   return (
     <div className="skill-form">
@@ -32,7 +32,7 @@ const SkillForm = ({
             name="skill"
             id="skill"
             className="form__input"
-            value={skills.skill}
+            value={skill.skillName}
             onChange={handleSkillChange}
           />
         </div>

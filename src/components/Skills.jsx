@@ -8,11 +8,11 @@ const Skills = ({
   setterFuncData,
   data,
 }) => {
-  const [skills, setSkills] = useState(
+  const [skill, setSkill] = useState(
     editEntry || {
       id: crypto.randomUUID(),
       type: 'skills',
-      skill: '',
+      skillName: '',
     }
   )
   return (
@@ -24,8 +24,8 @@ const Skills = ({
       </p>
       <div className="skills__form submission">
         <SkillForm
-          skills={skills}
-          setSkills={setSkills}
+          skill={skill}
+          setSkill={setSkill}
           onSubmit={onSubmit}
           setterFuncEntry={setterFuncEntry}
           setterFuncData={setterFuncData}

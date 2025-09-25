@@ -28,10 +28,10 @@ const SkillsSummary = ({
         <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
 
-      {entry.skill && (
+      {entry.skillName && (
         <div className="detail">
           <h3>Skill:</h3>
-          <p>{entry.skill}</p>
+          <p>{entry.skillName}</p>
         </div>
       )}
       

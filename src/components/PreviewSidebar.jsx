@@ -1,6 +1,8 @@
 import PreviewIntro from './PreviewIntro'
 import PreviewPersonalDetails from './PreviewPersonalDetails'
 import PreviewLanguages from './PreviewLanguages'
+import PreviewSkills from './PreviewSkills'
+import '../styles/PreviewSidebar.css'
 const PreviewSidebar = ({
   personalDetailsData,
   employmentData,
@@ -30,6 +32,11 @@ const PreviewSidebar = ({
         showPreview.languages &&
         !showForm.languages && (
           <PreviewLanguages languagesData={languagesData} />
+        )}
+      {
+        showPreview.skills &&
+        !showForm.skills && (
+          <PreviewSkills skillsData={skillsData} />
         )}
     </div>
   )
