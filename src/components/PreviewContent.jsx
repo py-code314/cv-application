@@ -1,3 +1,5 @@
+import PreviewProfile from "./PreviewProfile";
+
 const PreviewContent = ({
   showForm,
   showPreview,
