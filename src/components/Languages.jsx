@@ -8,11 +8,11 @@ const Languages = ({
   setterFuncData,
   data,
 }) => {
-  const [languages, setLanguages] = useState(
+  const [language, setLanguage] = useState(
     editEntry || {
       id: crypto.randomUUID(),
       type: 'languages',
-      language: '',
+      languageName: '',
     }
   )
   return (
@@ -23,8 +23,8 @@ const Languages = ({
       </p>
       <div className="languages__form submission">
         <LanguageForm
-          languages={languages}
-          setLanguages={setLanguages}
+          language={language}
+          setLanguage={setLanguage}
           onSubmit={onSubmit}
           setterFuncEntry={setterFuncEntry}
           setterFuncData={setterFuncData}

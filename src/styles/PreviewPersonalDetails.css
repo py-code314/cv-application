@@ -1,6 +1,6 @@
-.preview__personal-info {
+.section-preview {
   display: flex;
   flex-direction: column;
-  gap: var(--space-100);
+  /* gap: var(--space-100); */
   color: var(--clr-white)
 }

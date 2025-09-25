@@ -10,10 +10,13 @@ const PreviewIntro = ({
 }) => {
 
   let fullName, currentJob
-  if (showPreview.personalDetails & !showForm.personalDetails) {
+  if (showPreview.personalDetails && !showForm.personalDetails) {
     fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`
   }
-  if (showPreview.employment & !showForm.employment) {
+  if (
+    
+    showPreview.employment && !showForm.employment
+  ) {
     currentJob = employmentData[0].jobTitle
   }
 

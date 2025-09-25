@@ -26,10 +26,10 @@ const LanguagesSummary = ({
         <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
 
-      {entry.language && (
+      {entry.languageName && (
         <div className="detail">
           <h3>Language:</h3>
-          <p>{entry.language}</p>
+          <p>{entry.languageName}</p>
         </div>
       )}
 
