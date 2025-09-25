@@ -35,12 +35,18 @@ const ReferenceForm = ({
 
   const handleReferenceSubmit = (e) => {
     e.preventDefault()
-    onSubmit(setterFuncEntry, setterFuncData, referenceDetails, data)
+    onSubmit(
+      e.target.id,
+      setterFuncEntry,
+      setterFuncData,
+      referenceDetails,
+      data
+    )
   }
 
   return (
     <div className="reference-form">
-      <form className="form" onSubmit={handleReferenceSubmit}>
+      <form className="form" id='references' onSubmit={handleReferenceSubmit}>
         <div className="form__control">
           <label htmlFor="full-name" className="form__label">
             Full Name

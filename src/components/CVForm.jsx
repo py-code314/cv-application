@@ -18,6 +18,8 @@ const CVForm = ({
   showSection,
   showForm,
   setShowForm,
+  showPreview,
+  setShowPreview,
   personalDetailsData,
   setPersonalDetailsData,
   educationData,
@@ -41,6 +43,7 @@ const CVForm = ({
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm({ ...showForm, personalDetails: false })
+    setShowPreview({ ...showPreview, personalDetails: true })
     setPersonalDetailsData(formData)
   }
   const handleFormDataSubmit = (
@@ -51,9 +54,10 @@ const CVForm = ({
     data
   ) => {
     setShowForm({ ...showForm, [currentForm]: false })
+    setShowPreview({ ...showPreview, [currentForm]: true })
     setAddForm(false)
     setterFuncEntry(null)
-
+    console.log(data)
     if (data.length > 0) {
       const entryExists = data.some((prevEntry) => prevEntry.id === formData.id)
       if (entryExists) {
@@ -72,13 +76,15 @@ const CVForm = ({
   const handlePersonalEditForm = (data) => {
     setPersonalDetailsData(data)
 
-    setShowForm({ ...showForm, personalDetails: false })
+    setShowForm({ ...showForm, personalDetails: true })
+    setShowPreview({ ...showPreview, personalDetails: false })
   }
   const handleEditForm = (setEditEntry, entry, currentForm) => {
     console.log(currentForm)
     setEditEntry(entry)
 
     setShowForm({ ...showForm, [currentForm]: true })
+    setShowPreview({ ...showPreview, [currentForm]: false })
   }
 
   const handleDeleteEntry = (data, setterFuncData, entry) => {
@@ -86,6 +92,7 @@ const CVForm = ({
       (existingEntry) => existingEntry.id !== entry.id
     )
     setterFuncData(updatedData)
+    // TODO: Update showForm and showPreview after deleting an entry?
   }
 
   return (

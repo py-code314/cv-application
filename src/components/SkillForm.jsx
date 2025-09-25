@@ -18,11 +18,11 @@ const SkillForm = ({
 
   const handleSkillSubmit = (e) => {
     e.preventDefault()
-    onSubmit(setterFuncEntry, setterFuncData, skills, data)
+    onSubmit(e.target.id, setterFuncEntry, setterFuncData, skills, data)
   }
   return (
     <div className="skill-form">
-      <form className="form" onSubmit={handleSkillSubmit}>
+      <form className="form" id='skills' onSubmit={handleSkillSubmit}>
         <div className="form__control">
           <label htmlFor="skill" className="form__label">
             Skill

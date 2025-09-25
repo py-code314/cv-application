@@ -1,0 +1,26 @@
+.intro {
+  color: var(--clr-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-70);
+}
+
+.intro__img-container {
+  background-color: var(--clr-white);
+  border-radius: var(--radius-circle);
+  width: var(--space-2100);
+  height: var(--space-2100);
+}
+
+hr {
+  width: var(--space-800);
+}
+
+.intro__name {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-bold);
+}
+
+.intro__job {
+  text-transform: uppercase;
+}

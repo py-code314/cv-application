@@ -23,11 +23,11 @@ const LanguageForm = ({
 
   const handleLanguageSubmit = (e) => {
     e.preventDefault()
-    onSubmit(setterFuncEntry, setterFuncData, languages, data)
+    onSubmit(e.target.id, setterFuncEntry, setterFuncData, languages, data)
   }
   return (
     <div className="language-form">
-      <form className="form" onSubmit={handleLanguageSubmit}>
+      <form className="form" id='languages' onSubmit={handleLanguageSubmit}>
         <div className="form__control">
           <label htmlFor="language" className="form__label">
             Language

@@ -66,11 +66,17 @@ const EmploymentForm = ({
 
   const handleEmploymentFormSubmit = (e) => {
     e.preventDefault()
-    onSubmit(setterFuncEntry, setterFuncData, employmentDetails, data)
+    onSubmit(
+      e.target.id,
+      setterFuncEntry,
+      setterFuncData,
+      employmentDetails,
+      data
+    )
   }
   return (
     <div className="employment-form">
-      <form className="form" onSubmit={handleEmploymentFormSubmit}>
+      <form className="form" id='employment' onSubmit={handleEmploymentFormSubmit}>
         <div className="form__control">
           <label htmlFor="jobTitle" className="form__label">
             Job Title

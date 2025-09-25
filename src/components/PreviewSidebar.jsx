@@ -1,3 +1,5 @@
+
+import PreviewIntro from "./PreviewIntro"
 const PreviewSidebar = ({
   personalDetailsData,
   employmentData,
@@ -5,14 +7,18 @@ const PreviewSidebar = ({
   languagesData,
   showForm,
   showSection,
+  showPreview
 }) => {
   // console.log(showForm)
   return (
     <div className="preview__sidebar">
-      {showSection.personalDetails && !showForm.personalDetails && (
-        <p>{personalDetailsData.firstName}</p>
-      )}
-     
+      <PreviewIntro
+        personalDetailsData={personalDetailsData}
+        employmentData={employmentData}
+        showForm={showForm}
+        showSection={showSection}
+        showPreview={showPreview}
+      />
     </div>
   )
 }

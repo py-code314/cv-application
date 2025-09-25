@@ -7,6 +7,8 @@ const CVBuilder = ({
   setShowSection,
   showForm,
   setShowForm,
+  showPreview,
+  setShowPreview,
   personalDetailsData,
   setPersonalDetailsData,
   educationData,
@@ -83,6 +85,8 @@ const CVBuilder = ({
         showSection={showSection}
         showForm={showForm}
         setShowForm={setShowForm}
+        showPreview={showPreview}
+        setShowPreview={setShowPreview}
         personalDetailsData={personalDetailsData}
         setPersonalDetailsData={setPersonalDetailsData}
         educationData={educationData}

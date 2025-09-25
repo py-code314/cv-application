@@ -11,33 +11,38 @@ function App() {
   const [languagesData, setLanguagesData] = useState([])
   const [referencesData, setReferencesData] = useState([])
 
-  // const [showForm, setShowForm] = useState(true)
   const [showForm, setShowForm] = useState({
     personalDetails: true,
     education: false,
     employment: false,
     skills: false,
     languages: false,
-    references: false
+    references: false,
   })
 
-   const [showSection, setShowSection] = useState({
-     personalDetails: true,
-     education: false,
-     employment: false,
-     skills: false,
-     languages: false,
-     references: false,
-   })
-  
+  const [showSection, setShowSection] = useState({
+    personalDetails: true,
+    education: false,
+    employment: false,
+    skills: false,
+    languages: false,
+    references: false,
+  })
+
+  const [showPreview, setShowPreview] = useState({
+    personalDetails: true,
+    education: false,
+    employment: false,
+    skills: false,
+    languages: false,
+    references: false,
+  })
+
   return (
     <main className="main">
       <h1 className="title">NextStep</h1>
       <div className="container">
         <CVBuilder
-          // showForm={showForm}
-          // setShowForm={setShowForm}
-
           personalDetailsData={personalDetailsData}
           setPersonalDetailsData={setPersonalDetailsData}
           educationData={educationData}
@@ -54,6 +59,8 @@ function App() {
           setShowForm={setShowForm}
           showSection={showSection}
           setShowSection={setShowSection}
+          showPreview={showPreview}
+          setShowPreview={setShowPreview}
         />
 
         <CVPreview
@@ -63,9 +70,9 @@ function App() {
           skillsData={skillsData}
           languagesData={languagesData}
           referencesData={referencesData}
-          // showForm={showForm}
           showForm={showForm}
           showSection={showSection}
+          showPreview={showPreview}
         />
       </div>
     </main>

@@ -4,6 +4,7 @@ import PreviewSidebar from './PreviewSidebar'
 const CVPreview = ({
   showSection,
   showForm,
+  showPreview,
   personalDetailsData,
   educationData,
   employmentData,
@@ -16,6 +17,7 @@ const CVPreview = ({
       <PreviewSidebar
         showSection={showSection}
         showForm={showForm}
+        showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         skillsData={skillsData}
         languagesData={languagesData}
