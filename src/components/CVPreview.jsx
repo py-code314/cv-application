@@ -1,5 +1,6 @@
 import '../styles/CVPreview.css'
 import PreviewSidebar from './PreviewSidebar'
+import PreviewContent from './PreviewContent'
 
 const CVPreview = ({
   showSection,
@@ -23,13 +24,14 @@ const CVPreview = ({
         languagesData={languagesData}
         employmentData={employmentData}
       />
-      {/* <PreviewContent
+      <PreviewContent
         showForm={showForm}
+        showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}
         educationData={educationData}
         referencesData={referencesData}
-      /> */}
+      />
     </div>
   )
 }

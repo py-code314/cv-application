@@ -5,7 +5,7 @@ const PreviewIntro = ({
   personalDetailsData,
   employmentData,
   showForm,
-  showSection,
+  // showSection,
   showPreview,
 }) => {
 

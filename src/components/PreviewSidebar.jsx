@@ -12,8 +12,8 @@ const PreviewSidebar = ({
   showSection,
   showPreview,
 }) => {
-  console.log(showForm)
-  console.log(showPreview)
+  // console.log(showForm)
+  // console.log(showPreview)
   return (
     <div className="preview__sidebar">
       <PreviewIntro
