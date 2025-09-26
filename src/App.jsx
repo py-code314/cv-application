@@ -30,7 +30,7 @@ function App() {
   })
 
   const [showPreview, setShowPreview] = useState({
-    personalDetails: true,
+    personalDetails: false,
     education: false,
     employment: false,
     skills: false,

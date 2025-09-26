@@ -23,7 +23,14 @@ const PreviewSidebar = ({
         showSection={showSection}
         showPreview={showPreview}
       />
-      {
+      {showPreview.personalDetails && (
+        <PreviewPersonalDetails personalDetailsData={personalDetailsData} />
+      )}
+      {showPreview.languages && (
+        <PreviewLanguages languagesData={languagesData} />
+      )}
+      {showPreview.skills && <PreviewSkills skillsData={skillsData} />}
+      {/* {
         showPreview.personalDetails &&
         !showForm.personalDetails && (
           <PreviewPersonalDetails personalDetailsData={personalDetailsData} />
@@ -37,7 +44,7 @@ const PreviewSidebar = ({
         showPreview.skills &&
         !showForm.skills && (
           <PreviewSkills skillsData={skillsData} />
-        )}
+        )} */}
     </div>
   )
 }

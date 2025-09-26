@@ -4,7 +4,7 @@ import PreviewEducation from './PreviewEducation'
 import PreviewReferences from './PreviewReferences'
 
 const PreviewContent = ({
-  showForm,
+  // showForm,
   showPreview,
   personalDetailsData,
   employmentData,
@@ -13,7 +13,19 @@ const PreviewContent = ({
 }) => {
   return (
     <div className="preview__content">
-      {showPreview.personalDetails && !showForm.personalDetails && (
+      {showPreview.personalDetails && (
+        <PreviewProfile personalDetailsData={personalDetailsData} />
+      )}
+      {showPreview.employment && (
+        <PreviewEmployment employmentData={employmentData} />
+      )}
+      {showPreview.education && (
+        <PreviewEducation educationData={educationData} />
+      )}
+      {showPreview.references && (
+        <PreviewReferences referencesData={referencesData} />
+      )}
+      {/* {showPreview.personalDetails && !showForm.personalDetails && (
         <PreviewProfile personalDetailsData={personalDetailsData} />
       )}
       {showPreview.employment && !showForm.employment && (
@@ -24,7 +36,7 @@ const PreviewContent = ({
       )}
       {showPreview.references && !showForm.references && (
         <PreviewReferences referencesData={referencesData} />
-      )}
+      )} */}
     </div>
   )
 }

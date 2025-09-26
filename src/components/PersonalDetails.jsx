@@ -79,11 +79,10 @@ const PersonalDetails = ({ onSubmit, data }) => {
     })
     setInputStatus({
       ...inputStatus,
-      firstName: false,
-      lastName: false,
-      email: false,
-      // phoneNumber: false,
-      // * Change the values to initial state instead of false ??
+      firstName: personalInfo.firstName,
+      lastName: personalInfo.lastName,
+      email: personalInfo.email,
+      phoneNumber: personalInfo.phoneNumber,
     })
     setInputBlurred({
       ...inputBlurred,
