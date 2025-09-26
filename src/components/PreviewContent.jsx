@@ -1,6 +1,7 @@
 import PreviewProfile from './PreviewProfile'
 import PreviewEmployment from './PreviewEmployment'
 import PreviewEducation from './PreviewEducation'
+import PreviewReferences from './PreviewReferences'
 
 const PreviewContent = ({
   showForm,
@@ -20,6 +21,9 @@ const PreviewContent = ({
       )}
       {showPreview.education && !showForm.education && (
         <PreviewEducation educationData={educationData} />
+      )}
+      {showPreview.references && !showForm.references && (
+        <PreviewReferences referencesData={referencesData} />
       )}
     </div>
   )
