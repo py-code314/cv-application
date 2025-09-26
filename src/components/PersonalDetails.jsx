@@ -18,6 +18,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
     }
   )
 
+  // Assign dynamic values to properties to update state correctly
   const [inputStatus, setInputStatus] = useState({
     firstName: personalInfo.firstName,
     lastName: personalInfo.lastName,
@@ -81,7 +82,8 @@ const PersonalDetails = ({ onSubmit, data }) => {
       firstName: false,
       lastName: false,
       email: false,
-      phoneNumber: false,
+      // phoneNumber: false,
+      // * Change the values to initial state instead of false ??
     })
     setInputBlurred({
       ...inputBlurred,
@@ -126,11 +128,22 @@ const PersonalDetails = ({ onSubmit, data }) => {
 
   const handlePhoneNumberValidation = () => {
     const phoneNumberRegExp = /^(\d{10}|\d{3}[-\s.]\d{3}[-\s.]\d{4})$/
-    setInputBlurred({ ...inputBlurred, phoneNumber: true })
-    if (phoneNumberRegExp.test(personalInfo.phoneNumber)) {
+    const isEmpty = !personalInfo.phoneNumber
+    const isValid =
+      personalInfo.phoneNumber &&
+      phoneNumberRegExp.test(personalInfo.phoneNumber)
+    const isInvalid =
+      personalInfo.phoneNumber &&
+      !phoneNumberRegExp.test(personalInfo.phoneNumber)
+
+    if (isEmpty) {
       setInputStatus({ ...inputStatus, phoneNumber: true })
-    } else {
+    } else if (isValid) {
+      setInputStatus({ ...inputStatus, phoneNumber: true })
+      setInputBlurred({ ...inputBlurred, phoneNumber: true })
+    } else if (isInvalid) {
       setInputStatus({ ...inputStatus, phoneNumber: false })
+      setInputBlurred({ ...inputBlurred, phoneNumber: true })
     }
   }
 

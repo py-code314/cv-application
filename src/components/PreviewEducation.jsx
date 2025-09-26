@@ -7,7 +7,10 @@ const PreviewEducation = ({ educationData }) => {
       {educationData.map((education) => (
         <div key={education.id}>
           <p className="preview__subheading">{`${education.degree}, ${education.schoolName}, ${education.city}`}</p>
-          <p>{`${formatMonth(education.startDate)} - ${formatMonth(education.endDate)}`}</p>
+
+          <p>{`${formatMonth(education.startDate)} - ${formatMonth(
+            education.endDate
+          )}`}</p>
           <ul className="preview__list">
             {education.description.split('\n').map((line, index) => (
               <li key={index}>{line}</li>
