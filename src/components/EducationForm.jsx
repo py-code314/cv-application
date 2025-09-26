@@ -158,7 +158,7 @@ const EducationForm = ({
             Description
           </label>
           <span className="form__hint">
-            Summarize your academic experience, projects, or accomplishments.
+            List your academic experience, projects, or accomplishments.
           </span>
           <textarea
             name="description"

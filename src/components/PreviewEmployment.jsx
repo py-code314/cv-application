@@ -3,7 +3,7 @@ import { formatMonth } from '../scripts/dates'
 
 const PreviewEmployment = ({ employmentData }) => {
   return (
-    <div className="preview__employment">
+    <div className="preview__employment category-preview">
       <h2>Employment History</h2>
       {employmentData.map((employment) => (
         <div key={employment.id}>

@@ -1,5 +1,6 @@
 import PreviewProfile from './PreviewProfile'
 import PreviewEmployment from './PreviewEmployment'
+import PreviewEducation from './PreviewEducation'
 
 const PreviewContent = ({
   showForm,
@@ -16,6 +17,9 @@ const PreviewContent = ({
       )}
       {showPreview.employment && !showForm.employment && (
         <PreviewEmployment employmentData={employmentData} />
+      )}
+      {showPreview.education && !showForm.education && (
+        <PreviewEducation educationData={educationData} />
       )}
     </div>
   )
