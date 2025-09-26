@@ -1,4 +1,5 @@
-import PreviewProfile from "./PreviewProfile";
+import PreviewProfile from './PreviewProfile'
+import PreviewEmployment from './PreviewEmployment'
 
 const PreviewContent = ({
   showForm,
@@ -12,10 +13,12 @@ const PreviewContent = ({
     <div className="preview__content">
       {showPreview.personalDetails && !showForm.personalDetails && (
         <PreviewProfile personalDetailsData={personalDetailsData} />
-        
+      )}
+      {showPreview.employment && !showForm.employment && (
+        <PreviewEmployment employmentData={employmentData} />
       )}
     </div>
   )
 }
- 
-export default PreviewContent;
+
+export default PreviewContent

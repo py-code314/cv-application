@@ -1,0 +1,14 @@
+.preview__employment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+}
+
+.preview__subheading {
+  font-weight: var(--fw-bold);
+}
+
+.preview__list {
+  list-style-type: disc;
+  padding-inline-start: var(--space-400);
+}

@@ -19,3 +19,15 @@ export const generateMinDate = (date) => {
 
   return formattedMinDate
 }
+
+export const formatMonth = (date) => {
+  console.log('Date short:', date)
+  const dateString = new Date(date + '-15')
+  const options = { year: 'numeric', month: 'short', timeZone: 'UTC' }
+
+  const formattedDate = new Date(dateString).toLocaleDateString(
+    'en-US',
+    options
+  )
+  return formattedDate
+}

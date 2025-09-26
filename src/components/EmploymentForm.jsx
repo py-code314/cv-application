@@ -76,7 +76,10 @@ const EmploymentForm = ({
   }
   return (
     <div className="employment-form">
-      <form className="form" id='employment' onSubmit={handleEmploymentFormSubmit}>
+      <form
+        className="form"
+        id="employment"
+        onSubmit={handleEmploymentFormSubmit}>
         <div className="form__control">
           <label htmlFor="jobTitle" className="form__label">
             Job Title
@@ -155,7 +158,7 @@ const EmploymentForm = ({
           <label htmlFor="description" className="form__label">
             Description
           </label>
-
+          <span className="form__hint">List your responsibilities, achievements etc. here</span>
           <textarea
             name="description"
             id="description"
