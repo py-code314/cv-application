@@ -6,15 +6,22 @@ const PreviewEducation = ({ educationData }) => {
       <h2>Education </h2>
       {educationData.map((education) => (
         <div key={education.id}>
-          <p className="preview__subheading">{`${education.degree}, ${education.schoolName}, ${education.city}`}</p>
+          <p className="preview__subheading">
+            {education.degree && `${education.degree}`}
+            {education.schoolName && `, ${education.schoolName}`}
+            {education.city && `, ${education.city}`}
+          </p>
 
-          <p>{`${formatMonth(education.startDate)} - ${formatMonth(
-            education.endDate
-          )}`}</p>
+          <p>
+            {education.startDate && `${formatMonth(education.startDate)} -`}
+            {education.endDate && ` ${formatMonth(education.endDate)}`}
+          </p>
+
           <ul className="preview__list">
-            {education.description.split('\n').map((line, index) => (
-              <li key={index}>{line}</li>
-            ))}
+            {education.description &&
+              education.description
+                .split('\n')
+                .map((line, index) => <li key={index}>{line}</li>)}
           </ul>
         </div>
       ))}
