@@ -1,5 +1,6 @@
-import spockHand from '../assets/images/icon-spock-hand.svg'
+// import spockHand from '../assets/images/icon-spock-hand.svg'
 import '../styles/PreviewIntro.css'
+import personIcon from '../assets/images/icon-person.svg'
 
 const PreviewIntro = ({
   personalDetailsData,
@@ -25,7 +26,7 @@ const PreviewIntro = ({
   return (
     <div className="preview__intro">
       <div className="preview__img-container">
-        <img className="preview__img" src={spockHand} alt="" />
+        <img className="preview__img" src={personIcon} alt="" />
       </div>
       <p className="preview__name">{fullName}</p>
       <hr />

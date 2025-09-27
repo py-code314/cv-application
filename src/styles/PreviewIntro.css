@@ -3,13 +3,16 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-70);
+  align-items: center;
+  text-align: center;
+  /* font-size: var(--fs-300); */
 }
 
 .preview__img-container {
   background-color: var(--clr-white);
   border-radius: var(--radius-circle);
-  width: var(--space-2100);
-  height: var(--space-2100);
+  width: var(--space-1200);
+  height: var(--space-1200);
 }
 
 hr {
@@ -17,10 +20,11 @@ hr {
 }
 
 .preview__name {
-  font-size: var(--fs-600);
+  font-size: var(--fs-400);
   font-weight: var(--fw-bold);
 }
 
 .preview__job {
   text-transform: uppercase;
+  /* font-size: var(--fs-200); */
 }

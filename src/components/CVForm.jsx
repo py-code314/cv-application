@@ -57,7 +57,7 @@ const CVForm = ({
     setShowPreview({ ...showPreview, [currentForm]: true })
     setAddForm(false)
     setterFuncEntry(null)
-    console.log(data)
+    // console.log(data)
     if (data.length > 0) {
       const entryExists = data.some((prevEntry) => prevEntry.id === formData.id)
       if (entryExists) {

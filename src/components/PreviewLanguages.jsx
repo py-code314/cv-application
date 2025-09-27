@@ -1,8 +1,8 @@
 const PreviewLanguages = ({ languagesData }) => {
-  console.log(languagesData)
+  // console.log(languagesData)
   return (
     <div className="preview__languages section-preview">
-      <h2>Languages</h2>
+      <h2 className="preview__heading">Languages</h2>
       <ul className="languages">
         {languagesData.map((language) => (
           <li key={language.id}>{language.languageName}</li>

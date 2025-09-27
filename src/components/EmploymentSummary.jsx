@@ -60,7 +60,11 @@ const EmploymentSummary = ({
       {entry.description && (
         <div className="detail">
           <h3>Description:</h3>
-          <p>{entry.description}</p>
+          <ul>
+            {entry.description.split('\n').map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </ul>
         </div>
       )}
 

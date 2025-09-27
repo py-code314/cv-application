@@ -27,7 +27,6 @@ const EducationSummary = ({
         <h2 className="summary__title">Education Details</h2>
         <EditButton onClick={() => handleEditForm(entry.id)} />
       </div>
-
       {entry.degree && (
         <div className="detail">
           <h3>Degree:</h3>
@@ -46,7 +45,6 @@ const EducationSummary = ({
           <p>{entry.city}</p>
         </div>
       )}
-
       {entry.startDate && (
         <div className="detail">
           <h3>Start Date:</h3>
@@ -59,10 +57,15 @@ const EducationSummary = ({
           <p>{entry.endDate}</p>
         </div>
       )}
+
       {entry.description && (
         <div className="detail">
           <h3>Description:</h3>
-          <p>{entry.description}</p>
+          <ul>
+            {entry.description.split('\n').map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </ul>
         </div>
       )}
 
