@@ -1,7 +1,6 @@
-.section-preview {
+.section-sidebar {
   display: flex;
   flex-direction: column;
-  /* gap: var(--space-100); */
   color: var(--clr-white);
   padding-inline-start: var(--space-300);
 }

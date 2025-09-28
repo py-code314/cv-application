@@ -5,8 +5,8 @@ const EmploymentForm = ({
   employmentDetails,
   setEmploymentDetails,
   onSubmit,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const today = new Date()
@@ -68,8 +68,8 @@ const EmploymentForm = ({
     e.preventDefault()
     onSubmit(
       e.target.id,
-      setterFuncEntry,
-      setterFuncData,
+      setEntryToEdit,
+      setData,
       employmentDetails,
       data
     )

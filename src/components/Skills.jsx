@@ -3,13 +3,13 @@ import SkillForm from './SkillForm'
 
 const Skills = ({
   onSubmit,
-  editEntry,
-  setterFuncEntry,
-  setterFuncData,
+  entryToEdit,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const [skill, setSkill] = useState(
-    editEntry || {
+    entryToEdit || {
       id: crypto.randomUUID(),
       type: 'skills',
       skillName: '',
@@ -22,13 +22,13 @@ const Skills = ({
         Choose 5 important skills that show you fit the position. Make sure they
         match the key skills mentioned in the job listing.
       </p>
-      <div className="skills__form submission">
+      <div className="skills__form form--submit">
         <SkillForm
           skill={skill}
           setSkill={setSkill}
           onSubmit={onSubmit}
-          setterFuncEntry={setterFuncEntry}
-          setterFuncData={setterFuncData}
+          setEntryToEdit={setEntryToEdit}
+          setData={setData}
           data={data}
         />
       </div>

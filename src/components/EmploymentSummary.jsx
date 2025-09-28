@@ -5,18 +5,18 @@ const EmploymentSummary = ({
   data,
   onEdit,
   onDelete,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
 }) => {
   const handleEditForm = (id) => {
     data.map(
-      (entry) => entry.id === id && onEdit(setterFuncEntry, entry, entry.type)
+      (entry) => entry.id === id && onEdit(setEntryToEdit, entry, entry.type)
     )
   }
 
   const handleDeleteEntry = (id) => {
     data.map(
-      (entry) => entry.id === id && onDelete(data, setterFuncData, entry)
+      (entry) => entry.id === id && onDelete(data, setData, entry)
     )
   }
   return data.map((entry) => (

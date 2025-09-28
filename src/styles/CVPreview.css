@@ -4,16 +4,3 @@
   display: flex;
   font-size: var(--fs-200);
 }
-
-/* .preview__sidebar {
- 
-  width: 30%;
-  background-color: var(--clr-midnight-green);
-  padding: var(--space-800);
-} */
-
-/* .preview__content {
-
-  width: 70%;
-  padding: var(--space-800);
-} */

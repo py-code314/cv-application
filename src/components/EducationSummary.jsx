@@ -1,4 +1,4 @@
-import '../styles/EducationSummary.css'
+
 import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
 
@@ -6,19 +6,19 @@ const EducationSummary = ({
   data,
   onEdit,
   onDelete,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
 }) => {
   const handleEditForm = (id) => {
     data.map(
-      (entry) => entry.id === id && onEdit(setterFuncEntry, entry, entry.type)
+      (entry) => entry.id === id && onEdit(setEntryToEdit, entry, entry.type)
     )
   }
 
   const handleDeleteEntry = (id) => {
-    console.log(data)
+    // console.log(data)
     data.map(
-      (entry) => entry.id === id && onDelete(data, setterFuncData, entry)
+      (entry) => entry.id === id && onDelete(data, setData, entry)
     )
   }
   return data.map((entry) => (

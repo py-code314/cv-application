@@ -1,7 +1,7 @@
 const PreviewSkills = ({ skillsData }) => {
   // console.log(skillsData)
   return (
-    <div className="preview__skills section-preview">
+    <div className="preview__skills section-sidebar">
       <h2 className="preview__heading">Skills</h2>
       <ul className="skills">
         {skillsData.map((skill) => (

@@ -1,10 +1,10 @@
-import '../styles/PreviewEmployment.css'
+
 import { formatMonth } from '../scripts/dates'
 
 const PreviewEmployment = ({ employmentData }) => {
   return (
-    <div className="preview__employment category-preview">
-      <h2 className='preview__heading'>Employment History</h2>
+    <div className="preview__employment section-content">
+      <h2 className="preview__heading">Employment History</h2>
       {employmentData.map((employment) => (
         <div key={employment.id}>
           <p className="preview__subheading">

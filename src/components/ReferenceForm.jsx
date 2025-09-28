@@ -4,8 +4,8 @@ const ReferenceForm = ({
   referenceDetails,
   setReferenceDetails,
   onSubmit,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const handleFullNameChange = (e) => {
@@ -37,8 +37,8 @@ const ReferenceForm = ({
     e.preventDefault()
     onSubmit(
       e.target.id,
-      setterFuncEntry,
-      setterFuncData,
+      setEntryToEdit,
+      setData,
       referenceDetails,
       data
     )

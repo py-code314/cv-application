@@ -1,6 +1,6 @@
 const PreviewReferences = ({ referencesData }) => {
   return (
-    <div className="preview__references category-preview">
+    <div className="preview__references section-content">
       <h2 className="preview__heading">References </h2>
       {referencesData.map((reference) => (
         <div key={reference.id}>

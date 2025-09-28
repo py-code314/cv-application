@@ -1,29 +1,14 @@
 .btns--nav {
-  justify-content: space-between;
   background-color: var(--clr-white);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-1);
-  /* gap: var(--space-400); */
+  gap: var(--space-1600);
 }
 
 .btn--nav {
   background-color: var(--clr-blue);
 }
 
-.btn--prev,
-.btn--next {
-  width: 45%;
-}
-
 .btn--next {
   margin-left: auto;
-}
-
-
-.btn:disabled {
-  background-color: #ccc;
-  color: var(--clr-black);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }

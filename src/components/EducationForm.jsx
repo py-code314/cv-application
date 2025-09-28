@@ -5,8 +5,8 @@ const EducationForm = ({
   educationDetails,
   setEducationDetails,
   onSubmit,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const today = new Date()
@@ -68,8 +68,8 @@ const EducationForm = ({
     e.preventDefault()
     onSubmit(
       e.target.id,
-      setterFuncEntry,
-      setterFuncData,
+      setEntryToEdit,
+      setData,
       educationDetails,
       data
     )
@@ -158,7 +158,7 @@ const EducationForm = ({
             Description
           </label>
           <span className="form__hint">
-            List your academic experience, projects, or accomplishments.
+            List your academic experience, projects, and accomplishments.
           </span>
           <textarea
             name="description"

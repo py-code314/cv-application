@@ -1,6 +1,8 @@
-const DeleteButton = ({ onClick}) => {
+import '../styles/DeleteButton.css'
+
+const DeleteButton = ({ onClick }) => {
   return (
-    <div className="btn-container">
+    <div className="delete-btn-container">
       <button
         className="btn btn--delete"
         type="button"

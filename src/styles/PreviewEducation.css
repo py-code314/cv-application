@@ -1,4 +1,4 @@
-.category-preview {
+.section-content{
   display: flex;
   flex-direction: column;
   gap: var(--space-40);
@@ -6,7 +6,7 @@
 
 .preview__subheading {
   font-weight: var(--fw-bold);
-  /* font-size: var(--fs-250); */
+
 }
 
 .preview__list {

@@ -4,8 +4,8 @@ const LanguageForm = ({
   language,
   setLanguage,
   onSubmit,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const handleLanguageChange = (e) => {
@@ -23,7 +23,7 @@ const LanguageForm = ({
 
   const handleLanguageSubmit = (e) => {
     e.preventDefault()
-    onSubmit(e.target.id, setterFuncEntry, setterFuncData, language, data)
+    onSubmit(e.target.id, setEntryToEdit, setData, language, data)
   }
   return (
     <div className="language-form">

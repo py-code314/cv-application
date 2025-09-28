@@ -4,14 +4,14 @@ import TitleButton from './TitleButton'
 
 const Education = ({
   onSubmit,
-  editEntry,
-  setterFuncEntry,
-  setterFuncData,
+  entryToEdit,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const [collapse, setCollapse] = useState(false)
   const [educationDetails, setEducationDetails] = useState(
-    editEntry || {
+    entryToEdit || {
       id: crypto.randomUUID(),
       type: 'education',
       degree: '',
@@ -31,7 +31,7 @@ const Education = ({
         details about your education can help recruiters understand your
         background and expertise.
       </p>
-      <div className="education__form submission">
+      <div className="education__form form--submit">
         <TitleButton
           educationDetails={educationDetails}
           onClick={setCollapse}
@@ -42,8 +42,8 @@ const Education = ({
             educationDetails={educationDetails}
             setEducationDetails={setEducationDetails}
             onSubmit={onSubmit}
-            setterFuncEntry={setterFuncEntry}
-            setterFuncData={setterFuncData}
+            setEntryToEdit={setEntryToEdit}
+            setData={setData}
             data={data}
           />
         )}

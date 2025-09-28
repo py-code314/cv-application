@@ -3,13 +3,13 @@ import ReferenceForm from './ReferenceForm'
 
 const References = ({
   onSubmit,
-  editEntry,
-  setterFuncEntry,
-  setterFuncData,
+  entryToEdit,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const [referenceDetails, setReferenceDetails] = useState(
-    editEntry || {
+    entryToEdit || {
       id: crypto.randomUUID(),
       type: 'references',
       fullName: '',
@@ -24,13 +24,13 @@ const References = ({
       <p className="references__instructions">
         Please include a list of professional references.
       </p>
-      <div className="references__form submission">
+      <div className="references__form form--submit">
         <ReferenceForm
           referenceDetails={referenceDetails}
           setReferenceDetails={setReferenceDetails}
           onSubmit={onSubmit}
-          setterFuncEntry={setterFuncEntry}
-          setterFuncData={setterFuncData}
+          setEntryToEdit={setEntryToEdit}
+          setData={setData}
           data={data}
         />
       </div>

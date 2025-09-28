@@ -11,7 +11,7 @@ const PreviewPersonalDetails = ({ personalDetailsData }) => {
   const country = personalDetailsData.country
 
   return (
-    <div className="preview__personal-info section-preview">
+    <div className="preview__personal-info section-sidebar">
       <h2 className="preview__heading">Personal Details</h2>
       <address>
         <p>{fullName}</p>

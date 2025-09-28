@@ -17,27 +17,16 @@ const PreviewContent = ({
       {showPreview.personalDetails && (
         <PreviewProfile personalDetailsData={personalDetailsData} />
       )}
-      {showPreview.employment && (
+      {/* Add condition 'length > 0', to not display the section heading if section data is empty */}
+      {showPreview.employment && employmentData.length > 0 && (
         <PreviewEmployment employmentData={employmentData} />
       )}
-      {showPreview.education && (
+      {showPreview.education && educationData.length > 0 && (
         <PreviewEducation educationData={educationData} />
       )}
-      {showPreview.references && (
+      {showPreview.references && referencesData.length > 0 && (
         <PreviewReferences referencesData={referencesData} />
       )}
-      {/* {showPreview.personalDetails && !showForm.personalDetails && (
-        <PreviewProfile personalDetailsData={personalDetailsData} />
-      )}
-      {showPreview.employment && !showForm.employment && (
-        <PreviewEmployment employmentData={employmentData} />
-      )}
-      {showPreview.education && !showForm.education && (
-        <PreviewEducation educationData={educationData} />
-      )}
-      {showPreview.references && !showForm.references && (
-        <PreviewReferences referencesData={referencesData} />
-      )} */}
     </div>
   )
 }

@@ -1,9 +1,4 @@
-.btn--add:hover {
-  background-color: var(--clr-gray);
-}
-
 .btn--add {
-  /* color: #025192; */
   color: var(--clr-charcoal);
   display: flex;
   gap: var(--space-100);
@@ -12,8 +7,7 @@
   margin-block-start: var(--space-400);
 }
 
-.btn--add:hover,
-.btn--add:focus {
+.btn--add:hover {
   transform: none;
   box-shadow: none;
   background-color: var(--clr-gray);

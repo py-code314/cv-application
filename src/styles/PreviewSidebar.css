@@ -5,6 +5,5 @@
   width: 30%;
   background-color: var(--clr-midnight-green);
   padding: var(--space-1000);
-
   overflow-y: auto;
 }

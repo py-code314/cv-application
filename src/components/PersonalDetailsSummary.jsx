@@ -1,7 +1,7 @@
 import '../styles/PersonalDetailsSummary.css'
 import EditButton from './EditButton'
 
-const PersonalDetailsSummary = ({ data, onEdit }) => {
+const PersonalDetailsSummary = ({ personalEntry, onEdit }) => {
   const {
     firstName,
     lastName,
@@ -11,14 +11,14 @@ const PersonalDetailsSummary = ({ data, onEdit }) => {
     state,
     country,
     aboutMe,
-  } = data
+  } = personalEntry
 
   return (
     <div className="summary">
       <div className="summary__header">
         <h2 className="summary__title">Personal Details</h2>
 
-        <EditButton onClick={() => onEdit(data)} />
+        <EditButton onClick={() => onEdit(personalEntry)} />
       </div>
       <div className="detail">
         <h3>First Name:</h3>

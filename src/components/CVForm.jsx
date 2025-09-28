@@ -35,11 +35,11 @@ const CVForm = ({
 }) => {
   const [addForm, setAddForm] = useState(false)
 
-  const [editEducationEntry, setEditEducationEntry] = useState(null)
-  const [editEmploymentEntry, setEditEmploymentEntry] = useState(null)
-  const [editSkillEntry, setEditSkillEntry] = useState(null)
-  const [editLanguageEntry, setEditLanguageEntry] = useState(null)
-  const [editReferenceEntry, setEditReferenceEntry] = useState(null)
+  const [educationToEdit, setEducationToEdit] = useState(null)
+  const [employmentToEdit, setEmploymentToEdit] = useState(null)
+  const [skillToEdit, setSkillToEdit] = useState(null)
+  const [languageToEdit, setLanguageToEdit] = useState(null)
+  const [referenceToEdit, setReferenceToEdit] = useState(null)
 
   const handlePersonalDetailsSubmit = (formData) => {
     setShowForm({ ...showForm, personalDetails: false })
@@ -48,15 +48,16 @@ const CVForm = ({
   }
   const handleFormDataSubmit = (
     currentForm,
-    setterFuncEntry,
-    setterFuncData,
+    setEntryToEdit,
+    setData,
     formData,
     data
   ) => {
     setShowForm({ ...showForm, [currentForm]: false })
     setShowPreview({ ...showPreview, [currentForm]: true })
     setAddForm(false)
-    setterFuncEntry(null)
+    // Set value to null so that entryToEdit is assigned a new value each time Edit button is clicked
+    setEntryToEdit(null)
     // console.log(data)
     if (data.length > 0) {
       const entryExists = data.some((prevEntry) => prevEntry.id === formData.id)
@@ -64,12 +65,12 @@ const CVForm = ({
         const updatedData = data.map((prevEntry) =>
           prevEntry.id === formData.id ? formData : prevEntry
         )
-        setterFuncData(updatedData)
+        setData(updatedData)
       } else {
-        setterFuncData([...data, formData])
+        setData([...data, formData])
       }
     } else {
-      setterFuncData([...data, formData])
+      setData([...data, formData])
     }
   }
 
@@ -79,20 +80,20 @@ const CVForm = ({
     setShowForm({ ...showForm, personalDetails: true })
     setShowPreview({ ...showPreview, personalDetails: false })
   }
-  const handleEditForm = (setEditEntry, entry, currentForm) => {
-    console.log(currentForm)
-    setEditEntry(entry)
+  const handleEditForm = (setEntryToEdit, entry, entryType) => {
+    // console.log(entryType)
+    setEntryToEdit(entry)
 
-    setShowForm({ ...showForm, [currentForm]: true })
-    setShowPreview({ ...showPreview, [currentForm]: false })
+    setShowForm({ ...showForm, [entryType]: true })
+    setShowPreview({ ...showPreview, [entryType]: false })
   }
 
-  const handleDeleteEntry = (data, setterFuncData, entry) => {
+  const handleDeleteEntry = (data, setData, entry) => {
     const updatedData = data.filter(
       (existingEntry) => existingEntry.id !== entry.id
     )
-    setterFuncData(updatedData)
-    // TODO: Update showForm and showPreview after deleting an entry?
+    setData(updatedData)
+    
   }
 
   return (
@@ -100,12 +101,12 @@ const CVForm = ({
       {showSection.personalDetails ? (
         showForm.personalDetails ? (
           <PersonalDetails
-            data={personalDetailsData}
+            personalEntry={personalDetailsData}
             onSubmit={handlePersonalDetailsSubmit}
           />
         ) : (
           <PersonalDetailsSummary
-            data={personalDetailsData}
+            personalEntry={personalDetailsData}
             onEdit={handlePersonalEditForm}
           />
         )
@@ -117,9 +118,9 @@ const CVForm = ({
             <Education
               addForm={addForm}
               onSubmit={handleFormDataSubmit}
-              editEntry={editEducationEntry}
-              setterFuncEntry={setEditEducationEntry}
-              setterFuncData={setEducationData}
+              entryToEdit={educationToEdit}
+              setEntryToEdit={setEducationToEdit}
+              setData={setEducationData}
               data={educationData}
             />
           </div>
@@ -128,8 +129,8 @@ const CVForm = ({
             <EducationSummary
               data={educationData}
               onEdit={handleEditForm}
-              setterFuncEntry={setEditEducationEntry}
-              setterFuncData={setEducationData}
+              setEntryToEdit={setEducationToEdit}
+              setData={setEducationData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -146,9 +147,9 @@ const CVForm = ({
             <Employment
               addForm={addForm}
               onSubmit={handleFormDataSubmit}
-              editEntry={editEmploymentEntry}
-              setterFuncEntry={setEditEmploymentEntry}
-              setterFuncData={setEmploymentData}
+              entryToEdit={employmentToEdit}
+              setEntryToEdit={setEmploymentToEdit}
+              setData={setEmploymentData}
               data={employmentData}
             />
           </div>
@@ -157,8 +158,8 @@ const CVForm = ({
             <EmploymentSummary
               data={employmentData}
               onEdit={handleEditForm}
-              setterFuncEntry={setEditEmploymentEntry}
-              setterFuncData={setEmploymentData}
+              setEntryToEdit={setEmploymentToEdit}
+              setData={setEmploymentData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -175,9 +176,9 @@ const CVForm = ({
             <Skills
               addForm={addForm}
               onSubmit={handleFormDataSubmit}
-              editEntry={editSkillEntry}
-              setterFuncEntry={setEditSkillEntry}
-              setterFuncData={setSkillsData}
+              entryToEdit={skillToEdit}
+              setEntryToEdit={setSkillToEdit}
+              setData={setSkillsData}
               data={skillsData}
             />
           </div>
@@ -186,8 +187,8 @@ const CVForm = ({
             <SkillsSummary
               data={skillsData}
               onEdit={handleEditForm}
-              setterFuncEntry={setEditSkillEntry}
-              setterFuncData={setSkillsData}
+              setEntryToEdit={setSkillToEdit}
+              setData={setSkillsData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -204,9 +205,9 @@ const CVForm = ({
             <Languages
               addForm={addForm}
               onSubmit={handleFormDataSubmit}
-              editEntry={editLanguageEntry}
-              setterFuncEntry={setEditLanguageEntry}
-              setterFuncData={setLanguagesData}
+              entryToEdit={languageToEdit}
+              setEntryToEdit={setLanguageToEdit}
+              setData={setLanguagesData}
               data={languagesData}
             />
           </div>
@@ -215,8 +216,8 @@ const CVForm = ({
             <LanguagesSummary
               data={languagesData}
               onEdit={handleEditForm}
-              setterFuncEntry={setEditLanguageEntry}
-              setterFuncData={setLanguagesData}
+              setEntryToEdit={setLanguageToEdit}
+              setData={setLanguagesData}
               onDelete={handleDeleteEntry}
             />
             <AddButton
@@ -233,9 +234,9 @@ const CVForm = ({
             <References
               addForm={addForm}
               onSubmit={handleFormDataSubmit}
-              editEntry={editReferenceEntry}
-              setterFuncEntry={setEditReferenceEntry}
-              setterFuncData={setReferencesData}
+              entryToEdit={referenceToEdit}
+              setEntryToEdit={setReferenceToEdit}
+              setData={setReferencesData}
               data={referencesData}
             />
           </div>
@@ -244,8 +245,8 @@ const CVForm = ({
             <ReferencesSummary
               data={referencesData}
               onEdit={handleEditForm}
-              setterFuncEntry={setEditReferenceEntry}
-              setterFuncData={setReferencesData}
+              setEntryToEdit={setReferenceToEdit}
+              setData={setReferencesData}
               onDelete={handleDeleteEntry}
             />
             <AddButton

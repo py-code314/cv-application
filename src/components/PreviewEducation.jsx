@@ -3,8 +3,8 @@ import '../styles/PreviewEducation.css'
 
 const PreviewEducation = ({ educationData }) => {
   return (
-    <div className="preview__education category-preview">
-      <h2 className='preview__heading'>Education </h2>
+    <div className="preview__education section-content">
+      <h2 className="preview__heading">Education </h2>
       {educationData.map((education) => (
         <div key={education.id}>
           <p className="preview__subheading">

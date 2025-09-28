@@ -3,13 +3,13 @@ import LanguageForm from './LanguageForm'
 
 const Languages = ({
   onSubmit,
-  editEntry,
-  setterFuncEntry,
-  setterFuncData,
+  entryToEdit,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const [language, setLanguage] = useState(
-    editEntry || {
+    entryToEdit || {
       id: crypto.randomUUID(),
       type: 'languages',
       languageName: '',
@@ -21,13 +21,13 @@ const Languages = ({
       <p className="languages__instructions">
         List all languages in which you're proficient.
       </p>
-      <div className="languages__form submission">
+      <div className="languages__form form--submit">
         <LanguageForm
           language={language}
           setLanguage={setLanguage}
           onSubmit={onSubmit}
-          setterFuncEntry={setterFuncEntry}
-          setterFuncData={setterFuncData}
+          setEntryToEdit={setEntryToEdit}
+          setData={setData}
           data={data}
         />
       </div>

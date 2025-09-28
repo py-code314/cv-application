@@ -1,7 +1,7 @@
 const PreviewLanguages = ({ languagesData }) => {
   // console.log(languagesData)
   return (
-    <div className="preview__languages section-preview">
+    <div className="preview__languages section-sidebar">
       <h2 className="preview__heading">Languages</h2>
       <ul className="languages">
         {languagesData.map((language) => (
@@ -10,7 +10,6 @@ const PreviewLanguages = ({ languagesData }) => {
       </ul>
     </div>
   )
-  
 }
- 
-export default PreviewLanguages;
+
+export default PreviewLanguages

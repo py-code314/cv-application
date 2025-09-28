@@ -26,25 +26,13 @@ const PreviewSidebar = ({
       {showPreview.personalDetails && (
         <PreviewPersonalDetails personalDetailsData={personalDetailsData} />
       )}
-      {showPreview.languages && (
+      {/* Add condition 'length > 0', to not display the section heading if section data is empty */}
+      {showPreview.languages && languagesData.length > 0 && (
         <PreviewLanguages languagesData={languagesData} />
       )}
-      {showPreview.skills && <PreviewSkills skillsData={skillsData} />}
-      {/* {
-        showPreview.personalDetails &&
-        !showForm.personalDetails && (
-          <PreviewPersonalDetails personalDetailsData={personalDetailsData} />
-        )}
-      {
-        showPreview.languages &&
-        !showForm.languages && (
-          <PreviewLanguages languagesData={languagesData} />
-        )}
-      {
-        showPreview.skills &&
-        !showForm.skills && (
-          <PreviewSkills skillsData={skillsData} />
-        )} */}
+      {showPreview.skills && skillsData.length > 0 && (
+        <PreviewSkills skillsData={skillsData} />
+      )}
     </div>
   )
 }

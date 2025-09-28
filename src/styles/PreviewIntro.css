@@ -5,7 +5,6 @@
   gap: var(--space-70);
   align-items: center;
   text-align: center;
-  /* font-size: var(--fs-300); */
 }
 
 .preview__img-container {
@@ -26,5 +25,4 @@ hr {
 
 .preview__job {
   text-transform: uppercase;
-  /* font-size: var(--fs-200); */
 }

@@ -1,4 +1,3 @@
-// import spockHand from '../assets/images/icon-spock-hand.svg'
 import '../styles/PreviewIntro.css'
 import personIcon from '../assets/images/icon-person.svg'
 
@@ -13,15 +12,9 @@ const PreviewIntro = ({
   if (showPreview.personalDetails) {
     fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`
   }
-  if (showPreview.employment) {
+  if (showPreview.employment && employmentData.length > 0) {
     currentJob = employmentData[0].jobTitle
   }
-  // if (showPreview.personalDetails && !showForm.personalDetails) {
-  //   fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`
-  // }
-  // if (showPreview.employment && !showForm.employment) {
-  //   currentJob = employmentData[0].jobTitle
-  // }
 
   return (
     <div className="preview__intro">

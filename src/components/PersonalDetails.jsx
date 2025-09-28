@@ -4,9 +4,9 @@ import checkMarkIcon from '../assets/images/icon-check.svg'
 import errorIcon from '../assets/images/icon-error.svg'
 import FormButtons from './FormButtons'
 
-const PersonalDetails = ({ onSubmit, data }) => {
+const PersonalDetails = ({ onSubmit, personalEntry }) => {
   const [personalInfo, setPersonalInfo] = useState(
-    data || {
+    personalEntry || {
       firstName: '',
       lastName: '',
       email: '',
@@ -162,7 +162,7 @@ const PersonalDetails = ({ onSubmit, data }) => {
         positive feedback from recruiters.
       </p>
       <form
-        className="form personal-info__form submission"
+        className="form personal-info__form form--submit"
         noValidate
         onSubmit={handleFormValidation}>
         <div className="form__control">

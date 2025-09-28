@@ -4,8 +4,8 @@ const SkillForm = ({
   skill,
   setSkill,
   onSubmit,
-  setterFuncEntry,
-  setterFuncData,
+  setEntryToEdit,
+  setData,
   data,
 }) => {
   const handleSkillChange = (e) => {
@@ -18,7 +18,7 @@ const SkillForm = ({
 
   const handleSkillSubmit = (e) => {
     e.preventDefault()
-    onSubmit(e.target.id, setterFuncEntry, setterFuncData, skill, data)
+    onSubmit(e.target.id, setEntryToEdit, setData, skill, data)
   }
   return (
     <div className="skill-form">
