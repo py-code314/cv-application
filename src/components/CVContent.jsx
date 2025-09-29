@@ -1,4 +1,7 @@
 import CVProfile from "./CVProfile";
+import CVEmployment from './CVEmployment'
+import CVEducation from './CVEducation'
+import CVReferences from "./CVReferences";
 
 const CVContent = ({
   showPreview,
@@ -15,6 +18,12 @@ const CVContent = ({
       {/* Add condition 'length > 0', to not display the section heading if section data is empty */}
       {showPreview.employment && employmentData.length > 0 && (
         <CVEmployment employmentData={employmentData} />
+      )}
+      {showPreview.education && educationData.length > 0 && (
+        <CVEducation educationData={educationData} />
+      )}
+      {showPreview.references && referencesData.length > 0 && (
+        <CVReferences referencesData={referencesData} />
       )}
     </div>
   )
