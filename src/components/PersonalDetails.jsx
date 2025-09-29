@@ -154,6 +154,16 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
     }
   }
 
+  let emailAriaDescription = 'email-hint'
+  if (!inputStatus.email && (inputBlurred.email || formSubmission)) {
+    emailAriaDescription += 'invalid-email'
+  }
+
+  let phoneAriaDescription = 'phone-hint'
+  if (!inputStatus.phoneNumber && inputBlurred.phoneNumber) {
+    phoneAriaDescription += 'invalid-phone'
+  }
+
   return (
     <div className="personal-info">
       <h2 className="personal-info__heading">Personal Details</h2>
@@ -268,7 +278,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               name="email"
               id="email"
               className="form__input"
-              aria-describedby="email-hint invalid-email"
+              aria-describedby={emailAriaDescription}
               autoComplete="email"
               inputMode="email"
               required
@@ -297,7 +307,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
                 width={25}
                 height={25}
               />
-              <p className="form__error-message" aria-live="polite">
+              <p className="form__error-message" aria-live="polite" id='invalid-email'>
                 {emailErrorMessage}
               </p>
             </div>
@@ -317,7 +327,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               name="phone"
               id="phone"
               className="form__input"
-              aria-describedby="phone-hint invalid-phone"
+              aria-describedby={phoneAriaDescription}
               autoComplete="tel"
               inputMode="tel"
               value={personalInfo.phoneNumber}
@@ -345,7 +355,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
                 width={25}
                 height={25}
               />
-              <p className="form__error-message" aria-live="polite">
+              <p className="form__error-message" aria-live="polite" id='invalid-phone'>
                 Enter your phone number in one of the example formats
               </p>
             </div>
@@ -363,7 +373,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
             id="address"
             rows={6}
             className="form__input"
-            autoComplete="home"
+            autoComplete="street-address"
             value={personalInfo.address}
             onChange={handleAddressChange}></textarea>
         </div>

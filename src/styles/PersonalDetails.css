@@ -91,9 +91,9 @@
 }
 
 .btn--cancel {
-  background-color: var(--clr-bright-pink);
+  background-color: var(--clr-crimson-red);
 }
 
 .btn--submit {
-  background-color: var(--clr-persian-green);
+  background-color: var(--clr-sepia);
 }

@@ -169,20 +169,22 @@ ul {
   /* Colors */
   --clr-black: hsl(0, 0%, 0%);
   --clr-white: hsl(0, 0%, 100%);
-  --clr-red: hsl(0, 100%, 50%);
-  --clr-green: hsl(120, 100%, 25%);
+  --clr-crimson-red: #BF0603;
+  /* --clr-green: hsl(120, 100%, 25%); */
   --clr-blue: #1B91F0;
-  --clr-orangered: orangered;
+  /* --clr-orangered: orangered; */
   --clr-gray: #f0f2fa;
-  --clr-bright-pink: #ef2e5b;
-  --clr-emerald: #06D6A0;
+  /* --clr-bright-pink: #ef2e5b; */
+  /* --clr-emerald: #06D6A0; */
   --clr-midnight-green: #073B4C;
   --clr-charcoal: #274754;
-  --clr-persian-green: #2A9D8F;
-  --clr-sandy-brown: #F4A261;
-  --clr-burnt-sienna: #E76F51;
+  /* --clr-persian-green: #2A9D8F; */
+  /* --clr-sandy-brown: #F4A261; */
+  /* --clr-burnt-sienna: #E76F51; */
   --clr-dark-gray: #C1C1C1;
   --clr-purple: #6157AF;
+  --clr-sepia: #2C6E49;
+  --clr-dioxazine-purple: #00509d;
 
   /* Utilities */
   --radius-1: 0.3125rem; /* 5px */
