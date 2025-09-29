@@ -1,0 +1,24 @@
+.cv-page {
+  border: 1px solid var(--clr-dark-gray);
+  border-radius: var(--radius-1);
+  margin-block-start: var(--space-400);
+  margin-inline: auto;
+  padding: var(--space-400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  /* width: var(--width-resume); */
+  align-items: center;
+}
+
+.btn--back {
+  background-color: var(--clr-blue);
+  display: flex;
+  align-items: center;
+  gap: var(--space-400);
+
+}
+
+.resume {
+  width: var(--width-resume);
+}

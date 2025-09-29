@@ -44,6 +44,12 @@ function App() {
   const [showResumeBuilder, setShowResumeBuilder] = useState(true)
   const [showResumePreview, setShowResumePreview] = useState(true)
 
+  const handleBackBtn = () => {
+    setShowResume(false)
+    setShowResumeBuilder(true)
+    setShowResumePreview(true)
+  }
+
   return (
     <main className="main">
       <h1 className="title">NextStep</h1>
@@ -99,6 +105,7 @@ function App() {
             showForm={showForm}
             showSection={showSection}
             showPreview={showPreview}
+            handleBackBtn={handleBackBtn}
           />
         )}
       </div>

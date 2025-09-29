@@ -58,7 +58,7 @@ const CVBuilder = ({
     }
 
     const btnText = e.currentTarget.textContent.toLowerCase()
-    console.log(btnText)
+    // console.log(btnText)
 
     if (btnText === 'done') {
       setShowResume(true)
