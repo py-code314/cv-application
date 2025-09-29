@@ -1,4 +1,5 @@
 import CVIntro from "./CVIntro";
+import CVPersonalDetails from './CVPersonalDetails'
 import '../styles/CVSidebar.css'
 
 const CVSidebar = ({
@@ -17,7 +18,16 @@ const CVSidebar = ({
         // showSection={showSection}
         showPreview={showPreview}
       />
-      
+      {showPreview.personalDetails && (
+        <CVPersonalDetails personalDetailsData={personalDetailsData} />
+      )}
+      {/* Add condition 'length > 0', to not display the section heading if section data is empty */}
+      {showPreview.languages && languagesData.length > 0 && (
+        <CVLanguages languagesData={languagesData} />
+      )}
+      {showPreview.skills && skillsData.length > 0 && (
+        <CVSkills skillsData={skillsData} />
+      )}
     </div>
   )
 }
