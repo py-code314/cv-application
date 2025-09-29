@@ -1,12 +1,13 @@
-.section-content{
+.section-content--resume {
   display: flex;
   flex-direction: column;
-  gap: var(--space-40);
+  gap: var(--space-100);
 }
 
 .resume__subheading {
   font-weight: var(--fw-bold);
-
+  font-size: var(--fs-600);
+  margin-block-end: var(--space-50);
 }
 
 .resume__list {

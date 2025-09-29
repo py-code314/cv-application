@@ -1,9 +1,9 @@
 .resume__sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--space-400);
+  gap: var(--space-600);
   width: 30%;
   background-color: var(--clr-midnight-green);
-  padding: var(--space-1000);
+  padding: var(--space-1200);
   /* overflow-y: auto; */
 }

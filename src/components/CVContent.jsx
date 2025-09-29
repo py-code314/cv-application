@@ -2,6 +2,7 @@ import CVProfile from "./CVProfile";
 import CVEmployment from './CVEmployment'
 import CVEducation from './CVEducation'
 import CVReferences from "./CVReferences";
+import '../styles/CVContent.css'
 
 const CVContent = ({
   showPreview,

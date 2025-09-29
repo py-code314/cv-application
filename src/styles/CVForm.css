@@ -2,7 +2,7 @@
   flex: 1;
   min-height: 0; /* Add 'min-height' to make form content scrollable */
   overflow-y: auto;
-  padding: var(--space-400) var(--space-800);
+  padding:  var(--space-800);
   background-color: var(--clr-white);
   border-radius: var(--radius-2);
   box-shadow: var(--shadow-1);

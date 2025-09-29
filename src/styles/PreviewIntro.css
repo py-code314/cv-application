@@ -25,4 +25,5 @@ hr {
 
 .preview__job {
   text-transform: uppercase;
+  font-size: var(--fs-300);
 }

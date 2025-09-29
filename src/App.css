@@ -4,13 +4,13 @@
   width: 100%;
   max-width: var(--width-page);
   margin: 0 auto;
-  padding: var(--space-400);
+  padding:  var(--space-50) var(--space-400);
   flex: 1;
   min-height: 0;
 }
 
 .title {
-  margin-block-end: var(--space-400);
+  margin-block-end: var(--space-100);
   font-family: var(--ff-playfair-display);
   text-align: center;
 }

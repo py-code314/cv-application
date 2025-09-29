@@ -1,6 +1,7 @@
 import CVIntro from "./CVIntro";
 import CVPersonalDetails from './CVPersonalDetails'
 import CVLanguages from "./CVLanguages";
+import CVSkills from './CVSkills'
 import '../styles/CVSidebar.css'
 
 const CVSidebar = ({

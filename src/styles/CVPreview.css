@@ -3,4 +3,5 @@
   box-shadow: var(--shadow-2);
   display: flex;
   font-size: var(--fs-200);
+  height: 90svh;
 }

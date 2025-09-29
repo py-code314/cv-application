@@ -2,7 +2,7 @@
   color: var(--clr-white);
   display: flex;
   flex-direction: column;
-  gap: var(--space-70);
+  gap: var(--space-100);
   align-items: center;
   text-align: center;
 }
@@ -10,8 +10,8 @@
 .resume__img-container {
   background-color: var(--clr-white);
   border-radius: var(--radius-circle);
-  width: var(--space-1200);
-  height: var(--space-1200);
+  width: var(--space-1600);
+  height: var(--space-1600);
 }
 
 hr {
@@ -19,10 +19,11 @@ hr {
 }
 
 .resume__name {
-  font-size: var(--fs-400);
+  font-size: var(--fs-800);
   font-weight: var(--fw-bold);
 }
 
 .resume__job {
   text-transform: uppercase;
+  font-size: var(--fs-600);
 }

@@ -3,7 +3,7 @@ import '../styles/CVEducation.css'
 
 const CVEducation = ({ educationData }) => {
   return (
-    <div className="resume__education section-content">
+    <div className="resume__education section-content--resume">
       <h2 className="resume__heading">Education </h2>
       {educationData.map((education) => (
         <div key={education.id}>
