@@ -1,0 +1,28 @@
+.resume__intro {
+  color: var(--clr-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-70);
+  align-items: center;
+  text-align: center;
+}
+
+.resume__img-container {
+  background-color: var(--clr-white);
+  border-radius: var(--radius-circle);
+  width: var(--space-1200);
+  height: var(--space-1200);
+}
+
+hr {
+  width: var(--space-800);
+}
+
+.resume__name {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-bold);
+}
+
+.resume__job {
+  text-transform: uppercase;
+}

@@ -23,8 +23,8 @@ const CVPage = ({
       </button>
       <div className="resume">
         <CVSidebar
-          showSection={showSection}
-          showForm={showForm}
+          // showSection={showSection}
+          // showForm={showForm}
           showPreview={showPreview}
           personalDetailsData={personalDetailsData}
           skillsData={skillsData}
