@@ -1,14 +1,14 @@
 import '../styles/NavButtons.css'
 
-const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
-
+const NavButtons = ({
+  onClickPrevious,
+  onClickNext,
+  showSection,
+}) => {
   return (
     <div className="btns btns--nav">
       {!showSection.personalDetails && (
-        <button
-          className="btn btn--nav btn--prev"
-          onClick={onClickPrevious}
-        >
+        <button className="btn btn--nav btn--prev" onClick={onClickPrevious}>
           Previous
           {showSection.education
             ? ': Personal Details'
@@ -24,10 +24,7 @@ const NavButtons = ({ onClickPrevious, onClickNext, showSection }) => {
         </button>
       )}
 
-      <button
-        className="btn btn--nav btn--next"
-        onClick={onClickNext}
-      >
+      <button className="btn btn--nav btn--next" onClick={onClickNext}>
         {showSection.personalDetails
           ? 'Next: Education'
           : showSection.education

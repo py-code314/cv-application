@@ -1,7 +1,9 @@
 import './App.css'
 import CVBuilder from './components/CVBuilder'
 import CVPreview from './components/CVPreview'
+import CVPage from './components/CVPage'
 import { useState } from 'react'
+
 
 function App() {
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
@@ -38,42 +40,67 @@ function App() {
     references: false,
   })
 
+  const [showResume, setShowResume] = useState(false)
+  const [showResumeBuilder, setShowResumeBuilder] = useState(true)
+  const [showResumePreview, setShowResumePreview] = useState(true)
+
   return (
     <main className="main">
       <h1 className="title">NextStep</h1>
       <div className="container">
-        <CVBuilder
-          personalDetailsData={personalDetailsData}
-          setPersonalDetailsData={setPersonalDetailsData}
-          educationData={educationData}
-          setEducationData={setEducationData}
-          employmentData={employmentData}
-          setEmploymentData={setEmploymentData}
-          skillsData={skillsData}
-          setSkillsData={setSkillsData}
-          languagesData={languagesData}
-          setLanguagesData={setLanguagesData}
-          referencesData={referencesData}
-          setReferencesData={setReferencesData}
-          showForm={showForm}
-          setShowForm={setShowForm}
-          showSection={showSection}
-          setShowSection={setShowSection}
-          showPreview={showPreview}
-          setShowPreview={setShowPreview}
-        />
+        {showResumeBuilder && (
+          <CVBuilder
+            personalDetailsData={personalDetailsData}
+            setPersonalDetailsData={setPersonalDetailsData}
+            educationData={educationData}
+            setEducationData={setEducationData}
+            employmentData={employmentData}
+            setEmploymentData={setEmploymentData}
+            skillsData={skillsData}
+            setSkillsData={setSkillsData}
+            languagesData={languagesData}
+            setLanguagesData={setLanguagesData}
+            referencesData={referencesData}
+            setReferencesData={setReferencesData}
+            showForm={showForm}
+            setShowForm={setShowForm}
+            showSection={showSection}
+            setShowSection={setShowSection}
+            showPreview={showPreview}
+            setShowPreview={setShowPreview}
+            setShowResume={setShowResume}
+            setShowResumeBuilder={setShowResumeBuilder}
+            setShowResumePreview={setShowResumePreview}
+          />
+        )}
 
-        <CVPreview
-          personalDetailsData={personalDetailsData}
-          educationData={educationData}
-          employmentData={employmentData}
-          skillsData={skillsData}
-          languagesData={languagesData}
-          referencesData={referencesData}
-          showForm={showForm}
-          showSection={showSection}
-          showPreview={showPreview}
-        />
+        {showResumePreview && (
+          <CVPreview
+            personalDetailsData={personalDetailsData}
+            educationData={educationData}
+            employmentData={employmentData}
+            skillsData={skillsData}
+            languagesData={languagesData}
+            referencesData={referencesData}
+            showForm={showForm}
+            showSection={showSection}
+            showPreview={showPreview}
+          />
+        )}
+
+        {showResume && (
+          <CVPage
+            personalDetailsData={personalDetailsData}
+            educationData={educationData}
+            employmentData={employmentData}
+            skillsData={skillsData}
+            languagesData={languagesData}
+            referencesData={referencesData}
+            showForm={showForm}
+            showSection={showSection}
+            showPreview={showPreview}
+          />
+        )}
       </div>
     </main>
   )

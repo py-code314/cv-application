@@ -21,6 +21,9 @@ const CVBuilder = ({
   setLanguagesData,
   referencesData,
   setReferencesData,
+  setShowResume,
+  setShowResumeBuilder,
+  setShowResumePreview,
 }) => {
   const sections = [
     'personalDetails',
@@ -31,7 +34,7 @@ const CVBuilder = ({
     'references',
   ]
 
-  const handleNextBtnClick = () => {
+  const handleNextBtnClick = (e) => {
     const currentSection = Object.keys(showSection).find(
       (key) => showSection[key]
     )
@@ -52,6 +55,15 @@ const CVBuilder = ({
         [currentSection]: false,
         [nextSection]: true,
       })
+    }
+
+    const btnText = e.currentTarget.textContent.toLowerCase()
+    console.log(btnText)
+
+    if (btnText === 'done') {
+      setShowResume(true)
+      setShowResumeBuilder(false)
+      setShowResumePreview(false)
     }
   }
 
