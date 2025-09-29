@@ -34,6 +34,7 @@ const CVForm = ({
   setReferencesData,
 }) => {
   const [addForm, setAddForm] = useState(false)
+  // const [showModal, setShowModal] = useState(false)
 
   const [educationToEdit, setEducationToEdit] = useState(null)
   const [employmentToEdit, setEmploymentToEdit] = useState(null)
@@ -53,9 +54,12 @@ const CVForm = ({
     formData,
     data
   ) => {
+    
+
     setShowForm({ ...showForm, [currentForm]: false })
     setShowPreview({ ...showPreview, [currentForm]: true })
     setAddForm(false)
+
     // Set value to null so that entryToEdit is assigned a new value each time Edit button is clicked
     setEntryToEdit(null)
     // console.log(data)
@@ -93,7 +97,6 @@ const CVForm = ({
       (existingEntry) => existingEntry.id !== entry.id
     )
     setData(updatedData)
-    
   }
 
   return (
@@ -132,6 +135,7 @@ const CVForm = ({
               setEntryToEdit={setEducationToEdit}
               setData={setEducationData}
               onDelete={handleDeleteEntry}
+              // setShowModal={setShowModal}
             />
             <AddButton
               text="Add Degree"

@@ -8,6 +8,7 @@ const EducationSummary = ({
   onDelete,
   setEntryToEdit,
   setData,
+  // setShowModal
 }) => {
   const handleEditForm = (id) => {
     data.map(
@@ -16,6 +17,7 @@ const EducationSummary = ({
   }
 
   const handleDeleteEntry = (id) => {
+    // setShowModal(true)
     // console.log(data)
     data.map(
       (entry) => entry.id === id && onDelete(data, setData, entry)
