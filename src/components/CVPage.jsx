@@ -4,7 +4,7 @@ import CVSidebar from './CVSidebar'
 import CVContent from './CVContent'
 
 const CVPage = ({
-  showSection,
+  // showSection,
   showForm,
   showPreview,
   personalDetailsData,
@@ -32,7 +32,7 @@ const CVPage = ({
           employmentData={employmentData}
         />
         <CVContent
-          showForm={showForm}
+          // showForm={showForm}
           showPreview={showPreview}
           personalDetailsData={personalDetailsData}
           employmentData={employmentData}
