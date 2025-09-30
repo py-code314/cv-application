@@ -9,6 +9,7 @@ const CVEmployment = ({ employmentData }) => {
         <div key={employment.id}>
           <p className="resume__subheading">
             {employment.jobTitle && `${employment.jobTitle}`}
+            {employment.employer && `, ${employment.employer}`}
             {employment.city && `, ${employment.city}`}
           </p>
 

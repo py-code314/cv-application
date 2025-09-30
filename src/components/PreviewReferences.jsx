@@ -9,7 +9,8 @@ const PreviewReferences = ({ referencesData }) => {
             {reference.company && ` from ${reference.company}`}
           </p>
           <p>
-            {reference.email} | {reference.phoneNumber}
+            {reference.email && `{reference.email}`}{' '}
+            {reference.phoneNumber && ` | ${reference.phoneNumber}`}
           </p>
         </div>
       ))}

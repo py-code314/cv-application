@@ -9,6 +9,7 @@ const PreviewEmployment = ({ employmentData }) => {
         <div key={employment.id}>
           <p className="preview__subheading">
             {employment.jobTitle && `${employment.jobTitle}`}
+            {employment.employer && `, ${employment.employer}`}
             {employment.city && `, ${employment.city}`}
           </p>
 

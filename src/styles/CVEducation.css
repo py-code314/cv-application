@@ -7,10 +7,11 @@
 .resume__subheading {
   font-weight: var(--fw-bold);
   font-size: var(--fs-600);
-  margin-block-end: var(--space-50);
+  /* margin-block-end: var(--space-50); */
 }
 
 .resume__list {
+  margin-block-start: var(--space-50);
   list-style-type: disc;
   padding-inline-start: var(--space-400);
 }

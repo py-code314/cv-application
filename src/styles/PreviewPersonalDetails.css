@@ -7,4 +7,5 @@
 
 .preview__heading {
   font-size: var(--fs-300);
+  margin-block-end: var(--space-40);
 }
