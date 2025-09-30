@@ -17,7 +17,7 @@ const DeleteButton = ({ onClick }) => {
         onClick={handleModalDialog}>
         Delete
       </button>
-      {showModal && <ModalDialog />}
+      {showModal && <ModalDialog setShowModal={setShowModal} onClick={onClick} />}
     </div>
   )
 }

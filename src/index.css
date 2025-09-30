@@ -149,6 +149,7 @@ ul {
 
   --width-page: 87.5rem; /* 1400px */
   --width-resume: 62.5rem; /* 1000px */
+  --width-modal: 31.25rem; /* 500px */
 
   /* Font Families */
   --ff-playfair-display: 'Playfair Display';
