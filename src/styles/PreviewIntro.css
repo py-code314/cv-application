@@ -1,10 +1,10 @@
 .preview__intro {
-  color: var(--clr-white);
   display: flex;
   flex-direction: column;
   gap: var(--space-70);
   align-items: center;
   text-align: center;
+  color: var(--clr-white);
 }
 
 .preview__img-container {
@@ -24,6 +24,6 @@ hr {
 }
 
 .preview__job {
-  text-transform: uppercase;
   font-size: var(--fs-300);
+  text-transform: uppercase;
 }

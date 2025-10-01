@@ -9,6 +9,7 @@
   background-color: var(--clr-dioxazine-purple);
 }
 
+/* Place Next button on the right when there's no Previous button */
 .btn--next {
   margin-left: auto;
 }

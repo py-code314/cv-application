@@ -1,18 +1,30 @@
+/* Backdrop div occupies the whole screen */
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .dialog {
-  padding: var(--space-1200);
-  box-shadow: var(--shadow-2);
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
   align-items: center;
+  /* Place dialog in the center of screen */
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  
   background-color: var(--clr-white);
   text-align: center;
   border-radius: var(--radius-1);
   max-width: var(--width-modal);
+  padding: var(--space-1200);
+  box-shadow: var(--shadow-2);
 }
 
 .dialog__title {
@@ -29,15 +41,5 @@
 }
 
 .btns--dialog {
-  /* justify-content: end; */
   gap: var(--space-800);
-}
-
-.backdrop {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
 }

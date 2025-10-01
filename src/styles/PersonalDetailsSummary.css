@@ -1,15 +1,15 @@
 .summary {
-  border: 1px solid var(--clr-dark-gray);
-  border-radius: var(--radius-1);
   margin-block-start: var(--space-400);
   padding: var(--space-400);
+  border: 1px solid var(--clr-dark-gray);
+  border-radius: var(--radius-1);
 }
 
 .summary__header {
+  margin-block-end: var(--space-400);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block-end: var(--space-400);
 }
 
 .detail {

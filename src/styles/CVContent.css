@@ -4,7 +4,5 @@
   gap: var(--space-400);
   width: 70%;
   padding:  var(--space-1200);
-  /* overflow-y: auto; */
-  /* background-color: var(--clr-white); */
   background: var(--clr-white) url('../assets/images/white-building.jpeg') center no-repeat;
 }

@@ -1,13 +1,14 @@
 .btn--title {
   display: flex;
-  text-align: left;
   gap: var(--space-100);
-  padding: var(--space-500);
   width: 100%;
+  padding: var(--space-500);
   color: var(--clr-black);
   font-size: var(--space-400);
+  text-align: left;
 }
 
+/* Remove animation on hover and focus */
 .btn--title:hover,
 .btn--title:focus {
   transform: none;

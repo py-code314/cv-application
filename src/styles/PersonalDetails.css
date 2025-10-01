@@ -1,7 +1,7 @@
 .form--submit {
+  margin-block-start: var(--space-400);
   border: 1px solid var(--clr-dark-gray);
   border-radius: var(--radius-1);
-  margin-block-start: var(--space-400);
 }
 
 .form {
@@ -25,14 +25,13 @@
 }
 
 .form__input {
+  margin-block-start: var(--space-40);
   width: 80%;
   border: 1px solid var(--clr-black);
-
   border-radius: var(--radius-1);
+  background-color: var(--clr-gray);
   padding: var(--space-80);
   font-size: 100%;
-  margin-block-start: var(--space-40);
-  background-color: var(--clr-gray);
 }
 
 .form__input:user-valid {
@@ -50,27 +49,27 @@
 }
 
 .form__error {
+  margin-block-start: var(--space-40);
+  width: 80%;
   display: flex;
   align-items: center;
   gap: var(--space-40);
   font-weight: var(--fw-bold);
   color: var(--clr-red);
-  margin-block-start: var(--space-40);
-  width: 80%;
 }
 
 .btns--form {
-  justify-content: end;
-  gap: var(--space-400);
   margin-block-start: var(--space-800);
+  gap: var(--space-400);
+  justify-content: end;
 }
 
 .btn {
-  border-radius: var(--radius-1);
-  padding: var(--space-80) var(--space-100);
   border: transparent;
-  color: var(--clr-white);
+  border-radius: var(--radius-1);
   background-color: transparent;
+  padding: var(--space-80) var(--space-100);
+  color: var(--clr-white);
   text-align: center;
   font-weight: var(--fw-bold);
   font-size: var(--fs-500);

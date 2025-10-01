@@ -24,6 +24,7 @@ hr {
 }
 
 .resume__job {
-  text-transform: uppercase;
   font-size: var(--fs-600);
+  text-transform: uppercase;
+  
 }

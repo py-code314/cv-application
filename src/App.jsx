@@ -4,7 +4,9 @@ import CVBuilder from './components/CVBuilder'
 import CVPreview from './components/CVPreview'
 import CVPage from './components/CVPage'
 
+/* App component renders a CV builder, a CV preview and a CV page based on the state of the application */
 function App() {
+  // State variables
   const [showCVBuilder, setShowCVBuilder] = useState(true)
   const [showCVPreview, setShowCVPreview] = useState(true)
   const [showCV, setShowCV] = useState(false)
@@ -43,6 +45,7 @@ function App() {
     references: false,
   })
 
+  // Function to handle the back button
   const handleBackBtn = () => {
     setShowCV(false)
     setShowCVBuilder(true)
@@ -51,6 +54,7 @@ function App() {
 
   return (
     <main className="main">
+      {/* Title */}
       <h1 className="title">NextStep</h1>
       <div className="container">
         {showCVBuilder && (
@@ -81,8 +85,6 @@ function App() {
 
         {showCVPreview && (
           <CVPreview
-            // showSection={showSection}
-            // showForm={showForm}
             showPreview={showPreview}
             personalDetailsData={personalDetailsData}
             employmentData={employmentData}
@@ -95,8 +97,6 @@ function App() {
 
         {showCV && (
           <CVPage
-            // showSection={showSection}
-            // showForm={showForm}
             showPreview={showPreview}
             personalDetailsData={personalDetailsData}
             employmentData={employmentData}

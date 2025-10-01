@@ -1,4 +1,4 @@
-.section-content{
+.section-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-40);
@@ -6,12 +6,11 @@
 
 .preview__subheading {
   font-weight: var(--fw-bold);
-  /* margin-block-end: var(--space-40); */
-
 }
 
+/* Add bullets to the list */
 .preview__list {
-  list-style-type: disc;
-  padding-inline-start: var(--space-250);
   margin-block: var(--space-40);
+  padding-inline-start: var(--space-250);
+  list-style-type: disc;
 }

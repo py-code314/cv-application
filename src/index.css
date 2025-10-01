@@ -102,13 +102,7 @@ ul {
   --fs-675: 1.4375rem; /* 23px */
   --fs-700: 1.5rem; /* 24px */
   --fs-750: 1.625rem; /* 26px */
-  --fs-800: 1.75rem; /* 28px */
-  --fs-850: 1.875rem; /* 30px */
-  --fs-900: 2rem; /* 32px */
-  --fs-950: 2.125rem; /* 34px */
-  --fs-1000: 2.25rem; /* 36px */
-  --fs-1050: 2.375rem; /* 38px */
-  --fs-1100: 2.5rem; /* 40px */
+
 
   /* Spaces */
   --space-40: 0.25rem;
@@ -156,36 +150,23 @@ ul {
   --ff-quicksand: 'Quicksand';
 
   /* Font weights */
-  --fw-thin: 100;
-  --fw-extra-light: 200;
-  --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;
-  --fw-semibold: 600;
   --fw-bold: 700;
   --fw-extra-bold: 800;
-  --fw-black: 900;
-  --fw-extra-black: 950;
 
   /* Colors */
   --clr-black: hsl(0, 0%, 0%);
   --clr-white: hsl(0, 0%, 100%);
-  --clr-crimson-red: #BF0603;
-  /* --clr-green: hsl(120, 100%, 25%); */
-  --clr-blue: #1B91F0;
-  /* --clr-orangered: orangered; */
-  --clr-gray: #f0f2fa;
-  /* --clr-bright-pink: #ef2e5b; */
-  /* --clr-emerald: #06D6A0; */
-  --clr-midnight-green: #073B4C;
-  --clr-charcoal: #274754;
-  /* --clr-persian-green: #2A9D8F; */
-  /* --clr-sandy-brown: #F4A261; */
-  /* --clr-burnt-sienna: #E76F51; */
-  --clr-dark-gray: #C1C1C1;
-  --clr-purple: #6157AF;
-  --clr-sepia: #2C6E49;
-  --clr-dioxazine-purple: #00509d;
+  --clr-crimson-red: hsl(1, 97%, 38%);
+  --clr-blue: hsl(207, 88%, 52%);
+  --clr-gray: hsl(228, 50%, 96%);
+  --clr-midnight-green: hsl(195, 83%, 16%);
+  --clr-charcoal: hsl(197, 37%, 24%);
+  --clr-dark-gray: hsl(0, 0%, 76%);
+  --clr-purple: hsl(247, 35%, 51%);
+  --clr-sepia: hsl(146, 43%, 30%);
+  --clr-dioxazine-purple: hsl(209, 100%, 31%);
 
   /* Utilities */
   --radius-1: 0.3125rem; /* 5px */
@@ -193,15 +174,14 @@ ul {
   --radius-circle: 50%;
   --shadow-1: 0px 0px 10px 0px hsla(197, 37%, 24%, 0.36);
   --shadow-2: 0px 0px 10px 0px hsla(0, 0%, 0%, 0.5);
-  --shadow-3: 0px 3px 10px 0px hsla(0, 0%, 0%, 0.70);
+  --shadow-3: 0px 3px 10px 0px hsla(0, 0%, 0%, 0.7);
 }
 
 body {
-  /* height: 100svh; */
-  font-family: var(--ff-quicksand);
   display: flex;
   flex-direction: column;
   background-color: var(--clr-gray);
+  font-family: var(--ff-quicksand);
 }
 
 #root {
