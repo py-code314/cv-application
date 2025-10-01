@@ -19,7 +19,7 @@ hr {
 }
 
 .preview__name {
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   font-weight: var(--fw-bold);
 }
 

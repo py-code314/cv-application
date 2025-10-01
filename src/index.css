@@ -102,6 +102,7 @@ ul {
   --fs-675: 1.4375rem; /* 23px */
   --fs-700: 1.5rem; /* 24px */
   --fs-750: 1.625rem; /* 26px */
+   --fs-800: 1.75rem; /* 28px */
 
 
   /* Spaces */
@@ -158,6 +159,7 @@ ul {
   /* Colors */
   --clr-black: hsl(0, 0%, 0%);
   --clr-white: hsl(0, 0%, 100%);
+  --clr-red: hsl(0, 100%, 50%);
   --clr-crimson-red: hsl(1, 97%, 38%);
   --clr-blue: hsl(207, 88%, 52%);
   --clr-gray: hsl(228, 50%, 96%);

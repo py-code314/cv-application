@@ -335,7 +335,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             Phone Number
           </label>
           <span className="form__hint" id="phone-hint">
-            Allowed formats: 1234567890 or 123-456-7890 or 123 456 7890 or
+            Recommended formats: 1234567890 / 123-456-7890 / 123 456 7890 /
             123.456.7890
           </span>
           <div className="form__valid">
