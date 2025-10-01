@@ -1,10 +1,10 @@
-import '../styles/PersonalDetails.css'
 import { useState } from 'react'
+import '../styles/PersonalDetails.css'
 import checkMarkIcon from '../assets/images/icon-check.svg'
 import errorIcon from '../assets/images/icon-error.svg'
 import FormButtons from './FormButtons'
 
-const PersonalDetails = ({ onSubmit, personalEntry }) => {
+const PersonalDetails = ({ personalEntry, onSubmit }) => {
   const [personalInfo, setPersonalInfo] = useState(
     personalEntry || {
       firstName: '',
@@ -18,7 +18,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
     }
   )
 
-  // Assign dynamic values to properties to update state correctly
+  // Assign dynamic values to properties to update with correct state
   const [inputStatus, setInputStatus] = useState({
     firstName: personalInfo.firstName,
     lastName: personalInfo.lastName,
@@ -26,7 +26,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
     phoneNumber: personalInfo.phoneNumber,
   })
 
-  const [inputBlurred, setInputBlurred] = useState({
+  const [blurredInput, setBlurredInput] = useState({
     firstName: false,
     lastName: false,
     email: false,
@@ -66,35 +66,10 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
     setPersonalInfo({ ...personalInfo, aboutMe: e.target.value })
   }
 
-  const handleReset = () => {
-    setPersonalInfo({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-      address: '',
-      state: '',
-      country: '',
-      aboutMe: '',
-    })
-    setInputStatus({
-      ...inputStatus,
-      firstName: personalInfo.firstName,
-      lastName: personalInfo.lastName,
-      email: personalInfo.email,
-      phoneNumber: personalInfo.phoneNumber,
-    })
-    setInputBlurred({
-      ...inputBlurred,
-      firstName: false,
-      lastName: false,
-      email: false,
-      phoneNumber: false,
-    })
-  }
+  
 
   const handleFirstNameValidation = () => {
-    setInputBlurred({ ...inputBlurred, firstName: true })
+    setBlurredInput({ ...blurredInput, firstName: true })
     if (personalInfo.firstName) {
       setInputStatus({ ...inputStatus, firstName: true })
     } else {
@@ -102,7 +77,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
     }
   }
   const handleLastNameValidation = () => {
-    setInputBlurred({ ...inputBlurred, lastName: true })
+    setBlurredInput({ ...blurredInput, lastName: true })
     if (personalInfo.lastName) {
       setInputStatus({ ...inputStatus, lastName: true })
     } else {
@@ -113,7 +88,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
   const handleEmailValidation = () => {
     const emailRegExp =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    setInputBlurred({ ...inputBlurred, email: true })
+    setBlurredInput({ ...blurredInput, email: true })
     if (!personalInfo.email) {
       setEmailErrorMessage('Please enter your email address')
       setInputStatus({ ...inputStatus, email: false })
@@ -139,11 +114,38 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
       setInputStatus({ ...inputStatus, phoneNumber: true })
     } else if (isValid) {
       setInputStatus({ ...inputStatus, phoneNumber: true })
-      setInputBlurred({ ...inputBlurred, phoneNumber: true })
+      setBlurredInput({ ...blurredInput, phoneNumber: true })
     } else if (isInvalid) {
       setInputStatus({ ...inputStatus, phoneNumber: false })
-      setInputBlurred({ ...inputBlurred, phoneNumber: true })
+      setBlurredInput({ ...blurredInput, phoneNumber: true })
     }
+  }
+
+  const handleReset = () => {
+    setPersonalInfo({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      state: '',
+      country: '',
+      aboutMe: '',
+    })
+    setInputStatus({
+      ...inputStatus,
+      firstName: personalInfo.firstName,
+      lastName: personalInfo.lastName,
+      email: personalInfo.email,
+      phoneNumber: personalInfo.phoneNumber,
+    })
+    setBlurredInput({
+      ...blurredInput,
+      firstName: false,
+      lastName: false,
+      email: false,
+      phoneNumber: false,
+    })
   }
 
   const handleFormValidation = (e) => {
@@ -155,12 +157,12 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
   }
 
   let emailAriaDescription = 'email-hint'
-  if (!inputStatus.email && (inputBlurred.email || formSubmission)) {
+  if (!inputStatus.email && (blurredInput.email || formSubmission)) {
     emailAriaDescription += 'invalid-email'
   }
 
   let phoneAriaDescription = 'phone-hint'
-  if (!inputStatus.phoneNumber && inputBlurred.phoneNumber) {
+  if (!inputStatus.phoneNumber && blurredInput.phoneNumber) {
     phoneAriaDescription += 'invalid-phone'
   }
 
@@ -192,7 +194,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               onBlur={handleFirstNameValidation}
             />
             {inputStatus.firstName &&
-              (inputBlurred.firstName || formSubmission) && (
+              (blurredInput.firstName || formSubmission) && (
                 <img
                   className="form__checkmark"
                   aria-hidden="true"
@@ -204,7 +206,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               )}
           </div>
           {!inputStatus.firstName &&
-            (inputBlurred.firstName || formSubmission) && (
+            (blurredInput.firstName || formSubmission) && (
               <div className="form__error">
                 <img
                   className="form__error-icon"
@@ -237,7 +239,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               onBlur={handleLastNameValidation}
             />
             {inputStatus.lastName &&
-              (inputBlurred.lastName || formSubmission) && (
+              (blurredInput.lastName || formSubmission) && (
                 <img
                   className="form__checkmark"
                   aria-hidden="true"
@@ -249,7 +251,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               )}
           </div>
           {!inputStatus.lastName &&
-            (inputBlurred.lastName || formSubmission) && (
+            (blurredInput.lastName || formSubmission) && (
               <div className="form__error">
                 <img
                   className="form__error-icon"
@@ -286,7 +288,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               onChange={handleEmailChange}
               onBlur={handleEmailValidation}
             />
-            {inputStatus.email && (inputBlurred.email || formSubmission) && (
+            {inputStatus.email && (blurredInput.email || formSubmission) && (
               <img
                 className="form__checkmark"
                 aria-hidden="true"
@@ -297,7 +299,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               />
             )}
           </div>
-          {!inputStatus.email && (inputBlurred.email || formSubmission) && (
+          {!inputStatus.email && (blurredInput.email || formSubmission) && (
             <div className="form__error">
               <img
                 className="form__error-icon"
@@ -307,7 +309,10 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
                 width={25}
                 height={25}
               />
-              <p className="form__error-message" aria-live="polite" id='invalid-email'>
+              <p
+                className="form__error-message"
+                aria-live="polite"
+                id="invalid-email">
                 {emailErrorMessage}
               </p>
             </div>
@@ -334,7 +339,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               onChange={handlePhoneNumberChange}
               onBlur={handlePhoneNumberValidation}
             />
-            {inputStatus.phoneNumber && inputBlurred.phoneNumber && (
+            {inputStatus.phoneNumber && blurredInput.phoneNumber && (
               <img
                 className="form__checkmark"
                 aria-hidden="true"
@@ -345,7 +350,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
               />
             )}
           </div>
-          {!inputStatus.phoneNumber && inputBlurred.phoneNumber && (
+          {!inputStatus.phoneNumber && blurredInput.phoneNumber && (
             <div className="form__error">
               <img
                 className="form__error-icon"
@@ -355,7 +360,10 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
                 width={25}
                 height={25}
               />
-              <p className="form__error-message" aria-live="polite" id='invalid-phone'>
+              <p
+                className="form__error-message"
+                aria-live="polite"
+                id="invalid-phone">
                 Enter your phone number in one of the example formats
               </p>
             </div>
@@ -419,7 +427,7 @@ const PersonalDetails = ({ onSubmit, personalEntry }) => {
             onChange={handleAboutMeChange}></textarea>
         </div>
 
-        <FormButtons onClick={handleReset} />
+        <FormButtons onCancel={handleReset} />
       </form>
     </div>
   )

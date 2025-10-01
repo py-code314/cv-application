@@ -1,33 +1,23 @@
-
-import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
+import DeleteButton from './DeleteButton'
 
 const EducationSummary = ({
   data,
-  onEdit,
-  onDelete,
-  setEntryToEdit,
   setData,
-  // setShowModal
+  setEntryToEdit,
+  handleEntry,
 }) => {
-  const handleEditForm = (id) => {
-    data.map(
-      (entry) => entry.id === id && onEdit(setEntryToEdit, entry, entry.type)
-    )
-  }
+  
 
-  const handleDeleteEntry = (id) => {
-    // setShowModal(true)
-    // console.log(data)
-    data.map(
-      (entry) => entry.id === id && onDelete(data, setData, entry)
-    )
-  }
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
         <h2 className="summary__title">Education Details</h2>
-        <EditButton onClick={() => handleEditForm(entry.id)} />
+        <EditButton
+          onEdit={(e) =>
+            handleEntry(e, entry.id, data, setData, setEntryToEdit)
+          }
+        />
       </div>
       {entry.degree && (
         <div className="detail">
@@ -71,7 +61,11 @@ const EducationSummary = ({
         </div>
       )}
 
-      <DeleteButton onClick={() => handleDeleteEntry(entry.id)} />
+      <DeleteButton
+        onDelete={(e) =>
+          handleEntry(e, entry.id, data, setData, setEntryToEdit)
+        }
+      />
     </div>
   ))
 }

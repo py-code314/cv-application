@@ -1,9 +1,6 @@
-const EditButton = ({onClick}) => {
+const EditButton = ({ onEdit }) => {
   return (
-    <button
-      className="btn btn--edit"
-      type="button"
-      onClick={onClick}>
+    <button className="btn btn--edit" id="edit-btn" type="button" onClick={onEdit}>
       Edit
     </button>
   )

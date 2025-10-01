@@ -1,24 +1,24 @@
-import CVIntro from "./CVIntro";
-import CVPersonalDetails from './CVPersonalDetails'
-import CVLanguages from "./CVLanguages";
-import CVSkills from './CVSkills'
 import '../styles/CVSidebar.css'
+import CVIntro from './CVIntro'
+import CVPersonalDetails from './CVPersonalDetails'
+import CVLanguages from './CVLanguages'
+import CVSkills from './CVSkills'
 
 const CVSidebar = ({
+  showPreview,
   personalDetailsData,
   employmentData,
-  skillsData,
   languagesData,
-  showPreview
+  skillsData,
 }) => {
   return (
     <div className="resume__sidebar">
       <CVIntro
+        showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}
         // showForm={showForm}
         // showSection={showSection}
-        showPreview={showPreview}
       />
       {showPreview.personalDetails && (
         <CVPersonalDetails personalDetailsData={personalDetailsData} />
@@ -33,5 +33,5 @@ const CVSidebar = ({
     </div>
   )
 }
- 
-export default CVSidebar;
+
+export default CVSidebar

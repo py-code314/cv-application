@@ -1,35 +1,35 @@
+import '../styles/TitleButton.css'
 import collapseIcon from '../assets/images/icon-collapse.svg'
 import expandIcon from '../assets/images/icon-expand.svg'
-import '../styles/TitleButton.css'
 
 const TitleButton = ({
-  educationDetails,
-  employmentDetails,
+  isCollapse,
   onClick,
-  collapse,
+  data
 }) => {
-  const handleHideForm = () => {
-    onClick(!collapse)
+  // console.log(data)
+  const handleFormDisplay = () => {
+    onClick(!isCollapse)
   }
   return (
-    <button className="btn btn--title" onClick={handleHideForm}>
+    <button className="btn btn--title" onClick={handleFormDisplay}>
       <span className="entry-title">
-        {educationDetails
-          ? educationDetails.degree && educationDetails.schoolName
-            ? `${educationDetails.degree} at ${educationDetails.schoolName}`
-            : educationDetails.degree
-            ? `${educationDetails.degree}`
+        {data.type === 'education'
+          ? data.degree && data.schoolName
+            ? `${data.degree} at ${data.schoolName}`
+            : data.degree
+            ? `${data.degree}`
             : 'Title'
           : null}
-        {employmentDetails
-          ? employmentDetails.jobTitle && employmentDetails.employer
-            ? `${employmentDetails.jobTitle} at ${employmentDetails.employer}`
-            : employmentDetails.jobTitle
-            ? `${employmentDetails.jobTitle}`
+        {data.type === 'employment'
+          ? data.jobTitle && data.employer
+            ? `${data.jobTitle} at ${data.employer}`
+            : data.jobTitle
+            ? `${data.jobTitle}`
             : 'Title'
           : null}
       </span>
-      {!collapse ? (
+      {!isCollapse ? (
         <img
           src={collapseIcon}
           alt="Collapse"

@@ -1,17 +1,14 @@
-import warningIcon from '../assets/images/icon-warning.svg'
 import '../styles/ModalDialog.css'
+import warningIcon from '../assets/images/icon-warning.svg'
 
-const ModalDialog = ({ setShowModal, onClick }) => {
-  const handleNoBtnClick = () => {
+const ModalDialog = ({ setShowModal, onDelete }) => {
+  const handleCancelDelete = () => {
     setShowModal(false)
   }
 
-  // const handleYesBtnClick = () => {
-  //   onClick()
-  // }
   return (
     <>
-      <div className="backdrop" onClick={handleNoBtnClick}></div>
+      <div className="backdrop" onClick={handleCancelDelete}></div>
       <div className="dialog">
         <img src={warningIcon} alt="" width={45} height={45} />
         <p className="dialog__title">Are you sure?</p>
@@ -20,10 +17,10 @@ const ModalDialog = ({ setShowModal, onClick }) => {
           data. Do you wish to continue?
         </p>
         <div className="btns btns--dialog">
-          <button className="btn btn--no" onClick={handleNoBtnClick}>
+          <button className="btn btn--no" onClick={handleCancelDelete}>
             No
           </button>
-          <button className="btn btn--yes" onClick={onClick}>
+          <button className="btn btn--yes" id="delete-btn" onClick={onDelete}>
             Yes
           </button>
         </div>
@@ -31,5 +28,5 @@ const ModalDialog = ({ setShowModal, onClick }) => {
     </>
   )
 }
- 
-export default ModalDialog;
+
+export default ModalDialog

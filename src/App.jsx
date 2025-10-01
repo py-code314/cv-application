@@ -1,11 +1,14 @@
+import { useState } from 'react'
 import './App.css'
 import CVBuilder from './components/CVBuilder'
 import CVPreview from './components/CVPreview'
 import CVPage from './components/CVPage'
-import { useState } from 'react'
-
 
 function App() {
+  const [showCVBuilder, setShowCVBuilder] = useState(true)
+  const [showCVPreview, setShowCVPreview] = useState(true)
+  const [showCV, setShowCV] = useState(false)
+
   const [personalDetailsData, setPersonalDetailsData] = useState(null)
   const [educationData, setEducationData] = useState([])
   const [employmentData, setEmploymentData] = useState([])
@@ -13,7 +16,7 @@ function App() {
   const [languagesData, setLanguagesData] = useState([])
   const [referencesData, setReferencesData] = useState([])
 
-  const [showForm, setShowForm] = useState({
+  const [showSection, setShowSection] = useState({
     personalDetails: true,
     education: false,
     employment: false,
@@ -22,7 +25,7 @@ function App() {
     references: false,
   })
 
-  const [showSection, setShowSection] = useState({
+  const [showForm, setShowForm] = useState({
     personalDetails: true,
     education: false,
     employment: false,
@@ -40,22 +43,27 @@ function App() {
     references: false,
   })
 
-  const [showResume, setShowResume] = useState(false)
-  const [showResumeBuilder, setShowResumeBuilder] = useState(true)
-  const [showResumePreview, setShowResumePreview] = useState(true)
-
   const handleBackBtn = () => {
-    setShowResume(false)
-    setShowResumeBuilder(true)
-    setShowResumePreview(true)
+    setShowCV(false)
+    setShowCVBuilder(true)
+    setShowCVPreview(true)
   }
 
   return (
     <main className="main">
       <h1 className="title">NextStep</h1>
       <div className="container">
-        {showResumeBuilder && (
+        {showCVBuilder && (
           <CVBuilder
+            setShowCVBuilder={setShowCVBuilder}
+            setShowCVPreview={setShowCVPreview}
+            setShowCV={setShowCV}
+            showSection={showSection}
+            setShowSection={setShowSection}
+            showForm={showForm}
+            setShowForm={setShowForm}
+            showPreview={showPreview}
+            setShowPreview={setShowPreview}
             personalDetailsData={personalDetailsData}
             setPersonalDetailsData={setPersonalDetailsData}
             educationData={educationData}
@@ -68,43 +76,34 @@ function App() {
             setLanguagesData={setLanguagesData}
             referencesData={referencesData}
             setReferencesData={setReferencesData}
-            showForm={showForm}
-            setShowForm={setShowForm}
-            showSection={showSection}
-            setShowSection={setShowSection}
-            showPreview={showPreview}
-            setShowPreview={setShowPreview}
-            setShowResume={setShowResume}
-            setShowResumeBuilder={setShowResumeBuilder}
-            setShowResumePreview={setShowResumePreview}
           />
         )}
 
-        {showResumePreview && (
+        {showCVPreview && (
           <CVPreview
-            personalDetailsData={personalDetailsData}
-            educationData={educationData}
-            employmentData={employmentData}
-            skillsData={skillsData}
-            languagesData={languagesData}
-            referencesData={referencesData}
-            showForm={showForm}
-            showSection={showSection}
+            // showSection={showSection}
+            // showForm={showForm}
             showPreview={showPreview}
+            personalDetailsData={personalDetailsData}
+            employmentData={employmentData}
+            educationData={educationData}
+            languagesData={languagesData}
+            skillsData={skillsData}
+            referencesData={referencesData}
           />
         )}
 
-        {showResume && (
+        {showCV && (
           <CVPage
-            personalDetailsData={personalDetailsData}
-            educationData={educationData}
-            employmentData={employmentData}
-            skillsData={skillsData}
-            languagesData={languagesData}
-            referencesData={referencesData}
-            showForm={showForm}
-            showSection={showSection}
+            // showSection={showSection}
+            // showForm={showForm}
             showPreview={showPreview}
+            personalDetailsData={personalDetailsData}
+            employmentData={employmentData}
+            educationData={educationData}
+            languagesData={languagesData}
+            skillsData={skillsData}
+            referencesData={referencesData}
             handleBackBtn={handleBackBtn}
           />
         )}

@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import EducationForm from './EducationForm'
 import TitleButton from './TitleButton'
+import EducationForm from './EducationForm'
+
 
 const Education = ({
-  onSubmit,
+  isCollapse,
+  setIsCollapse,
+  data,
+  setData,
   entryToEdit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
-  const [collapse, setCollapse] = useState(false)
+
   const [educationDetails, setEducationDetails] = useState(
     entryToEdit || {
       id: crypto.randomUUID(),
@@ -33,18 +36,18 @@ const Education = ({
       </p>
       <div className="education__form form--submit">
         <TitleButton
-          educationDetails={educationDetails}
-          onClick={setCollapse}
-          collapse={collapse}
+          isCollapse={isCollapse}
+          onClick={setIsCollapse}
+          data={educationDetails}
         />
-        {!collapse && (
+        {!isCollapse && (
           <EducationForm
+            data={data}
+            setData={setData}
             educationDetails={educationDetails}
             setEducationDetails={setEducationDetails}
-            onSubmit={onSubmit}
             setEntryToEdit={setEntryToEdit}
-            setData={setData}
-            data={data}
+            onSubmit={onSubmit}
           />
         )}
       </div>

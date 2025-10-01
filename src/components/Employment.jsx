@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import EmploymentForm from './EmploymentForm'
 import TitleButton from './TitleButton'
+import EmploymentForm from './EmploymentForm'
+
 
 const Employment = ({
-  onSubmit,
+  isCollapse,
+  setIsCollapse,
+  data,
+  setData,
   entryToEdit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
-  const [collapse, setCollapse] = useState(false)
+  // const [collapse, setCollapse] = useState(false)
   const [employmentDetails, setEmploymentDetails] = useState(
     entryToEdit || {
       id: crypto.randomUUID(),
@@ -34,18 +37,18 @@ const Employment = ({
       </ul>
       <div className="employment__form form--submit">
         <TitleButton
-          employmentDetails={employmentDetails}
-          onClick={setCollapse}
-          collapse={collapse}
+          isCollapse={isCollapse}
+          onClick={setIsCollapse}
+          data={employmentDetails}
         />
-        {!collapse && (
+        {!isCollapse && (
           <EmploymentForm
+            data={data}
+            setData={setData}
             employmentDetails={employmentDetails}
             setEmploymentDetails={setEmploymentDetails}
-            onSubmit={onSubmit}
             setEntryToEdit={setEntryToEdit}
-            setData={setData}
-            data={data}
+            onSubmit={onSubmit}
           />
         )}
       </div>

@@ -2,11 +2,11 @@ import { useState } from 'react'
 import LanguageForm from './LanguageForm'
 
 const Languages = ({
-  onSubmit,
+  data,
+  setData,
   entryToEdit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const [language, setLanguage] = useState(
     entryToEdit || {
@@ -23,12 +23,12 @@ const Languages = ({
       </p>
       <div className="languages__form form--submit">
         <LanguageForm
+          data={data}
+          setData={setData}
           language={language}
           setLanguage={setLanguage}
-          onSubmit={onSubmit}
           setEntryToEdit={setEntryToEdit}
-          setData={setData}
-          data={data}
+          onSubmit={onSubmit}
         />
       </div>
     </div>

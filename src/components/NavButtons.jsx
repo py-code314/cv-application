@@ -1,10 +1,6 @@
 import '../styles/NavButtons.css'
 
-const NavButtons = ({
-  onClickPrevious,
-  onClickNext,
-  showSection,
-}) => {
+const NavButtons = ({ showSection, onClickNext, onClickPrevious }) => {
   return (
     <div className="btns btns--nav">
       {!showSection.personalDetails && (

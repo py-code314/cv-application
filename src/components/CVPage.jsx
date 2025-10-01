@@ -5,13 +5,13 @@ import CVContent from './CVContent'
 
 const CVPage = ({
   // showSection,
-  showForm,
+  // showForm,
   showPreview,
   personalDetailsData,
-  educationData,
   employmentData,
-  skillsData,
+  educationData,
   languagesData,
+  skillsData,
   referencesData,
   handleBackBtn,
 }) => {
@@ -27,8 +27,8 @@ const CVPage = ({
           // showForm={showForm}
           showPreview={showPreview}
           personalDetailsData={personalDetailsData}
-          skillsData={skillsData}
           languagesData={languagesData}
+          skillsData={skillsData}
           employmentData={employmentData}
         />
         <CVContent

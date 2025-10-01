@@ -18,7 +18,7 @@ const PersonalDetailsSummary = ({ personalEntry, onEdit }) => {
       <div className="summary__header">
         <h2 className="summary__title">Personal Details</h2>
 
-        <EditButton onClick={() => onEdit(personalEntry)} />
+        <EditButton onEdit={() => onEdit(personalEntry)} />
       </div>
       <div className="detail">
         <h3>First Name:</h3>

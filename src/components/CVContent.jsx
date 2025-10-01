@@ -1,14 +1,14 @@
-import CVProfile from "./CVProfile";
+import '../styles/CVContent.css'
+import CVProfile from './CVProfile'
 import CVEmployment from './CVEmployment'
 import CVEducation from './CVEducation'
-import CVReferences from "./CVReferences";
-import '../styles/CVContent.css'
+import CVReferences from './CVReferences'
 
 const CVContent = ({
   showPreview,
   personalDetailsData,
-  educationData,
   employmentData,
+  educationData,
   referencesData,
 }) => {
   return (
@@ -29,5 +29,5 @@ const CVContent = ({
     </div>
   )
 }
- 
-export default CVContent;
+
+export default CVContent

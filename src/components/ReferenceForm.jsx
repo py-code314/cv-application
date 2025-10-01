@@ -1,12 +1,12 @@
 import FormButtons from './FormButtons'
 
 const ReferenceForm = ({
+  data,
+  setData,
   referenceDetails,
   setReferenceDetails,
-  onSubmit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const handleFullNameChange = (e) => {
     setReferenceDetails({ ...referenceDetails, fullName: e.target.value })
@@ -33,20 +33,14 @@ const ReferenceForm = ({
     })
   }
 
-  const handleReferenceSubmit = (e) => {
+  const handleSubmitReference = (e) => {
     e.preventDefault()
-    onSubmit(
-      e.target.id,
-      setEntryToEdit,
-      setData,
-      referenceDetails,
-      data
-    )
+    onSubmit(e.target.id, setEntryToEdit, setData, referenceDetails, data)
   }
 
   return (
     <div className="reference-form">
-      <form className="form" id='references' onSubmit={handleReferenceSubmit}>
+      <form className="form" id="references" onSubmit={handleSubmitReference}>
         <div className="form__control">
           <label htmlFor="full-name" className="form__label">
             Full Name
@@ -120,7 +114,7 @@ const ReferenceForm = ({
           </div>
         </div>
 
-        <FormButtons onClick={handleReset} />
+        <FormButtons onCancel={handleReset} />
       </form>
     </div>
   )

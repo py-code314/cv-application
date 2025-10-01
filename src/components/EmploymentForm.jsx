@@ -2,12 +2,12 @@ import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
 const EmploymentForm = ({
+  data,
+  setData,
   employmentDetails,
   setEmploymentDetails,
-  onSubmit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const today = new Date()
   const todayDate = formatCurrentDate(today)
@@ -64,22 +64,16 @@ const EmploymentForm = ({
     })
   }
 
-  const handleEmploymentFormSubmit = (e) => {
+  const handleSubmitEmploymentForm = (e) => {
     e.preventDefault()
-    onSubmit(
-      e.target.id,
-      setEntryToEdit,
-      setData,
-      employmentDetails,
-      data
-    )
+    onSubmit(e.target.id, setEntryToEdit, setData, employmentDetails, data)
   }
   return (
     <div className="employment-form">
       <form
         className="form"
         id="employment"
-        onSubmit={handleEmploymentFormSubmit}>
+        onSubmit={handleSubmitEmploymentForm}>
         <div className="form__control">
           <label htmlFor="jobTitle" className="form__label">
             Job Title
@@ -158,7 +152,9 @@ const EmploymentForm = ({
           <label htmlFor="description" className="form__label">
             Description
           </label>
-          <span className="form__hint">List your responsibilities, achievements etc. here</span>
+          <span className="form__hint">
+            List your responsibilities, achievements etc. here
+          </span>
           <textarea
             name="description"
             id="description"
@@ -168,7 +164,7 @@ const EmploymentForm = ({
             onChange={handleDescriptionChange}></textarea>
         </div>
 
-        <FormButtons onClick={handleReset} />
+        <FormButtons onCancel={handleReset} />
       </form>
     </div>
   )

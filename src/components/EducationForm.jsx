@@ -2,12 +2,12 @@ import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
 const EducationForm = ({
+  data,
+  setData,
   educationDetails,
   setEducationDetails,
-  onSubmit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const today = new Date()
   const todayDate = formatCurrentDate(today)
@@ -64,15 +64,9 @@ const EducationForm = ({
     })
   }
 
-  const handleEducationFormSubmit = (e) => {
+  const handleSubmitEducationForm = (e) => {
     e.preventDefault()
-    onSubmit(
-      e.target.id,
-      setEntryToEdit,
-      setData,
-      educationDetails,
-      data
-    )
+    onSubmit(e.target.id, setEntryToEdit, setData, educationDetails, data)
   }
 
   return (
@@ -80,7 +74,7 @@ const EducationForm = ({
       <form
         className="form"
         id="education"
-        onSubmit={handleEducationFormSubmit}>
+        onSubmit={handleSubmitEducationForm}>
         <div className="form__control">
           <label htmlFor="degree" className="form__label">
             Degree
@@ -169,7 +163,7 @@ const EducationForm = ({
             onChange={handleDescriptionChange}></textarea>
         </div>
 
-        <FormButtons onClick={handleReset} />
+        <FormButtons onCancel={handleReset} />
       </form>
     </div>
   )

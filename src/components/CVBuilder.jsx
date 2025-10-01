@@ -3,6 +3,9 @@ import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
 const CVBuilder = ({
+  setShowCVBuilder,
+  setShowCVPreview,
+  setShowCV,
   showSection,
   setShowSection,
   showForm,
@@ -21,9 +24,6 @@ const CVBuilder = ({
   setLanguagesData,
   referencesData,
   setReferencesData,
-  setShowResume,
-  setShowResumeBuilder,
-  setShowResumePreview,
 }) => {
   const sections = [
     'personalDetails',
@@ -34,60 +34,55 @@ const CVBuilder = ({
     'references',
   ]
 
-  const handleNextBtnClick = (e) => {
+  const handleNavigation = (e) => {
+    const isNextBtn =
+      e.currentTarget.textContent.split(':')[0].toLowerCase() === 'next'
+    // console.log(isNextBtn)
+    const isDoneBtn = e.currentTarget.textContent.toLowerCase() === 'done'
+    const isPrevBtn =
+      e.currentTarget.textContent.split(':')[0].toLowerCase() === 'previous'
+    // console.log(isPrevBtn)
     const currentSection = Object.keys(showSection).find(
       (key) => showSection[key]
     )
-
     const currentSectionIndex = sections.indexOf(currentSection)
 
-    if (currentSectionIndex < sections.length - 1) {
+    if (isNextBtn && currentSectionIndex < sections.length - 1) {
       const nextSection = sections[currentSectionIndex + 1]
 
-      setShowSection({
-        ...showSection,
+      setShowSection((prevShowSection) => ({
+        ...prevShowSection,
         [currentSection]: false,
         [nextSection]: true,
-      })
+      }))
 
-      setShowForm({
-        ...showForm,
+      setShowForm((prevShowForm) => ({
+        ...prevShowForm,
         [currentSection]: false,
         [nextSection]: true,
-      })
+      }))
     }
 
-    const btnText = e.currentTarget.textContent.toLowerCase()
-    // console.log(btnText)
-
-    if (btnText === 'done') {
-      setShowResume(true)
-      setShowResumeBuilder(false)
-      setShowResumePreview(false)
+    if (isDoneBtn) {
+      setShowCVBuilder(false)
+      setShowCVPreview(false)
+      setShowCV(true)
     }
-  }
 
-  const handlePrevBtnClick = () => {
-    const currentSection = Object.keys(showSection).find(
-      (key) => showSection[key]
-    )
-
-    const currentSectionIndex = sections.indexOf(currentSection)
-
-    if (currentSectionIndex >= 1) {
+    if (isPrevBtn && currentSectionIndex >= 1) {
       const prevSection = sections[currentSectionIndex - 1]
 
-      setShowSection({
-        ...showSection,
+      setShowSection((prevShowSection) => ({
+        ...prevShowSection,
         [currentSection]: false,
         [prevSection]: true,
-      })
+      }))
 
-      setShowForm({
-        ...showForm,
+      setShowForm((prevShowForm) => ({
+        ...prevShowForm,
         [currentSection]: false,
         [prevSection]: true,
-      })
+      }))
     }
   }
 
@@ -114,9 +109,9 @@ const CVBuilder = ({
       />
 
       <NavButtons
-        onClickPrevious={handlePrevBtnClick}
-        onClickNext={handleNextBtnClick}
         showSection={showSection}
+        onClickNext={handleNavigation}
+        onClickPrevious={handleNavigation}
       />
     </div>
   )

@@ -1,13 +1,7 @@
 import '../styles/PreviewIntro.css'
 import personIcon from '../assets/images/icon-person.svg'
 
-const PreviewIntro = ({
-  personalDetailsData,
-  employmentData,
-  // showForm,
-  // showSection,
-  showPreview,
-}) => {
+const PreviewIntro = ({ showPreview, personalDetailsData, employmentData }) => {
   let fullName, currentJob
   if (showPreview.personalDetails) {
     fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`

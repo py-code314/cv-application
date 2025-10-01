@@ -1,27 +1,28 @@
+import '../styles/PreviewSidebar.css'
 import PreviewIntro from './PreviewIntro'
 import PreviewPersonalDetails from './PreviewPersonalDetails'
 import PreviewLanguages from './PreviewLanguages'
 import PreviewSkills from './PreviewSkills'
-import '../styles/PreviewSidebar.css'
+
 const PreviewSidebar = ({
+  // showSection,
+  // showForm,
+  showPreview,
   personalDetailsData,
   employmentData,
-  skillsData,
   languagesData,
-  showForm,
-  showSection,
-  showPreview,
+  skillsData,
 }) => {
   // console.log(showForm)
   // console.log(showPreview)
   return (
     <div className="preview__sidebar">
       <PreviewIntro
+        // showSection={showSection}
+        // showForm={showForm}
+        showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}
-        showForm={showForm}
-        showSection={showSection}
-        showPreview={showPreview}
       />
       {showPreview.personalDetails && (
         <PreviewPersonalDetails personalDetailsData={personalDetailsData} />

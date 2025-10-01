@@ -2,11 +2,11 @@ import '../styles/CVIntro.css'
 import personIcon from '../assets/images/icon-person.svg'
 
 const CVIntro = ({
+  showPreview,
   personalDetailsData,
   employmentData,
   // showForm,
   // showSection,
-  showPreview,
 }) => {
   let fullName, currentJob
   if (showPreview.personalDetails) {

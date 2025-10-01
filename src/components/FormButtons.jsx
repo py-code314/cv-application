@@ -1,11 +1,11 @@
-const FormButtons = ({onClick}) => {
+const FormButtons = ({ onCancel }) => {
   return (
     <div className="btns btns--form">
       <button
         type="button"
         className="btn btn--cancel"
         id="cancel-btn"
-        onClick={onClick}>
+        onClick={onCancel}>
         Cancel
       </button>
       <button type="submit" className="btn btn--submit" id="submit-btn">
@@ -14,5 +14,5 @@ const FormButtons = ({onClick}) => {
     </div>
   )
 }
- 
-export default FormButtons;
+
+export default FormButtons

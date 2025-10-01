@@ -1,29 +1,16 @@
-import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
+import DeleteButton from './DeleteButton'
 
-const LanguagesSummary = ({
-  data,
-  onEdit,
-  onDelete,
-  setEntryToEdit,
-  setData,
-}) => {
-  const handleEditForm = (id) => {
-    data.map(
-      (entry) => entry.id === id && onEdit(setEntryToEdit, entry, entry.type)
-    )
-  }
-
-  const handleDeleteEntry = (id) => {
-    data.map(
-      (entry) => entry.id === id && onDelete(data, setData, entry)
-    )
-  }
+const LanguagesSummary = ({ data, setData, setEntryToEdit, handleEntry }) => {
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
         <h2 className="summary__title">Languages</h2>
-        <EditButton onClick={() => handleEditForm(entry.id)} />
+        <EditButton
+          onEdit={(e) =>
+            handleEntry(e, entry.id, data, setData, setEntryToEdit)
+          }
+        />
       </div>
 
       {entry.languageName && (
@@ -33,7 +20,11 @@ const LanguagesSummary = ({
         </div>
       )}
 
-      <DeleteButton onClick={() => handleDeleteEntry(entry.id)} />
+      <DeleteButton
+        onDelete={(e) =>
+          handleEntry(e, entry.id, data, setData, setEntryToEdit)
+        }
+      />
     </div>
   ))
 }

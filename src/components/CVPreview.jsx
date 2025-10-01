@@ -3,29 +3,30 @@ import PreviewSidebar from './PreviewSidebar'
 import PreviewContent from './PreviewContent'
 
 const CVPreview = ({
-  showSection,
-  showForm,
+  // showSection,
+  // showForm,
   showPreview,
   personalDetailsData,
-  educationData,
   employmentData,
-  skillsData,
+  educationData,
   languagesData,
+  skillsData,
+
   referencesData,
 }) => {
   return (
     <div className="preview">
       <PreviewSidebar
-        showSection={showSection}
-        showForm={showForm}
+        // showSection={showSection}
+        // showForm={showForm}
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
-        skillsData={skillsData}
-        languagesData={languagesData}
         employmentData={employmentData}
+        languagesData={languagesData}
+        skillsData={skillsData}
       />
       <PreviewContent
-        showForm={showForm}
+        // showForm={showForm}
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}

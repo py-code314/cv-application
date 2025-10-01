@@ -1,12 +1,12 @@
 import FormButtons from './FormButtons'
 
 const LanguageForm = ({
+  data,
+  setData,
   language,
   setLanguage,
-  onSubmit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const handleLanguageChange = (e) => {
     setLanguage({ ...language, languageName: e.target.value })
@@ -21,13 +21,13 @@ const LanguageForm = ({
     })
   }
 
-  const handleLanguageSubmit = (e) => {
+  const handleSubmitLanguage = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, language, data)
   }
   return (
     <div className="language-form">
-      <form className="form" id='languages' onSubmit={handleLanguageSubmit}>
+      <form className="form" id="languages" onSubmit={handleSubmitLanguage}>
         <div className="form__control">
           <label htmlFor="language" className="form__label">
             Language
@@ -42,7 +42,7 @@ const LanguageForm = ({
           />
         </div>
 
-        <FormButtons onClick={handleReset} />
+        <FormButtons onCancel={handleReset} />
       </form>
     </div>
   )

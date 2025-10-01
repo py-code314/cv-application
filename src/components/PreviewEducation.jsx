@@ -1,5 +1,5 @@
-import { formatMonth } from '../scripts/dates'
 import '../styles/PreviewEducation.css'
+import { formatMonth } from '../scripts/dates'
 
 const PreviewEducation = ({ educationData }) => {
   return (

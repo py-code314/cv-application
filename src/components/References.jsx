@@ -2,11 +2,11 @@ import { useState } from 'react'
 import ReferenceForm from './ReferenceForm'
 
 const References = ({
-  onSubmit,
+  data,
+  setData,
   entryToEdit,
   setEntryToEdit,
-  setData,
-  data,
+  onSubmit,
 }) => {
   const [referenceDetails, setReferenceDetails] = useState(
     entryToEdit || {
@@ -15,7 +15,7 @@ const References = ({
       fullName: '',
       company: '',
       phoneNumber: '',
-      email: ''
+      email: '',
     }
   )
   return (
@@ -26,12 +26,12 @@ const References = ({
       </p>
       <div className="references__form form--submit">
         <ReferenceForm
+          data={data}
+          setData={setData}
           referenceDetails={referenceDetails}
           setReferenceDetails={setReferenceDetails}
-          onSubmit={onSubmit}
           setEntryToEdit={setEntryToEdit}
-          setData={setData}
-          data={data}
+          onSubmit={onSubmit}
         />
       </div>
     </div>

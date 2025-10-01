@@ -1,8 +1,8 @@
+import '../styles/PreviewContent.css'
 import PreviewProfile from './PreviewProfile'
 import PreviewEmployment from './PreviewEmployment'
 import PreviewEducation from './PreviewEducation'
 import PreviewReferences from './PreviewReferences'
-import '../styles/PreviewContent.css'
 
 const PreviewContent = ({
   // showForm,

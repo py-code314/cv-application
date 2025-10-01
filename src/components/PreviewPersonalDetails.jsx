@@ -6,7 +6,6 @@ const PreviewPersonalDetails = ({ personalDetailsData }) => {
   const phoneNumber = personalDetailsData.phoneNumber
   const address = personalDetailsData.address
   const addressArray = address.split('\n')
-
   const state = personalDetailsData.state
   const country = personalDetailsData.country
 

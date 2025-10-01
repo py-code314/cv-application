@@ -1,13 +1,7 @@
 import { useState } from 'react'
 import SkillForm from './SkillForm'
 
-const Skills = ({
-  onSubmit,
-  entryToEdit,
-  setEntryToEdit,
-  setData,
-  data,
-}) => {
+const Skills = ({ data, setData, entryToEdit, setEntryToEdit, onSubmit }) => {
   const [skill, setSkill] = useState(
     entryToEdit || {
       id: crypto.randomUUID(),
@@ -24,12 +18,12 @@ const Skills = ({
       </p>
       <div className="skills__form form--submit">
         <SkillForm
+          data={data}
+          setData={setData}
           skill={skill}
           setSkill={setSkill}
-          onSubmit={onSubmit}
           setEntryToEdit={setEntryToEdit}
-          setData={setData}
-          data={data}
+          onSubmit={onSubmit}
         />
       </div>
     </div>
