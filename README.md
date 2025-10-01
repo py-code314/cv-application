@@ -28,7 +28,7 @@ This is a build of single webpage for The Odin Project's CV Application project 
       <em>CV Builder and Preview</em>
     </td>
     <td align="center">
-      <img src="./images/resume-template.jpeg" alt="CV template" width="250">
+      <img src="./src/assets/images/resume-template.jpeg" alt="CV template" width="250">
       <br>
       <em>CV Template</em>
     </td>
