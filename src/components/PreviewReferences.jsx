@@ -1,13 +1,17 @@
+/* Component to display a list of references */
 const PreviewReferences = ({ referencesData }) => {
   return (
     <div className="preview__references section-content">
+      {/* Section heading */}
       <h2 className="preview__heading">References </h2>
       {referencesData.map((reference) => (
         <div key={reference.id}>
-          <p className="preview__subheading">
+          {/* Subheading */}
+          <h3 className="preview__subheading">
             {reference.fullName && `${reference.fullName}`}
             {reference.company && ` from ${reference.company}`}
-          </p>
+          </h3>
+          {/* Email and phone number */}
           <p>
             {reference.email && `${reference.email}`}
             {reference.phoneNumber && ` | ${reference.phoneNumber}`}

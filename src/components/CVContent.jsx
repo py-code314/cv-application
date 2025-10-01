@@ -4,6 +4,7 @@ import CVEmployment from './CVEmployment'
 import CVEducation from './CVEducation'
 import CVReferences from './CVReferences'
 
+/* Display resume content based on showPreview and corresponding data */
 const CVContent = ({
   showPreview,
   personalDetailsData,

@@ -1,6 +1,7 @@
 import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
+/* Component that handles the employment form */
 const EmploymentForm = ({
   data,
   setData,
@@ -13,6 +14,7 @@ const EmploymentForm = ({
   const todayDate = formatCurrentDate(today)
   const minDate = generateMinDate(today)
 
+  // Functions to handle user input
   const handleJobTitleChange = (e) => {
     setEmploymentDetails({
       ...employmentDetails,
@@ -50,6 +52,7 @@ const EmploymentForm = ({
     })
   }
 
+  // Function to reset the form
   const handleReset = () => {
     setEmploymentDetails({
       ...employmentDetails,
@@ -64,16 +67,20 @@ const EmploymentForm = ({
     })
   }
 
+  // Function to handle form submission
   const handleSubmitEmploymentForm = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, employmentDetails, data)
   }
   return (
     <div className="employment-form">
+      {/* Employment form */}
       <form
         className="form"
         id="employment"
         onSubmit={handleSubmitEmploymentForm}>
+        {/* Form fields */}
+        {/* Job title field */}
         <div className="form__control">
           <label htmlFor="jobTitle" className="form__label">
             Job Title
@@ -88,6 +95,7 @@ const EmploymentForm = ({
             onChange={handleJobTitleChange}
           />
         </div>
+        {/* Employer field */}
         <div className="form__control">
           <label htmlFor="employer" className="form__label">
             Employer
@@ -102,6 +110,7 @@ const EmploymentForm = ({
             onChange={handleEmployerChange}
           />
         </div>
+        {/* City field */}
         <div className="form__control">
           <label htmlFor="city" className="form__label">
             City
@@ -116,6 +125,7 @@ const EmploymentForm = ({
             onChange={handleCityChange}
           />
         </div>
+        {/* Start date field */}
         <div className="form__control">
           <label htmlFor="start-date" className="form__label">
             Start Date
@@ -132,6 +142,7 @@ const EmploymentForm = ({
             onChange={handleStartDateChange}
           />
         </div>
+        {/* End date field */}
         <div className="form__control">
           <label htmlFor="end-date" className="form__label">
             End Date
@@ -148,6 +159,7 @@ const EmploymentForm = ({
             onChange={handleEndDateChange}
           />
         </div>
+        {/* Description field */}
         <div className="form__control">
           <label htmlFor="description" className="form__label">
             Description

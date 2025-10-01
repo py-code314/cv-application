@@ -1,13 +1,8 @@
 import '../styles/CVIntro.css'
 import personIcon from '../assets/images/icon-person.svg'
 
-const CVIntro = ({
-  showPreview,
-  personalDetailsData,
-  employmentData,
-  // showForm,
-  // showSection,
-}) => {
+/* Component that displays a user's name and current job title */
+const CVIntro = ({ showPreview, personalDetailsData, employmentData }) => {
   let fullName, currentJob
   if (showPreview.personalDetails) {
     fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`

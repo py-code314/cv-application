@@ -1,5 +1,6 @@
 import '../styles/PreviewPersonalDetails.css'
 
+/* Component to display user's personal details */
 const PreviewPersonalDetails = ({ personalDetailsData }) => {
   const fullName = `${personalDetailsData.firstName} ${personalDetailsData.lastName}`
   const email = personalDetailsData.email
@@ -11,7 +12,9 @@ const PreviewPersonalDetails = ({ personalDetailsData }) => {
 
   return (
     <div className="preview__personal-info section-sidebar">
+      {/* Section heading */}
       <h2 className="preview__heading">Personal Details</h2>
+      {/* Address */}
       <address>
         <p>{fullName}</p>
         {addressArray.map((line, index) => (

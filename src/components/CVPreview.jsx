@@ -2,23 +2,19 @@ import '../styles/CVPreview.css'
 import PreviewSidebar from './PreviewSidebar'
 import PreviewContent from './PreviewContent'
 
+/* Component that shows a preview of form data */
 const CVPreview = ({
-  // showSection,
-  // showForm,
   showPreview,
   personalDetailsData,
   employmentData,
   educationData,
   languagesData,
   skillsData,
-
   referencesData,
 }) => {
   return (
     <div className="preview">
       <PreviewSidebar
-        // showSection={showSection}
-        // showForm={showForm}
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}
@@ -26,7 +22,6 @@ const CVPreview = ({
         skillsData={skillsData}
       />
       <PreviewContent
-        // showForm={showForm}
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}

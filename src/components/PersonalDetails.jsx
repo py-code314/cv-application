@@ -4,7 +4,9 @@ import checkMarkIcon from '../assets/images/icon-check.svg'
 import errorIcon from '../assets/images/icon-error.svg'
 import FormButtons from './FormButtons'
 
+/* Component for collecting personal details */
 const PersonalDetails = ({ personalEntry, onSubmit }) => {
+  // Initialize state with default values or data of the entry to be edited
   const [personalInfo, setPersonalInfo] = useState(
     personalEntry || {
       firstName: '',
@@ -36,9 +38,9 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
   const [emailErrorMessage, setEmailErrorMessage] = useState(
     'Please enter your email address'
   )
-
   const [formSubmission, setFormSubmission] = useState(false)
 
+  // Handle input changes
   const handleFirstNameChange = (e) => {
     setPersonalInfo({ ...personalInfo, firstName: e.target.value })
   }
@@ -66,8 +68,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
     setPersonalInfo({ ...personalInfo, aboutMe: e.target.value })
   }
 
-  
-
+  // Functions to handle input validation
   const handleFirstNameValidation = () => {
     setBlurredInput({ ...blurredInput, firstName: true })
     if (personalInfo.firstName) {
@@ -121,6 +122,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
     }
   }
 
+  // Handle form reset
   const handleReset = () => {
     setPersonalInfo({
       firstName: '',
@@ -148,6 +150,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
     })
   }
 
+  // Handle form submission
   const handleFormValidation = (e) => {
     e.preventDefault()
     setFormSubmission(true)
@@ -156,6 +159,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
     }
   }
 
+  // Update aria-describedby attribute for input elements dynamically
   let emailAriaDescription = 'email-hint'
   if (!inputStatus.email && (blurredInput.email || formSubmission)) {
     emailAriaDescription += 'invalid-email'
@@ -168,15 +172,18 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
 
   return (
     <div className="personal-info">
+      {/* Section heading */}
       <h2 className="personal-info__heading">Personal Details</h2>
       <p className="personal-info__text">
         Research suggests that users who add phone number and email receive more
         positive feedback from recruiters.
       </p>
+      {/* Personal details form */}
       <form
         className="form personal-info__form form--submit"
         noValidate
         onSubmit={handleFormValidation}>
+        {/* First name input */}
         <div className="form__control">
           <label htmlFor="first-name" className="form__label">
             First Name (required)
@@ -193,6 +200,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
               onChange={handleFirstNameChange}
               onBlur={handleFirstNameValidation}
             />
+            {/* Checkmark icon */}
             {inputStatus.firstName &&
               (blurredInput.firstName || formSubmission) && (
                 <img
@@ -205,6 +213,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
                 />
               )}
           </div>
+          {/* Error message and icon */}
           {!inputStatus.firstName &&
             (blurredInput.firstName || formSubmission) && (
               <div className="form__error">
@@ -222,6 +231,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
               </div>
             )}
         </div>
+        {/* Last name input */}
         <div className="form__control">
           <label htmlFor="last-name" className="form__label">
             Last Name (required)
@@ -267,6 +277,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
               </div>
             )}
         </div>
+        {/* Email input */}
         <div className="form__control">
           <label htmlFor="email" className="form__label">
             Email (required)
@@ -318,6 +329,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             </div>
           )}
         </div>
+        {/* Phone number input */}
         <div className="form__control">
           <label htmlFor="phone" className="form__label">
             Phone Number
@@ -369,6 +381,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             </div>
           )}
         </div>
+        {/* Address input */}
         <div className="form__control">
           <label htmlFor="address" className="form__label">
             Address
@@ -385,6 +398,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             value={personalInfo.address}
             onChange={handleAddressChange}></textarea>
         </div>
+        {/* City input */}
         <div className="form__control">
           <label htmlFor="state" className="form__label">
             State
@@ -399,6 +413,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             onChange={handleStateChange}
           />
         </div>
+        {/* Country input */}
         <div className="form__control">
           <label htmlFor="country" className="form__label">
             Country
@@ -413,6 +428,7 @@ const PersonalDetails = ({ personalEntry, onSubmit }) => {
             onChange={handleCountryChange}
           />
         </div>
+        {/* About me input */}
         <div className="form__control">
           <label htmlFor="aboutMe" className="form__label">
             About Me

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../styles/DeleteButton.css'
 import ModalDialog from './ModalDialog'
 
+/* A reusable delete button component that displays a modal dialog when clicked */
 const DeleteButton = ({ onDelete }) => {
   const [showModal, setShowModal] = useState(false)
 
@@ -10,9 +11,9 @@ const DeleteButton = ({ onDelete }) => {
   }
   return (
     <div className="delete-btn-container">
+      {/* Delete button */}
       <button
         className="btn btn--delete"
-        
         type="button"
         onClick={handleModalDialog}>
         Delete

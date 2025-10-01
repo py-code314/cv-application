@@ -14,11 +14,11 @@ import References from './References'
 import ReferencesSummary from './ReferencesSummary'
 import AddButton from './AddButton'
 
+/* Component that renders a form based on the section and form */
 const CVForm = ({
   showSection,
   showForm,
   setShowForm,
-  // showPreview,
   setShowPreview,
   personalDetailsData,
   setPersonalDetailsData,
@@ -36,12 +36,14 @@ const CVForm = ({
   const [addForm, setAddForm] = useState(false)
   const [isCollapse, setIsCollapse] = useState(false)
 
+  // Store form data
   const [educationToEdit, setEducationToEdit] = useState(null)
   const [employmentToEdit, setEmploymentToEdit] = useState(null)
   const [skillToEdit, setSkillToEdit] = useState(null)
   const [languageToEdit, setLanguageToEdit] = useState(null)
   const [referenceToEdit, setReferenceToEdit] = useState(null)
 
+  // Handles submission of personal details form
   const handleSubmitPersonalDetails = (formData) => {
     setShowForm((prevShowForm) => ({ ...prevShowForm, personalDetails: false }))
     setShowPreview((prevShowPreview) => ({
@@ -51,6 +53,7 @@ const CVForm = ({
     setPersonalDetailsData(formData)
   }
 
+  // Handles submission of form data for a given section
   const handleSubmitFormData = (
     currentFormName,
     setEntryToEdit,
@@ -69,12 +72,12 @@ const CVForm = ({
     setAddForm(false)
     // Set value to null so that entryToEdit is assigned a new value each time Edit button is clicked
     setEntryToEdit(null)
-    // console.log(existingData)
 
     if (existingData.length > 0) {
       const entryExists = existingData.some(
         (prevEntry) => prevEntry.id === formData.id
       )
+      // Update existing entry after it has been edited
       if (entryExists) {
         const updatedData = existingData.map((prevEntry) =>
           prevEntry.id === formData.id ? formData : prevEntry
@@ -84,21 +87,24 @@ const CVForm = ({
         setData([...existingData, formData])
       }
     } else {
+      // Add new entry
       setData([...existingData, formData])
     }
   }
 
+  // Handles edit button click for personal details form
   const handleEditPersonalDetails = (personalDetails) => {
     setPersonalDetailsData(personalDetails)
     setShowForm((prevShowForm) => ({ ...prevShowForm, personalDetails: true }))
   }
 
+  // Handles edit button click for a given entry type
   const handleEditEntry = (setEntryToEdit, entry, entryType) => {
-    // console.log(entryType)
     setEntryToEdit(entry)
     setShowForm((prevShowForm) => ({ ...prevShowForm, [entryType]: true }))
   }
 
+  // Deletes an entry from the data and updates the state with new data
   const handleDeleteEntry = (data, setData, entry) => {
     const updatedData = data.filter(
       (existingEntry) => existingEntry.id !== entry.id
@@ -106,9 +112,9 @@ const CVForm = ({
     setData(updatedData)
   }
 
+  // Handles edit and delete button clicks for a given entry
   const handleEntry = (e, entryId, data, setData, setEntryToEdit) => {
     const buttonId = e.currentTarget.id
-    // console.log(buttonId)
     if (buttonId === 'edit-btn') {
       data.map(
         (entry) =>

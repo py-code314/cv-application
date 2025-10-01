@@ -4,8 +4,8 @@ import PreviewEmployment from './PreviewEmployment'
 import PreviewEducation from './PreviewEducation'
 import PreviewReferences from './PreviewReferences'
 
+/* Component to hold preview content */
 const PreviewContent = ({
-  // showForm,
   showPreview,
   personalDetailsData,
   employmentData,

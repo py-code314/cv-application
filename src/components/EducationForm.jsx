@@ -1,6 +1,7 @@
 import { formatCurrentDate, generateMinDate } from '../scripts/dates'
 import FormButtons from './FormButtons'
 
+/* Component that handles the education form */
 const EducationForm = ({
   data,
   setData,
@@ -13,6 +14,7 @@ const EducationForm = ({
   const todayDate = formatCurrentDate(today)
   const minDate = generateMinDate(today)
 
+  // Functions to handle user input
   const handleDegreeChange = (e) => {
     setEducationDetails({
       ...educationDetails,
@@ -50,6 +52,7 @@ const EducationForm = ({
     })
   }
 
+  // Function to reset the form
   const handleReset = () => {
     setEducationDetails({
       ...educationDetails,
@@ -64,6 +67,7 @@ const EducationForm = ({
     })
   }
 
+  // Function to handle form submission
   const handleSubmitEducationForm = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, educationDetails, data)
@@ -71,10 +75,13 @@ const EducationForm = ({
 
   return (
     <div className="education-form">
+      {/* Education form */}
       <form
         className="form"
         id="education"
         onSubmit={handleSubmitEducationForm}>
+        {/* Form fields */}
+        {/* Degree */}
         <div className="form__control">
           <label htmlFor="degree" className="form__label">
             Degree
@@ -88,6 +95,7 @@ const EducationForm = ({
             onChange={handleDegreeChange}
           />
         </div>
+        {/* School name */}
         <div className="form__control">
           <label htmlFor="school-name" className="form__label">
             School
@@ -101,6 +109,7 @@ const EducationForm = ({
             onChange={handleSchoolNameChange}
           />
         </div>
+        {/* City */}
         <div className="form__control">
           <label htmlFor="city" className="form__label">
             City
@@ -115,6 +124,7 @@ const EducationForm = ({
             onChange={handleCityChange}
           />
         </div>
+        {/* Start date and end date */}
         <div className="form__control">
           <label htmlFor="start-date" className="form__label">
             Start Date
@@ -147,6 +157,7 @@ const EducationForm = ({
             onChange={handleEndDateChange}
           />
         </div>
+        {/* Description */}
         <div className="form__control">
           <label htmlFor="description" className="form__label">
             Description

@@ -1,10 +1,12 @@
 import EditButton from './EditButton'
 import DeleteButton from './DeleteButton'
 
+/* Component to display employment data in a summary format */
 const EmploymentSummary = ({ data, setData, setEntryToEdit, handleEntry }) => {
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
+        {/* Section heading */}
         <h2 className="summary__title">Employment Details</h2>
         <EditButton
           onEdit={(e) =>
@@ -12,7 +14,7 @@ const EmploymentSummary = ({ data, setData, setEntryToEdit, handleEntry }) => {
           }
         />
       </div>
-
+      {/* Display employment details */}
       {entry.jobTitle && (
         <div className="detail">
           <h3>Job Title:</h3>

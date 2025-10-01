@@ -4,6 +4,7 @@ import CVPersonalDetails from './CVPersonalDetails'
 import CVLanguages from './CVLanguages'
 import CVSkills from './CVSkills'
 
+/* Component that holds the sidebar content */
 const CVSidebar = ({
   showPreview,
   personalDetailsData,
@@ -17,8 +18,6 @@ const CVSidebar = ({
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}
-        // showForm={showForm}
-        // showSection={showSection}
       />
       {showPreview.personalDetails && (
         <CVPersonalDetails personalDetailsData={personalDetailsData} />

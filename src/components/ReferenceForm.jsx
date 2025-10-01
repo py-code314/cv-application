@@ -1,5 +1,6 @@
 import FormButtons from './FormButtons'
 
+/* Component that renders a form to input references */
 const ReferenceForm = ({
   data,
   setData,
@@ -8,6 +9,7 @@ const ReferenceForm = ({
   setEntryToEdit,
   onSubmit,
 }) => {
+  // Functions to handle user input
   const handleFullNameChange = (e) => {
     setReferenceDetails({ ...referenceDetails, fullName: e.target.value })
   }
@@ -22,6 +24,7 @@ const ReferenceForm = ({
     setReferenceDetails({ ...referenceDetails, phoneNumber: e.target.value })
   }
 
+  // Reset function
   const handleReset = () => {
     setReferenceDetails({
       id: crypto.randomUUID(),
@@ -33,6 +36,7 @@ const ReferenceForm = ({
     })
   }
 
+  // Function to handle form submission
   const handleSubmitReference = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, referenceDetails, data)
@@ -40,7 +44,9 @@ const ReferenceForm = ({
 
   return (
     <div className="reference-form">
+      {/* Reference form */}
       <form className="form" id="references" onSubmit={handleSubmitReference}>
+        {/* Full name input */}
         <div className="form__control">
           <label htmlFor="full-name" className="form__label">
             Full Name
@@ -56,7 +62,7 @@ const ReferenceForm = ({
             onChange={handleFullNameChange}
           />
         </div>
-
+        {/* Company input */}
         <div className="form__control">
           <label htmlFor="company" className="form__label">
             Company
@@ -71,7 +77,7 @@ const ReferenceForm = ({
             onChange={handleCompanyChange}
           />
         </div>
-
+        {/* Email input */}
         <div className="form__control">
           <label htmlFor="email" className="form__label">
             Email
@@ -92,7 +98,7 @@ const ReferenceForm = ({
             />
           </div>
         </div>
-
+        {/* Phone number input */}
         <div className="form__control">
           <label htmlFor="phone" className="form__label">
             Phone Number

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import TitleButton from './TitleButton'
 import EducationForm from './EducationForm'
 
-
+/* Component that handles the education section */
 const Education = ({
   isCollapse,
   setIsCollapse,
@@ -12,7 +12,7 @@ const Education = ({
   setEntryToEdit,
   onSubmit,
 }) => {
-
+  // Initialize state with default values or data of the entry to be edited
   const [educationDetails, setEducationDetails] = useState(
     entryToEdit || {
       id: crypto.randomUUID(),
@@ -28,6 +28,7 @@ const Education = ({
 
   return (
     <div className="education">
+      {/* Section heading */}
       <h2 className="education__heading">Education</h2>
       <p className="education__text">
         Highlight your academic achievements and qualifications. Providing

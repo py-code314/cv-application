@@ -2,6 +2,7 @@ import '../styles/CVBuilder.css'
 import CVForm from './CVForm'
 import NavButtons from './NavButtons'
 
+/* Component that allows users to build their CV */
 const CVBuilder = ({
   setShowCVBuilder,
   setShowCVPreview,
@@ -34,14 +35,13 @@ const CVBuilder = ({
     'references',
   ]
 
+  /* Handles navigation in the CV builder by showing/hiding the correct form and section */
   const handleNavigation = (e) => {
     const isNextBtn =
       e.currentTarget.textContent.split(':')[0].toLowerCase() === 'next'
-    // console.log(isNextBtn)
     const isDoneBtn = e.currentTarget.textContent.toLowerCase() === 'done'
     const isPrevBtn =
       e.currentTarget.textContent.split(':')[0].toLowerCase() === 'previous'
-    // console.log(isPrevBtn)
     const currentSection = Object.keys(showSection).find(
       (key) => showSection[key]
     )
@@ -50,12 +50,14 @@ const CVBuilder = ({
     if (isNextBtn && currentSectionIndex < sections.length - 1) {
       const nextSection = sections[currentSectionIndex + 1]
 
+      // Hide current section and show next section
       setShowSection((prevShowSection) => ({
         ...prevShowSection,
         [currentSection]: false,
         [nextSection]: true,
       }))
 
+      // Hide current form and show next section's form
       setShowForm((prevShowForm) => ({
         ...prevShowForm,
         [currentSection]: false,
@@ -63,6 +65,7 @@ const CVBuilder = ({
       }))
     }
 
+    // Hide CV builder, CV preview and show CV
     if (isDoneBtn) {
       setShowCVBuilder(false)
       setShowCVPreview(false)
@@ -72,12 +75,14 @@ const CVBuilder = ({
     if (isPrevBtn && currentSectionIndex >= 1) {
       const prevSection = sections[currentSectionIndex - 1]
 
+      // Hide current section and show previous section
       setShowSection((prevShowSection) => ({
         ...prevShowSection,
         [currentSection]: false,
         [prevSection]: true,
       }))
 
+      // Hide current form and show previous section's form
       setShowForm((prevShowForm) => ({
         ...prevShowForm,
         [currentSection]: false,

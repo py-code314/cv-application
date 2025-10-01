@@ -1,5 +1,6 @@
 import FormButtons from './FormButtons'
 
+/* A component that renders a language input */
 const LanguageForm = ({
   data,
   setData,
@@ -8,10 +9,12 @@ const LanguageForm = ({
   setEntryToEdit,
   onSubmit,
 }) => {
+  // Function to handle user input
   const handleLanguageChange = (e) => {
     setLanguage({ ...language, languageName: e.target.value })
   }
 
+  // Reset function
   const handleReset = () => {
     setLanguage({
       ...language,
@@ -21,6 +24,7 @@ const LanguageForm = ({
     })
   }
 
+  // Function to handle form submission
   const handleSubmitLanguage = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, language, data)
@@ -28,6 +32,7 @@ const LanguageForm = ({
   return (
     <div className="language-form">
       <form className="form" id="languages" onSubmit={handleSubmitLanguage}>
+        {/* Language input */}
         <div className="form__control">
           <label htmlFor="language" className="form__label">
             Language

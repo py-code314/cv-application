@@ -1,5 +1,6 @@
 import FormButtons from './FormButtons'
 
+/* A component that renders a skill input form */
 const SkillForm = ({
   data,
   setData,
@@ -8,10 +9,12 @@ const SkillForm = ({
   setEntryToEdit,
   onSubmit,
 }) => {
+  // Function to handle user input
   const handleSkillChange = (e) => {
     setSkill({ ...skill, skillName: e.target.value })
   }
 
+  // Reset function
   const handleReset = () => {
     setSkill({
       ...skill,
@@ -21,13 +24,16 @@ const SkillForm = ({
     })
   }
 
+  // Function to handle form submission
   const handleSubmitSkill = (e) => {
     e.preventDefault()
     onSubmit(e.target.id, setEntryToEdit, setData, skill, data)
   }
   return (
     <div className="skill-form">
+      {/* Skill form */}
       <form className="form" id="skills" onSubmit={handleSubmitSkill}>
+        {/* Skill input */}
         <div className="form__control">
           <label htmlFor="skill" className="form__label">
             Skill

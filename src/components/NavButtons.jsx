@@ -1,8 +1,10 @@
 import '../styles/NavButtons.css'
 
+/* NavButtons component with Previous and Next buttons */
 const NavButtons = ({ showSection, onClickNext, onClickPrevious }) => {
   return (
     <div className="btns btns--nav">
+      {/* Previous button */}
       {!showSection.personalDetails && (
         <button className="btn btn--nav btn--prev" onClick={onClickPrevious}>
           Previous
@@ -20,6 +22,7 @@ const NavButtons = ({ showSection, onClickNext, onClickPrevious }) => {
         </button>
       )}
 
+      {/* Next button */}
       <button className="btn btn--nav btn--next" onClick={onClickNext}>
         {showSection.personalDetails
           ? 'Next: Education'

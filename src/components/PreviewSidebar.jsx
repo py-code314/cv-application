@@ -4,22 +4,17 @@ import PreviewPersonalDetails from './PreviewPersonalDetails'
 import PreviewLanguages from './PreviewLanguages'
 import PreviewSkills from './PreviewSkills'
 
+/* Component to hold sidebar content */
 const PreviewSidebar = ({
-  // showSection,
-  // showForm,
   showPreview,
   personalDetailsData,
   employmentData,
   languagesData,
   skillsData,
 }) => {
-  // console.log(showForm)
-  // console.log(showPreview)
   return (
     <div className="preview__sidebar">
       <PreviewIntro
-        // showSection={showSection}
-        // showForm={showForm}
         showPreview={showPreview}
         personalDetailsData={personalDetailsData}
         employmentData={employmentData}

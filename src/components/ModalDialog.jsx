@@ -1,14 +1,18 @@
 import '../styles/ModalDialog.css'
 import warningIcon from '../assets/images/icon-warning.svg'
 
+/* A modal dialog component with Yes and No buttons */
 const ModalDialog = ({ setShowModal, onDelete }) => {
+  // Handle cancel deletion
   const handleCancelDelete = () => {
     setShowModal(false)
   }
 
   return (
     <>
+      {/* Backdrop */}
       <div className="backdrop" onClick={handleCancelDelete}></div>
+      {/* Modal dialog */}
       <div className="dialog">
         <img src={warningIcon} alt="" width={45} height={45} />
         <p className="dialog__title">Are you sure?</p>
@@ -17,9 +21,11 @@ const ModalDialog = ({ setShowModal, onDelete }) => {
           data. Do you wish to continue?
         </p>
         <div className="btns btns--dialog">
+          {/* No button */}
           <button className="btn btn--no" onClick={handleCancelDelete}>
             No
           </button>
+          {/* Yes button */}
           <button className="btn btn--yes" id="delete-btn" onClick={onDelete}>
             Yes
           </button>

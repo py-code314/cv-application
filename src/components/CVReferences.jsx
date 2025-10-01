@@ -1,13 +1,17 @@
+/* Component that displays a user's professional references */
 const CVReferences = ({ referencesData }) => {
   return (
     <div className="resume__references section-content">
+      {/* Section heading */}
       <h2 className="resume__heading">References </h2>
       {referencesData.map((reference) => (
         <div key={reference.id}>
-          <p className="resume__subheading">
+          {/* Subheading */}
+          <h3 className="resume__subheading">
             {reference.fullName && `${reference.fullName}`}
             {reference.company && ` from ${reference.company}`}
-          </p>
+          </h3>
+          {/* Email and phone number */}
           <p>
             {reference.email && `${reference.email}`}
             {reference.phoneNumber && ` | ${reference.phoneNumber}`}

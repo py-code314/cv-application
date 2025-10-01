@@ -2,7 +2,7 @@ import { useState } from 'react'
 import TitleButton from './TitleButton'
 import EmploymentForm from './EmploymentForm'
 
-
+/* Component that handles the employment section */
 const Employment = ({
   isCollapse,
   setIsCollapse,
@@ -12,7 +12,7 @@ const Employment = ({
   setEntryToEdit,
   onSubmit,
 }) => {
-  // const [collapse, setCollapse] = useState(false)
+  // Initialize state with default values or data of the entry to be edited
   const [employmentDetails, setEmploymentDetails] = useState(
     entryToEdit || {
       id: crypto.randomUUID(),
@@ -27,6 +27,7 @@ const Employment = ({
   )
   return (
     <div className="employment">
+      {/* Section heading */}
       <h2 className="employment__heading">Employment</h2>
       <ul className="employment__instructions">
         <li>List your work history starting with your most recent role.</li>

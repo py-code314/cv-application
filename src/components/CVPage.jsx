@@ -3,9 +3,9 @@ import backArrow from '../assets/images/icon-back.svg'
 import CVSidebar from './CVSidebar'
 import CVContent from './CVContent'
 
+
+/* CVPage is a component that displays a user's resume */
 const CVPage = ({
-  // showSection,
-  // showForm,
   showPreview,
   personalDetailsData,
   employmentData,
@@ -17,14 +17,13 @@ const CVPage = ({
 }) => {
   return (
     <div className="cv-page">
+      {/* Back button */}
       <button className="btn btn--back" onClick={handleBackBtn}>
         <img src={backArrow} alt="" width={20} height={20} />
-        Back to Resume Builder
+        Back to CV Builder
       </button>
       <div className="resume">
         <CVSidebar
-          // showSection={showSection}
-          // showForm={showForm}
           showPreview={showPreview}
           personalDetailsData={personalDetailsData}
           languagesData={languagesData}
@@ -32,7 +31,6 @@ const CVPage = ({
           employmentData={employmentData}
         />
         <CVContent
-          // showForm={showForm}
           showPreview={showPreview}
           personalDetailsData={personalDetailsData}
           employmentData={employmentData}

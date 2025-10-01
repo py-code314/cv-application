@@ -1,10 +1,12 @@
 import EditButton from './EditButton'
 import DeleteButton from './DeleteButton'
 
+/* A component that displays a list of references */
 const ReferencesSummary = ({ data, setData, setEntryToEdit, handleEntry }) => {
   return data.map((entry) => (
     <div className="summary" key={entry.id} id={entry.id}>
       <div className="summary__header">
+        {/* Section heading */}
         <h2 className="summary__title">References</h2>
         <EditButton
           onEdit={(e) =>
@@ -12,7 +14,7 @@ const ReferencesSummary = ({ data, setData, setEntryToEdit, handleEntry }) => {
           }
         />
       </div>
-
+      {/* Display reference details */}
       {entry.fullName && (
         <div className="detail">
           <h3>Full Name:</h3>

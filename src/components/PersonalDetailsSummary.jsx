@@ -1,6 +1,7 @@
 import '../styles/PersonalDetailsSummary.css'
 import EditButton from './EditButton'
 
+/* A component that displays a user's personal details summary */
 const PersonalDetailsSummary = ({ personalEntry, onEdit }) => {
   const {
     firstName,
@@ -16,10 +17,12 @@ const PersonalDetailsSummary = ({ personalEntry, onEdit }) => {
   return (
     <div className="summary">
       <div className="summary__header">
+        {/* Section heading */}
         <h2 className="summary__title">Personal Details</h2>
 
         <EditButton onEdit={() => onEdit(personalEntry)} />
       </div>
+      {/* Display personal details */}
       <div className="detail">
         <h3>First Name:</h3>
         <p>{firstName}</p>
